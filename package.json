@@ -2,6 +2,10 @@
   "name": "Blakeinstein.github.io",
   "version": "1.0.0",
   "main": "index.js",
+  "scripts": {
+    "start": "parcel src/index.html ",
+    "build": "parcel build src/index.html --public-url http://Blakeinstein.github.io --out-dir docs/ --target browser",
+  },
   "repository": "https://github.com/Blakeinstein/Blakeinstein.github.io.git",
   "author": "Blaine <rishi1998@gmail.com>",
   "license": "MIT",
