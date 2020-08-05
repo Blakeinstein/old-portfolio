@@ -1,0 +1,8 @@
+{
+  "name": "Blakeinstein.github.io",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/Blakeinstein/Blakeinstein.github.io.git",
+  "author": "Blaine <rishi1998@gmail.com>",
+  "license": "MIT"
+}
