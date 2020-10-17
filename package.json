@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "start": "parcel src/index.html ",
-    "build": "parcel build src/index.html --public-url http://Blakeinstein.github.io --out-dir dist/ --target browser"
+    "build": "parcel build src/index.html --public-url http://blakeinstein.github.io --dist-dir dist/ --target browser"
   },
   "repository": "https://github.com/Blakeinstein/Blakeinstein.github.io.git",
   "author": "Blaine <rishi1998@gmail.com>",
