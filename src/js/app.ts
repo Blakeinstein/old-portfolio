@@ -42,7 +42,21 @@
 // }
 
 import Sketch from './sketch';
+import Router from './router';
 
 const sketch: Sketch = new Sketch({});
+
+const router = new Router({
+    mode: 'history',
+    root: '/'
+});
+
+router
+    .add('/about/', () => {
+        alert("Going to about page!");
+    })
+    .add('', () => {
+        alert("Home Page!");
+    })
 
 sketch.render();
