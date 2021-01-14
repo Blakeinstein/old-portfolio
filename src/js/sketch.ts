@@ -38,7 +38,7 @@ class Sketch {
         this.height = window.innerHeight;
         this.renderer.setPixelRatio(window.devicePixelRatio);
         this.renderer.setSize(this.width, this.height);
-        this.renderer.setClearColor(0xeeeeee, 1);
+        this.renderer.setClearColor(0x000000, 1);
     
         this.container = document.getElementById("hero-background");
         this.width = this.container.offsetWidth;
