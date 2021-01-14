@@ -72,3 +72,81 @@ body{
     z-index: -1;
 }
 
+#content {
+    max-height: 100%;
+    max-width: 100%;
+    height: 100vh;
+    width: 100vw;
+    padding: 1em 0;
+    display: flex;
+    flex: 0 0;
+    flex-flow: column;
+    z-index: 1;
+}
+
+.logo {
+    height: 2em;
+    display: inline-block;
+    background: white;
+    width: 2em;
+}
+
+.search {
+    height: 2em;
+    width: 80px;
+    background: white;
+}
+
+.arrow-left, .arrow-right {
+    height: 1.5em;
+    width: 1.5em;
+    background: white;
+}
+
+.top {
+    display: flex;
+    flex: 0 0;
+    flex-flow: row;
+    padding: 0 2em;
+    height: 2em;
+}
+
+.top hr{
+    margin: auto 4em;
+    border-radius: 50px;
+    color: white;
+    background: white;
+    flex-grow: 4;
+}
+
+#main{
+    flex-grow: 4;
+}
+
+.navbar {
+    display: flex;
+    flex: 0 0;
+    flex-flow: row;
+    padding: 0 2em;
+    height: 2em;
+    align-items: center;
+}
+.navbar .menu-right, .navbar .menu-left {
+    flex-grow: 2;
+}
+
+.navbar ul{
+    display: flex;
+    flex-flow: row;
+    align-items: stretch;
+    justify-content: space-around;
+    width: 60%;
+    margin: 0 auto;
+    padding: 0;
+}
+
+.navbar ul li {
+    display: block;
+    flex: 0 1 auto;
+    list-style-type: none;
+}
