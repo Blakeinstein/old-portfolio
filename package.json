@@ -1,5 +1,5 @@
 {
-  "name": "Blakeinstein.github.io",
+  "name": "blakeinstein.github.io",
   "version": "1.0.0",
   "scripts": {
     "start": "parcel src/index.html ",
