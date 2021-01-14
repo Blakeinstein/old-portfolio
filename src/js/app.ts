@@ -1,52 +1,10 @@
-// import * as THREE from 'three';
-
-// let camera, scene, renderer;
-// let geometry, material, mesh;
-
-// init();
-// animate();
-
-// function init() {
-
-// 	camera = new THREE.PerspectiveCamera( 70, window.innerWidth / window.innerHeight, 0.01, 10 );
-// 	camera.position.z = 1;
-
-// 	scene = new THREE.Scene();
-
-// 	geometry = new THREE.BoxGeometry( 0.2, 0.2, 0.2 );
-// 	material = new THREE.MeshNormalMaterial();
-
-// 	mesh = new THREE.Mesh( geometry, material );
-// 	scene.add( mesh );
-
-//     renderer = new THREE.WebGLRenderer( { 
-//         canvas: <HTMLCanvasElement>document.querySelector('#hero-background'),
-//         antialias: true
-//     });
-// 	renderer.setSize( window.innerWidth, window.innerHeight );
-// 	// document.body.appendChild( renderer.domElement );
-
-// }
-
-// function animate() {
-
-// 	requestAnimationFrame( animate );
-
-// 	mesh.rotation.x += 0.01;
-//     mesh.rotation.y += 0.02;
-//     // mesh.position.x = Math.random() - 0.5;
-//     // mesh.position.y = Math.random() - 0.5;
-
-// 	renderer.render( scene, camera );
-
-// }
 
 import Sketch from './sketch';
 import Router from './router';
 
 const sketch: Sketch = new Sketch({});
 
-const router = new Router({
+const router: Router = new Router({
     mode: 'history',
     root: '/'
 });
@@ -55,8 +13,17 @@ router
     .add('/about/', () => {
         alert("Going to about page!");
     })
+    .add('/Projects/', () => {
+        alert("Going to projects page!");
+    })
+    .add('/Socials/', () => { 
+        alert("Going to socials page!");
+    })
+    .add('/Playlists/', () => {
+        alert("Going to playlists page!");
+    })
     .add('', () => {
-        alert("Home Page!");
+        console.log("Home Page!");
     })
 
 sketch.render();
