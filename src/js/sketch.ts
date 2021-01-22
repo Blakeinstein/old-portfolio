@@ -66,6 +66,7 @@ class Sketch {
 			texture: THREE.Texture,
 			normal: THREE.Texture
 		},
+		starfield: THREE.CubeTexture,
 		starSprite: THREE.Texture
 	};
 	clock: THREE.Clock;
@@ -76,12 +77,14 @@ class Sketch {
 		this.clock = new THREE.Clock();
 		this.loader = new Loader(this.init.bind(this));
 		let textureLoader = new THREE.TextureLoader(this.loader.manager);
+		let cubeTextureLoader = new THREE.CubeTextureLoader(this.loader.manager);
 		this.textures = {
 			moon: {
 				texture: textureLoader.load(assets.moon.texture),
 				normal: textureLoader.load(assets.moon.normal),
 			},
-			starSprite: textureLoader.load(assets.starSprite)
+			starfield: cubeTextureLoader.load(assets.starfield),
+			starSprite: textureLoader.load(assets.starSprite),
 		}
 
 		this.scene = new THREE.Scene();
@@ -92,7 +95,6 @@ class Sketch {
 			antialias: true,
 			preserveDrawingBuffer: true,
 		});
-		// this.renderer.setClearColor(0x000000);
 
 		this.width = window.innerWidth;
 		this.height = window.innerHeight;
@@ -167,6 +169,7 @@ class Sketch {
 			star: this.textures.starSprite
 		});
 		this.scene.add(this.skybox.mesh);
+		this.scene.background = this.textures.starfield;
 	}
 
 	init(){
