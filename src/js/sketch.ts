@@ -1,9 +1,6 @@
 import * as THREE from "three";
 import { TrackballControls } from "three-trackballcontrols-ts";
 
-import fragmentShader from "bundle-text:../shaders/fragmentShader.glsl";
-import vertexShader from "bundle-text:../shaders/vertexShader.glsl";
-
 import assets from './assets';
 import Loader from './loader';
 
@@ -44,8 +41,6 @@ class StarField {
 
 class Sketch {
 	scene: THREE.Scene;
-	vertex: string;
-	fragment: string;
 	loader: Loader;
 	renderer: THREE.WebGLRenderer;
 	width: number;
@@ -88,8 +83,6 @@ class Sketch {
 		}
 
 		this.scene = new THREE.Scene();
-		this.vertex = vertexShader;
-		this.fragment = fragmentShader;
 		this.renderer = new THREE.WebGLRenderer({
 			// alpha: true,
 			antialias: true,
@@ -116,7 +109,7 @@ class Sketch {
 
 		this.camera.position.set(0, 0, 500);
 		this.controls = new TrackballControls(
-			this.camera,
+			this.camera as THREE.PerspectiveCamera,
 			this.renderer.domElement,
 			);
         this.controls.rotateSpeed = 0.5;
