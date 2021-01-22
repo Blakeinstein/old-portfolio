@@ -8,31 +8,47 @@
 </head>
 <body>
     <div id="hero-background"></div>
+    <div id="loading-container"></div>
     <div id="content">
         <div class="top">
-            <div class="logo"></div>
+            <div class="logo">
+                <i class="fas fa-user-astronaut"></i>
+            </div>
             <hr>
-            <div class="search"></div>
+            <div class="search">
+                <i class="fas fa-search"></i>
+                <a id='toggleScene'><i class="fas fa-toggle-on"></i></a>
+                <i class="fab fa-github-alt"></i>
+            </div>
         </div>
         <div id="main">
 
         </div>
         <div class="navbar">
-            <div class="arrow-left"></div>
+            <div class="arrow-left">
+                <i class="fas fa-chevron-left"></i>
+            </div>
             <div class="menu-left">
                 <ul>
                     <li><a href="/about/">About</a></li>
                     <li><a href="/Projects/">Projects</a></li>
                 </ul>
             </div>
-            <div class="logo"></div>
+            <div class="music" aria-haspopup="true">
+                <i class="fas fa-user-astronaut"></i>
+                <div id="enigma" aria-label="submenu">
+                    <div>E N I G M A</div>
+                </div>
+            </div>
             <div class="menu-right">
                 <ul>
-                    <li><a href="/Playlists/">Playlists</a></li>
+                    <li><a href="/Playlists/">Contact</a></li>
                     <li><a href="/Socials/">Socials</a></li>
                 </ul>
             </div>
-            <div class="arrow-right"></div>
+            <div class="arrow-right">
+                <i class="fas fa-chevron-right"></i>
+            </div>
         </div>
     </div>
     <script type="module" src="js/app.ts"></script>
