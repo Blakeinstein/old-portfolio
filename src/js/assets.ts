@@ -1,5 +1,5 @@
-import moonTexture from 'url:../assets/maps/moon_4k_color_brim16.jpg';
-import moonNormal from 'url:../assets/maps/moon_4k_normal.jpg';
+import moonTexture from 'url:../assets/maps/moon.jpg';
+import moonNormal from 'url:../assets/maps/normal.jpg';
 import back from 'url:../assets/starfield/back.png';
 import bottom from 'url:../assets/starfield/bottom.png';
 import front from 'url:../assets/starfield/front.png';
