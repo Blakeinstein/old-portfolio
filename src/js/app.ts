@@ -28,13 +28,13 @@ router
 
 // interactivity
 
-document.getElementById('toggleScene').onclick = (e: Event) => {
-    console.log(e);
-    if (e.target.classList[1] == 'fa-toggle-on'){
+document.getElementById('toggleScene').addEventListener('click', function() {
+    let that = this.firstChild as HTMLElement;
+    if (that.classList.contains('fa-toggle-on')){
         sketch.container.style.zIndex = '1';
-        e.target.classList[1] = 'fa-toggle-off';
+        that.classList.toggle('fa-toggle-off');
     } else {
         sketch.container.style.zIndex = '-1';
-        e.target.classList[1] = 'fa-toggle-on';
+        that.classList.toggle('fa-toggle-on');
     }
-};
+});
