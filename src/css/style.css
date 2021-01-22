@@ -57,6 +57,7 @@ a{
 *, :after, :before {
     color: white;
     box-sizing: border-box;
+    user-select: none;
 }
 
 body{
@@ -75,6 +76,7 @@ body{
     top: 0;
     left: 0;
     z-index: -1;
+    transition: z-index 0.5s ease;
 }
 
 #loading-container {
@@ -91,6 +93,26 @@ body{
     display: flex;
     flex: 0 0;
     flex-flow: column;
+}
+
+#content > *:not(.top),
+#content > .top > *:not(.search),
+#content > .top > .search > *:not(#toggleScene){
+    transition: all 0.5s ease;
+    opacity: 1;
+}
+
+.hide > *:not(.top),
+.hide > .top > *:not(.search),
+.hide > .top > .search > *:not(#toggleScene){
+    opacity: 0 !important;
+}
+
+#toggleScene {
+    position: relative;
+    z-index: 2;
+    visibility: visible !important;
+    opacity: 1 !important;
 }
 
 .logo {
@@ -244,7 +266,6 @@ i:before {
     flex: 0 1 auto;
     list-style-type: none;
 }
-
 
 /* -------Responsive----------- */
 @media only screen and (max-device-width: 736px){

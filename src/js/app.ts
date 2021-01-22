@@ -27,14 +27,20 @@ router
     })
 
 // interactivity
+let content = document.getElementById('content');
 
 document.getElementById('toggleScene').addEventListener('click', function() {
-    let that = this.firstChild as HTMLElement;
-    if (that.classList.contains('fa-toggle-on')){
+    let that = this as HTMLElement;
+    if (that.classList.contains('fa-toggle-off')){
+        content.classList.add('hide');
         sketch.container.style.zIndex = '1';
-        that.classList.toggle('fa-toggle-off');
+        that.classList.remove('fa-toggle-off');
+        that.classList.add('fa-toggle-on');
+        // that.style.opacity = '1 !important';
     } else {
-        sketch.container.style.zIndex = '-1';
-        that.classList.toggle('fa-toggle-on');
+        content.classList.remove('hide');
+        sketch.container.style.zIndex = '-1';  
+        that.classList.remove('fa-toggle-on');
+        that.classList.add('fa-toggle-off');
     }
 });
