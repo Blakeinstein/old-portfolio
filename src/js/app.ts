@@ -36,7 +36,6 @@ document.getElementById('toggleScene').addEventListener('click', function() {
         sketch.container.style.zIndex = '1';
         that.classList.remove('fa-toggle-off');
         that.classList.add('fa-toggle-on');
-        // that.style.opacity = '1 !important';
     } else {
         content.classList.remove('hide');
         sketch.container.style.zIndex = '-1';  

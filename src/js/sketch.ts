@@ -79,7 +79,6 @@ class Sketch {
 	clock: THREE.Clock;
 	matrix: THREE.Matrix4;
 	skybox: StarField;
-
 	constructor() {
 		this.clock = new THREE.Clock();
 		this.loader = new Loader(this.init.bind(this));
@@ -125,6 +124,8 @@ class Sketch {
 			this.camera as THREE.PerspectiveCamera,
 			this.renderer.domElement,
 			);
+		this.controls.maxDistance = 900;
+
         this.controls.rotateSpeed = 0.5;
         this.controls.dynamicDampingFactor = 0.5;
 		this.time = 0;
@@ -179,11 +180,24 @@ class Sketch {
 		this.moon.add(this.skybox.nebula);
 	}
 
+	createShapes(a: THREE.Vector3, b: THREE.Vector3, c: THREE.Vector3) {
+		let geom = new THREE.Geometry();
+		geom.vertices.push(a, b, c, a);
+
+		let line = new THREE.Line(geom, new THREE.LineBasicMaterial({
+			color: 0xffffff,
+			linewidth: 12,
+		}));
+		this.scene.add(line);
+	}
+
 	init(){
 		this.light = new THREE.PointLight(0xffffff, 0.8, -100)
 		this.light.position.set(-200, 200, 200);
 		this.moon = this.createMoon();
 		this.createSkybox();
+		this.createShapes(new THREE.Vector3(-130, 80, 0), new THREE.Vector3(170, 200, 0), new THREE.Vector3(100, -80, 0));
+		this.createShapes(new THREE.Vector3(-150, 30, 0), new THREE.Vector3(120, 145, 0), new THREE.Vector3(40, -130, 0));
 		this.scene.add(this.light);
 		this.matrix = new THREE.Matrix4; // update to get current moon phase?
 		this.render();
