@@ -1,9 +1,10 @@
 import * as THREE from "three";
-import { Texture } from "three";
+import { MeshLine, MeshLineMaterial } from "three.meshline";
 import { TrackballControls } from "three-trackballcontrols-ts";
 
 import assets from './assets';
 import Loader from './loader';
+import { Vector2 } from "three";
 
 class StarField {
 	geometry: THREE.Geometry
@@ -79,6 +80,8 @@ class Sketch {
 	clock: THREE.Clock;
 	matrix: THREE.Matrix4;
 	skybox: StarField;
+	shapes: THREE.Mesh[];
+
 	constructor() {
 		this.clock = new THREE.Clock();
 		this.loader = new Loader(this.init.bind(this));
@@ -184,11 +187,19 @@ class Sketch {
 		let geom = new THREE.Geometry();
 		geom.vertices.push(a, b, c, a);
 
-		let line = new THREE.Line(geom, new THREE.LineBasicMaterial({
+		let line = new MeshLine();
+		line.setGeometry(geom);
+		let mesh = new THREE.Mesh(line.geometry, new MeshLineMaterial({
 			color: 0xffffff,
-			linewidth: 12,
+			lineWidth: 2,
+			resolution: new THREE.Vector2(this.width, this.height),
+			transparent: true,
+			depthWrite: false,
+			opacity: 0.4,
+			side: THREE.DoubleSide
 		}));
-		this.scene.add(line);
+		this.shapes.push(mesh);
+		this.scene.add(mesh);
 	}
 
 	init(){
@@ -196,6 +207,7 @@ class Sketch {
 		this.light.position.set(-200, 200, 200);
 		this.moon = this.createMoon();
 		this.createSkybox();
+		this.shapes = [];
 		this.createShapes(new THREE.Vector3(-130, 80, 0), new THREE.Vector3(170, 200, 0), new THREE.Vector3(100, -80, 0));
 		this.createShapes(new THREE.Vector3(-150, 30, 0), new THREE.Vector3(120, 145, 0), new THREE.Vector3(40, -130, 0));
 		this.scene.add(this.light);
@@ -208,7 +220,7 @@ class Sketch {
 		let delta = this.clock.getDelta() * 2 * Math.PI / 560;
 		this.moon.rotateY(-delta);
 		// this.camera.lookAt(this.moon.position);
-		this.controls.update(this.camera);
+		this.controls.update();
 		this.renderer.render(this.scene, this.camera);
 	}
 }
