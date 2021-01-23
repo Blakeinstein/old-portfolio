@@ -1,4 +1,5 @@
 import * as THREE from "three";
+import { Texture } from "three";
 import { TrackballControls } from "three-trackballcontrols-ts";
 
 import assets from './assets';
@@ -9,6 +10,7 @@ class StarField {
 	material: THREE.Material
 	mesh: THREE.Points
 	shape: THREE.Vector3
+	nebula: THREE.Mesh
 
 	constructor(options: {
 		count: number,
@@ -16,6 +18,7 @@ class StarField {
 		color: THREE.Color | number,
 		shape: THREE.Vector3,
 		star: THREE.Texture,
+		nebula: THREE.Texture[]
 	}) {
 		this.shape = options.shape;
 
@@ -24,7 +27,7 @@ class StarField {
 			color: options.color,
 			size: options.size,
 			map: options.star,
-			transparent: true
+			transparent: true,
 		});
 
 		for (let i=0; i<options.count; i++){
@@ -36,6 +39,14 @@ class StarField {
 			this.geometry.vertices.push(star);
 		}
 		this.mesh = new THREE.Points(this.geometry, this.material);
+		this.nebula = new THREE.Mesh(new THREE.BoxBufferGeometry(1000, 1000, 1000), options.nebula.map(tex => {
+			return new THREE.MeshBasicMaterial({
+				map: tex,
+				side: THREE.BackSide,
+				fog: false,
+				depthWrite: false
+			});
+		}));
 	}
 }
 
@@ -61,7 +72,8 @@ class Sketch {
 			texture: THREE.Texture,
 			normal: THREE.Texture
 		},
-		starfield: THREE.CubeTexture,
+		// starfield: THREE.CubeTexture,
+		starfield: THREE.Texture[],
 		starSprite: THREE.Texture
 	};
 	clock: THREE.Clock;
@@ -72,13 +84,14 @@ class Sketch {
 		this.clock = new THREE.Clock();
 		this.loader = new Loader(this.init.bind(this));
 		let textureLoader = new THREE.TextureLoader(this.loader.manager);
-		let cubeTextureLoader = new THREE.CubeTextureLoader(this.loader.manager);
 		this.textures = {
 			moon: {
 				texture: textureLoader.load(assets.moon.texture),
 				normal: textureLoader.load(assets.moon.normal),
 			},
-			starfield: cubeTextureLoader.load(assets.starfield),
+			starfield: assets.starfield.map(tex => {
+				return textureLoader.load(tex);
+			}),
 			starSprite: textureLoader.load(assets.starSprite),
 		}
 
@@ -159,15 +172,16 @@ class Sketch {
 			size: 1.6,
 			color: 0xffffff,
 			shape: new THREE.Vector3(this.container.offsetWidth, this.container.offsetHeight, 600),
-			star: this.textures.starSprite
+			star: this.textures.starSprite,
+			nebula: this.textures.starfield
 		});
-		this.scene.add(this.skybox.mesh);
-		this.scene.background = this.textures.starfield;
+		this.moon.add(this.skybox.mesh);
+		this.moon.add(this.skybox.nebula);
 	}
 
 	init(){
 		this.light = new THREE.PointLight(0xffffff, 0.8, -100)
-		this.light.position.set(0, 0, 400);
+		this.light.position.set(-200, 200, 200);
 		this.moon = this.createMoon();
 		this.createSkybox();
 		this.scene.add(this.light);
@@ -177,9 +191,9 @@ class Sketch {
 
 	render() {
 		requestAnimationFrame(this.render.bind(this));
-		this.matrix.makeRotationY(this.clock.getDelta() * 2 * Math.PI / 560);
-		this.camera.applyMatrix4(this.matrix);
-		this.camera.lookAt(this.moon.position);
+		let delta = this.clock.getDelta() * 2 * Math.PI / 560;
+		this.moon.rotateY(-delta);
+		// this.camera.lookAt(this.moon.position);
 		this.controls.update(this.camera);
 		this.renderer.render(this.scene, this.camera);
 	}
