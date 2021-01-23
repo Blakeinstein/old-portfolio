@@ -77,10 +77,9 @@ class Sketch {
 		starfield: THREE.Texture[],
 		starSprite: THREE.Texture
 	};
-	clock: THREE.Clock;
-	matrix: THREE.Matrix4;
 	skybox: StarField;
 	shapes: THREE.Mesh[];
+	clock: THREE.Clock;
 
 	constructor() {
 		this.clock = new THREE.Clock();
@@ -154,6 +153,7 @@ class Sketch {
 			100, // radius
 			50, // Segments
 		);
+		geo.rotateZ(-Math.PI / 6);
 		this.textures.moon.texture.anisotropy = this.renderer.capabilities.getMaxAnisotropy();
 		let mat = new THREE.MeshStandardMaterial({
 			color: 0xffffff,
@@ -180,6 +180,7 @@ class Sketch {
 			nebula: this.textures.starfield
 		});
 		this.moon.add(this.skybox.mesh);
+		this.moon.rotateZ(Math.PI / 6);
 		this.moon.add(this.skybox.nebula);
 	}
 
@@ -203,15 +204,20 @@ class Sketch {
 	}
 
 	init(){
-		this.light = new THREE.PointLight(0xffffff, 0.8, -100)
+		this.light = new THREE.PointLight(0xffffff, 0.8, -100);
 		this.light.position.set(-200, 200, 200);
+
 		this.moon = this.createMoon();
 		this.createSkybox();
+
 		this.shapes = [];
 		this.createShapes(new THREE.Vector3(-130, 80, 0), new THREE.Vector3(170, 200, 0), new THREE.Vector3(100, -80, 0));
 		this.createShapes(new THREE.Vector3(-150, 30, 0), new THREE.Vector3(120, 145, 0), new THREE.Vector3(40, -130, 0));
 		this.scene.add(this.light);
-		this.matrix = new THREE.Matrix4; // update to get current moon phase?
+
+		let highlight = new THREE.AmbientLight(0x6fd6de, 0.1);
+		this.scene.add(highlight);
+
 		this.render();
 	}
 
@@ -219,7 +225,6 @@ class Sketch {
 		requestAnimationFrame(this.render.bind(this));
 		let delta = this.clock.getDelta() * 2 * Math.PI / 560;
 		this.moon.rotateY(-delta);
-		// this.camera.lookAt(this.moon.position);
 		this.controls.update();
 		this.renderer.render(this.scene, this.camera);
 	}
