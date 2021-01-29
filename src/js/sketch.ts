@@ -4,7 +4,6 @@ import { TrackballControls } from "three-trackballcontrols-ts";
 
 import assets from './assets';
 import Loader from './loader';
-import { Vector2 } from "three";
 
 class StarField {
 	geometry: THREE.Geometry

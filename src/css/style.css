@@ -116,9 +116,8 @@ body{
 }
 
 .logo {
-    height: 2em;
     display: inline-block;
-    width: 2em;
+    width: 2.5em;
 }
 
 .music:hover{
@@ -128,21 +127,15 @@ body{
 .music {
     position: relative;
     display: inline-block;
-    height: 2em;
-    width: 2em;
-}
-
-.music i {
-    height: 2em;
-    font-size: 1em;
+    width: 2.5em;
 }
 
 #enigma {
     display: inline-block;
     position: absolute;
     min-width: 200px;
-    bottom: 2.8em;
-    left: calc(1em - 100px);
+    bottom: 3.8em;
+    left: -5em;
     z-index: 1;
 
     height: 200px;
@@ -266,6 +259,11 @@ i:before {
     flex: 0 1 auto;
     list-style-type: none;
 }
+
+.tippy-box[data-theme~='space'] {
+    background-color: rgba(50, 50, 50, 0.1);
+    color: white;
+  }
 
 /* -------Responsive----------- */
 @media only screen and (max-device-width: 736px){

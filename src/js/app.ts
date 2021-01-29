@@ -1,11 +1,14 @@
 import Sketch from './sketch';
 import Router from './router';
 import '@fortawesome/fontawesome-free/css/all.css'
+import tippy, {animateFill} from 'tippy.js';
+import 'tippy.js/dist/tippy.css';
+import 'tippy.js/animations/shift-away.css';
 
 const sketch: Sketch = new Sketch();
 
 const router: Router = new Router({
-    mode: 'history',
+    mode: 'hash',
     root: '/'
 });
 
@@ -42,4 +45,15 @@ document.getElementById('toggleScene').addEventListener('click', function() {
         that.classList.remove('fa-toggle-on');
         that.classList.add('fa-toggle-off');
     }
+});
+
+tippy('[data-tippy-content]', {
+    theme: 'space',
+    appendTo: () => document.body,
+    allowHTML: true,
+    hideOnClick: false,
+    trigger: 'mouseenter',
+    placement: 'auto',
+    animateFill: true,
+    plugins: [animateFill],
 });

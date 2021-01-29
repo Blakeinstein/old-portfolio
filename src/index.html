@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blaine</title>
+    <link rel="icon" type="image/svg+xml" href="./assets/logo.svg">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -12,13 +13,13 @@
     <div id="content">
         <div class="top">
             <div class="logo">
-                <i class="fas fa-user-astronaut"></i>
+                <a href="/#/" data-tippy-content="Rishikesh 'Blaine' Anand"><img src="./assets/logo.svg"/></a>
             </div>
             <hr>
             <div class="search">
                 <i class="fas fa-search"></i>
-                <i id='toggleScene' class="fas fa-toggle-off"></i>
-                <i class="fab fa-github-alt"></i>
+                <i id='toggleScene' class="fas fa-toggle-off" data-tippy-content="Hide HUD<br />(Allows interaction with content)"></i>
+                <a href="https://github.com/Blakeinstein" class="fab fa-github-alt" data-tippy-content="Github Profile<pre>                       </pre>@Blakeinstein"></a>
             </div>
         </div>
         <div id="main">
@@ -30,20 +31,20 @@
             </div>
             <div class="menu-left">
                 <ul>
-                    <li><a href="/about/">About</a></li>
-                    <li><a href="/Projects/">Projects</a></li>
+                    <li><a href="/#/about/" data-link>About</a></li>
+                    <li><a href="/#/Projects/" data-link>Projects</a></li>
                 </ul>
             </div>
             <div id='music' class="music" aria-haspopup="true">
-                <i class="fas fa-user-astronaut"></i>
+                <img src="./assets/logo.svg"/> 
                 <div id="enigma" aria-label="submenu">
                     <div>E N I G M A</div>
                 </div>
             </div>
             <div class="menu-right">
                 <ul>
-                    <li><a href="/Playlists/">Contact</a></li>
-                    <li><a href="/Socials/">Socials</a></li>
+                    <li><a href="/#/Playlists/" data-link>Contact</a></li>
+                    <li><a href="/#/Socials/" data-link>Socials</a></li>
                 </ul>
             </div>
             <div class="arrow-right">
