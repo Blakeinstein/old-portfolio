@@ -1,42 +1,59 @@
-import * as THREE from 'three';
+import Sketch from './sketch';
+import Router from './router';
+import '@fortawesome/fontawesome-free/css/all.css'
+import tippy, {animateFill} from 'tippy.js';
+import 'tippy.js/dist/tippy.css';
+import 'tippy.js/animations/shift-away.css';
 
-let camera, scene, renderer;
-let geometry, material, mesh;
+const sketch: Sketch = new Sketch();
 
-init();
-animate();
+const router: Router = new Router({
+    mode: 'hash',
+    root: '/'
+});
 
-function init() {
+router
+    .add('/about/', () => {
+        alert("Going to about page!");
+    })
+    .add('/Projects/', () => {
+        alert("Going to projects page!");
+    })
+    .add('/Socials/', () => { 
+        alert("Going to socials page!");
+    })
+    .add('/Playlists/', () => {
+        alert("Going to playlists page!");
+    })
+    .add('', () => {
+        console.log("Home Page!");
+    })
 
-	camera = new THREE.PerspectiveCamera( 70, window.innerWidth / window.innerHeight, 0.01, 10 );
-	camera.position.z = 1;
+// interactivity
+let content = document.getElementById('content');
 
-	scene = new THREE.Scene();
+document.getElementById('toggleScene').addEventListener('click', function() {
+    let that = this as HTMLElement;
+    if (that.classList.contains('fa-toggle-off')){
+        content.classList.add('hide');
+        sketch.container.style.zIndex = '1';
+        that.classList.remove('fa-toggle-off');
+        that.classList.add('fa-toggle-on');
+    } else {
+        content.classList.remove('hide');
+        sketch.container.style.zIndex = '-1';  
+        that.classList.remove('fa-toggle-on');
+        that.classList.add('fa-toggle-off');
+    }
+});
 
-	geometry = new THREE.BoxGeometry( 0.2, 0.2, 0.2 );
-	material = new THREE.MeshNormalMaterial();
-
-	mesh = new THREE.Mesh( geometry, material );
-	scene.add( mesh );
-
-    renderer = new THREE.WebGLRenderer( { 
-        canvas: <HTMLCanvasElement>document.querySelector('#hero-background'),
-        antialias: true
-    });
-	renderer.setSize( window.innerWidth, window.innerHeight );
-	// document.body.appendChild( renderer.domElement );
-
-}
-
-function animate() {
-
-	requestAnimationFrame( animate );
-
-	mesh.rotation.x += 0.01;
-    mesh.rotation.y += 0.02;
-    // mesh.position.x = Math.random() - 0.5;
-    // mesh.position.y = Math.random() - 0.5;
-
-	renderer.render( scene, camera );
-
-}
+tippy('[data-tippy-content]', {
+    theme: 'space',
+    appendTo: () => document.body,
+    allowHTML: true,
+    hideOnClick: false,
+    trigger: 'mouseenter',
+    placement: 'auto',
+    animateFill: true,
+    plugins: [animateFill],
+});

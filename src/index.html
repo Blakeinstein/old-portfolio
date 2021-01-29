@@ -4,10 +4,54 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blaine</title>
+    <link rel="icon" type="image/svg+xml" href="./assets/logo.svg">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <canvas id="hero-background"></canvas>
+    <div id="hero-background"></div>
+    <div id="loading-container"></div>
+    <div id="content">
+        <div class="top">
+            <div class="logo">
+                <a href="/#/" data-tippy-content="Rishikesh 'Blaine' Anand"><img src="./assets/logo.svg"/></a>
+            </div>
+            <hr>
+            <div class="search">
+                <i class="fas fa-search"></i>
+                <i id='toggleScene' class="fas fa-toggle-off" data-tippy-content="Hide HUD<br />(Allows interaction with content)"></i>
+                <a href="https://github.com/Blakeinstein" class="fab fa-github-alt" data-tippy-content="Github Profile<pre>                       </pre>@Blakeinstein"></a>
+            </div>
+        </div>
+        <div id="main">
+
+        </div>
+        <div class="navbar">
+            <div class="arrow-left">
+                <i class="fas fa-chevron-left"></i>
+            </div>
+            <div class="menu-left">
+                <ul>
+                    <li><a href="/#/about/" data-link>About</a></li>
+                    <li><a href="/#/Projects/" data-link>Projects</a></li>
+                </ul>
+            </div>
+            <div id='music' class="music" aria-haspopup="true">
+                <img src="./assets/logo.svg"/> 
+                <div id="enigma" aria-label="submenu">
+                    <div>E N I G M A</div>
+                </div>
+            </div>
+            <div class="menu-right">
+                <ul>
+                    <li><a href="/#/Playlists/" data-link>Contact</a></li>
+                    <li><a href="/#/Socials/" data-link>Socials</a></li>
+                </ul>
+            </div>
+            <div class="arrow-right">
+                <i class="fas fa-chevron-right"></i>
+            </div>
+        </div>
+    </div>
     <script type="module" src="js/app.ts"></script>
 </body>
 </html>
