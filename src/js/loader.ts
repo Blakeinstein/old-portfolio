@@ -28,7 +28,8 @@ class Loader {
     progress(url: string, loaded: number, total: number){
         console.log({url, loaded, total});
         let progress = loaded/total;
-        this.progressBar.style.strokeDashoffset = String(289 - progress * 289);
+        // work around for parcel svg minify removing ids on svgs in production
+        (this.loadingContainer.firstElementChild.firstElementChild as HTMLElement).style.strokeDashoffset = String(289 - progress * 289);
         this.progressDot.style.transform = `rotate(${Math.floor(360*progress)}deg)`;
         this.percentage.textContent = `${Math.round((progress+ Number.EPSILON) * 100)}%`
     }
