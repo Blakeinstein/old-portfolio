@@ -1,0 +1,327 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100;0,400;0,700;1,700&display=swap');
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+a{
+    text-decoration: none;
+}
+
+/* -------------------------------------------------------------------------------- */
+
+*, :after, :before {
+    color: white;
+    box-sizing: border-box;
+    user-select: none;
+}
+
+body{
+    margin: 0;
+    background-color: black;
+    font-family: 'Roboto Mono', monospace;
+    font-weight: 200;
+}
+
+/* -------Loading Container----------- */
+#loading-container {
+    position: absolute;
+    height: 100vh;
+    width: 100%;
+    z-index: 50;
+    background-color: #222222;
+    text-align: center;
+    color: #ffffff;
+    font-family: 'Fira Mono', monospace;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    letter-spacing: .1em;
+    visibility: visible;
+    opacity: 1;
+    transition: all 2s ease-out;
+
+    &.hide {
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    #progressBar {
+        transform: rotate(-90deg);
+        transform-origin: 50% 50%;
+        stroke-dasharray: 289 289;
+        stroke-dashoffset: 289;
+        transition: stroke-dashoffset 1s ease-in-out;
+    }
+
+    >#progressDot {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        height: 0px;
+        width: 0px;
+        transform-origin: 50% 50%;
+        transition: transform 1s ease-in-out;
+
+        &:before {
+            content: "";
+            border-radius: 20px;
+            background-color: aliceblue;
+            height: 6px;
+            width: 6px;
+            transform-origin: center center;
+            position: relative;
+            display: block;
+            top: -49px;
+            left: -3px;
+            
+            box-shadow:
+              0 0 20px 2px aliceblue,
+              0 0 40px 4px skyblue;
+        }
+    }
+
+    #percentage {
+        position: absolute;
+
+        .hide {
+            opacity: 0;
+            visibility: hidden;
+        }
+    }
+}
+
+/* -------Hero Background----------- */
+#hero-background{
+    max-height: 100%;
+    max-width: 100%;
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    top: 0; 
+    left: 0;
+    z-index: -1;
+    transition: z-index 0.5s ease;
+}
+
+#content {
+    max-height: 100%;
+    max-width: 100%;
+    height: 100vh;
+    width: 100vw;
+    padding: 2em 0;
+    display: flex;
+    flex: 0 0;
+    flex-flow: column;
+    line-height: 2em;
+
+    > *:not(.top),
+    > .top > *:not(.search),
+    > .top > .search > *:not(#toggleScene){
+        transition: all 0.5s ease;
+        opacity: 1;
+    }
+
+    &.hide > *:not(.top),
+    &.hide > .top > *:not(.search),
+    &.hide > .top > .search > *:not(#toggleScene){
+        opacity: 0 !important;
+    }
+
+    .top {
+        display: flex;
+        flex: 0 0;
+        flex-flow: row;
+        padding: 0 2em;
+        height: 2em;
+        align-items: center;
+
+    
+        >.logo {
+            display: inline-block;
+            width: 2.5em;
+        }
+
+        >.search {
+            height: 2em;
+            width: 80px;
+            
+            >#toggleScene {
+                position: relative;
+                z-index: 2;
+                visibility: visible !important;
+                opacity: 1 !important;
+            }
+        }
+
+        hr{
+            margin: auto 2em;
+            border-radius: 50px;
+            color: white;
+            background: white;
+            flex-grow: 4;
+        }
+    }
+
+    #main{
+        flex-grow: 4;
+    }
+
+    .navbar {
+        display: flex;
+        flex: 0 0;
+        flex-flow: row;
+        padding: 0 2em;
+        height: 2em;
+        align-items: center;
+
+        .menu-right, .menu-left {
+            flex-grow: 2;
+        }
+
+        ul{
+            display: flex;
+            flex-flow: row;
+            align-items: stretch;
+            justify-content: space-around;
+            width: 60%;
+            margin: 0 auto;
+            padding: 0;
+
+            > li {
+                display: block;
+                flex: 0 1 auto;
+            }
+        }
+
+        .music {
+            position: relative;
+            display: inline-block;
+            width: 2.5em;
+
+            > #enigma {
+                display: inline-block;
+                position: absolute;
+                min-width: 200px;
+                bottom: 3.8em;
+                left: -5em;
+                z-index: 1;
+    
+                height: 200px;
+                background-color: rgba(50, 50, 50, 0.4);
+                border: 2px solid white;
+                -webkit-border-radius: 5px;
+                -moz-border-radius: 5px;
+                border-radius: 5px;
+                -webkit-box-shadow: 2px 2px 4px #888;
+                -moz-box-shadow: 2px 2px 4px #888;
+                box-shadow: 2px 2px 4px #888;
+                text-align: center;
+                padding: 1em;
+                font-weight: 400;
+                font-size: 1em;
+
+                &:before {
+                    content: ' ';
+                    position: absolute;
+                    width: 0;
+                    height: 0;
+                    left: 87px;
+                    top: 200px;
+                    border: 10px solid;
+                    border-color: #fff transparent transparent transparent;
+                }
+        
+                &:after {
+                    content: ' ';
+                    position: absolute;
+                    width: 0;
+                    height: 0;
+                    left: 89px;
+                    top: 200px;
+                    border: 8px solid;
+                    border-color: rgba(50, 50, 50, 0.4) transparent transparent transparent;
+                }
+            }
+    
+            > div{
+                visibility: hidden;
+                opacity: 0;
+                transition: all 0.5s ease;
+                display: none;
+                clear: both;
+                width: 100%;
+            }
+    
+            &:hover{
+                > div {
+                    visibility: visible;
+                    opacity: 1;
+                    display: block;
+                }
+            }
+    
+        }
+
+        >.arrow-left, >.arrow-right {
+            height: 2em;
+            width: 2em;
+        }
+    }
+}
+
+.tippy-box[data-theme~='space'] {
+    background-color: rgba(50, 50, 50, 0.1);
+    color: white;
+}
+
+/* -------Responsive----------- */
+@media only screen and (max-device-width: 736px){
+    .navbar ul{
+        width: 90%;
+    }
+}

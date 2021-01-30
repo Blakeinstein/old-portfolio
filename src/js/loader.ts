@@ -4,9 +4,15 @@ class Loader {
     manager: THREE.LoadingManager;
     finalize: Function;
     loadingContainer: HTMLElement;
+    progressBar: HTMLElement;
+    progressDot: HTMLElement;
+    percentage: HTMLElement;
 
     constructor(finalize: Function) {
         this.loadingContainer = document.getElementById('loading-container');
+        this.progressBar = document.getElementById('progressBar');
+        this.progressDot = document.getElementById('progressDot');
+        this.percentage = document.getElementById('percentage');
         this.manager = new THREE.LoadingManager();
         this.manager.onStart = this.start.bind(this);
         this.manager.onProgress = this.progress.bind(this);
@@ -16,17 +22,20 @@ class Loader {
     }
 
     start(url: string, loaded: number, total: number){
-        this.loadingContainer.style.display = 'block';
         console.log({url, loaded, total});
     }
 
     progress(url: string, loaded: number, total: number){
         console.log({url, loaded, total});
+        let progress = loaded/total;
+        this.progressBar.style.strokeDashoffset = String(289 - progress * 289);
+        this.progressDot.style.transform = `rotate(${Math.floor(360*progress)}deg)`;
+        this.percentage.textContent = `${Math.round((progress+ Number.EPSILON) * 100)}%`
     }
 
     load() {
-        this.loadingContainer.style.display = 'none';
         this.finalize();
+        setTimeout(() => this.loadingContainer.classList.add('hide'), 0);
     }
     
     error(url: string){

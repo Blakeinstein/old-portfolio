@@ -5,11 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blaine</title>
     <link rel="icon" type="image/svg+xml" href="./assets/logo.svg">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.scss">
+    <script type="module" src="js/app.ts" async></script>
 </head>
 <body>
     <div id="hero-background"></div>
-    <div id="loading-container"></div>
+    <div id="loading-container">
+        <svg height="100" width="100">
+            <circle id="progressBar" stroke-width="2" stroke="aliceblue" fill="transparent" r="46" cx="50" cy="50" />
+        </svg>
+        <div id="progressDot"></div>
+        <div id="percentage">0%</div>
+    </div>
     <div id="content">
         <div class="top">
             <div class="logo">
@@ -52,6 +59,5 @@
             </div>
         </div>
     </div>
-    <script type="module" src="js/app.ts"></script>
 </body>
 </html>
