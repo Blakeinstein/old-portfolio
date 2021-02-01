@@ -1,6 +1,6 @@
 import * as THREE from "three";
 import { MeshLine, MeshLineMaterial } from "three.meshline";
-import { TrackballControls } from "three-trackballcontrols-ts";
+import { TrackballControls } from "three/examples/jsm/controls/TrackballControls";
 
 import assets from './assets';
 import Loader from './loader';
