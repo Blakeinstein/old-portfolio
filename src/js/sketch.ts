@@ -1,6 +1,7 @@
 import * as THREE from "three";
 import { MeshLine, MeshLineMaterial } from "three.meshline";
 import { TrackballControls } from "three/examples/jsm/controls/TrackballControls";
+import * as POSTPROCESSING from "postprocessing";
 
 import assets from './assets';
 import Loader from './loader';
@@ -39,7 +40,7 @@ class StarField {
 			this.geometry.vertices.push(star);
 		}
 		this.mesh = new THREE.Points(this.geometry, this.material);
-		this.nebula = new THREE.Mesh(new THREE.BoxBufferGeometry(1000, 1000, 1000), options.nebula.map(tex => {
+		this.nebula = new THREE.Mesh(new THREE.BoxBufferGeometry(2000, 2000, 2000), options.nebula.map(tex => {
 			return new THREE.MeshBasicMaterial({
 				map: tex,
 				side: THREE.BackSide,
@@ -72,13 +73,14 @@ class Sketch {
 			texture: THREE.Texture,
 			normal: THREE.Texture
 		},
-		// starfield: THREE.CubeTexture,
 		starfield: THREE.Texture[],
 		starSprite: THREE.Texture
 	};
 	skybox: StarField;
 	shapes: THREE.Mesh[];
 	clock: THREE.Clock;
+	composer: any;
+	bloomEffect: any;
 
 	constructor() {
 		this.clock = new THREE.Clock();
@@ -199,10 +201,26 @@ class Sketch {
 			side: THREE.DoubleSide
 		}));
 		this.shapes.push(mesh);
+		this.bloomEffect.selection.add(mesh);
 		this.scene.add(mesh);
 	}
 
 	init(){
+		this.composer = new POSTPROCESSING.EffectComposer(this.renderer);
+		this.composer.addPass(new POSTPROCESSING.RenderPass(this.scene, this.camera));
+		this.bloomEffect = new POSTPROCESSING.SelectiveBloomEffect(
+			this.scene, this.camera, {
+				blendFunction: POSTPROCESSING.BlendFunction.SCREEN,
+				kernelSize: POSTPROCESSING.KernelSize.MEDIUM,
+				luminanceThreshold: 0.1,
+				luminanceSmoothing: 0.1,
+				height: this.height
+			}
+		);
+		const effectPass = new POSTPROCESSING.EffectPass(this.camera, this.bloomEffect);
+		effectPass.renderToScreen = true;
+		effectPass.enabled = true;
+		this.composer.addPass(effectPass);
 		this.light = new THREE.PointLight(0xffffff, 0.8, -100);
 		this.light.position.set(-200, 200, 200);
 
@@ -225,7 +243,8 @@ class Sketch {
 		let delta = this.clock.getDelta() * 2 * Math.PI / 560;
 		this.moon.rotateY(-delta);
 		this.controls.update();
-		this.renderer.render(this.scene, this.camera);
+		// this.renderer.render(this.scene, this.camera);
+		this.composer.render();
 	}
 }
 
