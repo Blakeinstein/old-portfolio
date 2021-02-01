@@ -14,19 +14,13 @@ class Loader {
         this.progressDot = document.getElementById('progressDot');
         this.percentage = document.getElementById('percentage');
         this.manager = new THREE.LoadingManager();
-        this.manager.onStart = this.start.bind(this);
         this.manager.onProgress = this.progress.bind(this);
         this.manager.onError = this.error.bind(this);
         this.manager.onLoad = this.load.bind(this);
         this.finalize = finalize;
     }
 
-    start(url: string, loaded: number, total: number){
-        console.log({url, loaded, total});
-    }
-
     progress(url: string, loaded: number, total: number){
-        console.log({url, loaded, total});
         let progress = loaded/total;
         // work around for parcel svg minify removing ids on svgs in production
         (this.loadingContainer.firstElementChild.firstElementChild as HTMLElement).style.strokeDashoffset = String(289 - progress * 289);
