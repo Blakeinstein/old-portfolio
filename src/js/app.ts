@@ -1,31 +1,10 @@
-import Sketch from './sketch';
-import Router from './router';
 import '@fortawesome/fontawesome-free/css/all.css'
 import tippy, {animateFill} from 'tippy.js';
 import 'tippy.js/dist/tippy.css';
 import 'tippy.js/animations/shift-away.css';
 
-const router: Router = new Router({
-    mode: 'hash',
-    root: '/'
-});
-
-router
-    .add('/about/', () => {
-        alert("Going to about page!");
-    })
-    .add('/Projects/', () => {
-        alert("Going to projects page!");
-    })
-    .add('/Socials/', () => { 
-        alert("Going to socials page!");
-    })
-    .add('/Playlists/', () => {
-        alert("Going to playlists page!");
-    })
-    .add('', () => {
-        console.log("Home Page!");
-    })
+import Sketch from './sketch';
+import './router';
 
 function main() {
     const sketch: Sketch = new Sketch();
