@@ -1,7 +1,5 @@
 #about{
-    height: 90%;
     width: 90%;
-    margin: 5% auto;
     display: flex;
     flex-flow: row;
     align-items: center;
@@ -26,10 +24,16 @@
             font-size: 1em;
             font-weight: 400;
         }
+
+        >h4{
+           font-weight: bold;
+           font-style: italic;
+           font-size: 1em; 
+        }
     }
 
     >img {
-        width: 200em;
+        width: 150em;
         height: auto;
     }
 }

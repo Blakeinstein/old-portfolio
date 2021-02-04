@@ -1,7 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100;0,400;0,700;1,700&display=swap');
 
-@import "./about";
-
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
@@ -213,6 +211,9 @@ body{
         flex-grow: 4;
         overflow: hidden;
         transition: opacity 0.5s ease-in-out;
+        display: flex;
+        align-items: center;
+        justify-content: center;
 
         .no-scroll {
             -ms-overflow-style: none;
@@ -230,6 +231,11 @@ body{
             transition: all 2s ease-in-out;
         }
         
+        @import "./about";
+        @import "./contact";
+        @import "./projects";
+        @import "./socials";
+        @import "./home";
     }
 
     .navbar {
