@@ -47,10 +47,10 @@ routes.forEach(route => {
             console.log(e);
             contentDom.removeEventListener(transitionEvent, temp, false);
             contentDom.innerHTML = route.render();
-            contentDom.className = 'transition-in';
+            contentDom.style.opacity = '1';
         };
         contentDom.addEventListener(transitionEvent, temp, false);
-        contentDom.className = 'transition-out';
+        contentDom.style.opacity = '0';
     })
 })
 

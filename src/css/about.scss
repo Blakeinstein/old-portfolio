@@ -1,0 +1,35 @@
+#about{
+    height: 90%;
+    width: 90%;
+    margin: 5% auto;
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+
+    .about-content{
+        line-height: auto;
+        display: flex;
+        justify-content: center;
+        flex-flow: column;
+        overflow-y: scroll;
+        text-shadow: 0 0 20px #111;
+
+        >h1{
+            font-size: 4em;
+            text-transform: uppercase;
+            font-weight: 700;
+            font-style: italic;
+            line-height: normal;;
+        }
+
+        >h3{
+            font-size: 1em;
+            font-weight: 400;
+        }
+    }
+
+    >img {
+        width: 200em;
+        height: auto;
+    }
+}

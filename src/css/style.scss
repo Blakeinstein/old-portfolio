@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100;0,400;0,700;1,700&display=swap');
 
+@import "./about";
+
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
@@ -87,7 +89,7 @@ body{
     &.hide {
         opacity: 0;
         visibility: hidden;
-        transition: all 5s 1s ease-in-out;
+        transition: all 2s 1s ease-in-out;
     }
 
     >svg>circle {
@@ -210,15 +212,8 @@ body{
     #main{
         flex-grow: 4;
         overflow: hidden;
+        transition: opacity 0.5s ease-in-out;
 
-        .transition-in {
-            animation: slide-up 1s ease-in-out;
-        }
-
-        .transition-out {       
-            animation: slide-up 1s ease-in-out;
-            animation-direction: reverse;
-        }
         .no-scroll {
             -ms-overflow-style: none;
             scrollbar-width: none;
@@ -233,42 +228,6 @@ body{
             visibility: hidden;
             transform: translateY(20px);
             transition: all 2s ease-in-out;
-        }
-
-        #about{
-            height: 90%;
-            width: 90%;
-            margin: 5% auto;
-            display: flex;
-            flex-flow: row;
-            align-items: center;
-    
-            .about-content{
-                line-height: auto;
-                display: flex;
-                justify-content: center;
-                flex-flow: column;
-                overflow-y: scroll;
-                text-shadow: 0 0 20px #111;
-
-                >h1{
-                    font-size: 4em;
-                    text-transform: uppercase;
-                    font-weight: 700;
-                    font-style: italic;
-                    line-height: normal;;
-                }
-
-                >h3{
-                    font-size: 1em;
-                    font-weight: 400;
-                }
-            }
-
-            >img {
-                width: 200em;
-                height: auto;
-            }
         }
         
     }
