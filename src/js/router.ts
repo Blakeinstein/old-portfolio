@@ -1,4 +1,5 @@
 import Navigo from 'navigo';
+import {html, render} from 'lit-html';
 
 import aboutRender from './pages/about';
 
@@ -24,16 +25,16 @@ const routes: {path: string, render: Function}[] = [{
         render: aboutRender
     }, {
         path: 'projects',
-        render: () => `<div>aaa</div>`
+        render: () => html`<div>aaa</div>`
     }, {
         path: 'socials',
-        render: () => `bbb`
+        render: () => html`<div>bbb</div>`
     }, {
         path: 'contact',
-        render: () => `ccc`
+        render: () => html`<div>ccc</div>`
     }, {
         path: '^$',
-        render: () => ``
+        render: () => html``
     },
 ]
 
@@ -44,13 +45,14 @@ const contentDom = document.getElementById('main');
 routes.forEach(route => {
     router.on(route.path, () => {
         let temp = (e: Event) => {
-            console.log(e);
             contentDom.removeEventListener(transitionEvent, temp, false);
-            contentDom.innerHTML = route.render();
+            render(route.render(), contentDom);
             contentDom.style.opacity = '1';
+            contentDom.style.transform = 'translateY(0)';
         };
         contentDom.addEventListener(transitionEvent, temp, false);
         contentDom.style.opacity = '0';
+        contentDom.style.transform = 'translateY(20px)';
     })
 })
 

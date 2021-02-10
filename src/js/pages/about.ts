@@ -1,7 +1,9 @@
+import {html} from 'lit-html';
+
 import stars from "url:../../assets/logo.svg";
 
 let aboutRender = () => {
-    return `<div id="about">
+    return html`<div id="about">
     <h1>Hi, I'm Rishikesh Anand!</h1>
     <div class="about-content">
         <div class="about-text">
