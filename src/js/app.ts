@@ -1,3 +1,4 @@
+import * as $ from "jquery";
 import '@fortawesome/fontawesome-free/css/all.css'
 import tippy, {animateFill} from 'tippy.js';
 import 'tippy.js/dist/tippy.css';
@@ -9,20 +10,19 @@ import './router';
 function main() {
     const sketch: Sketch = new Sketch();
     // interactivity
-    let content = document.getElementById('content');
+    let content = $('#content');
 
-    document.getElementById('toggleScene').addEventListener('click', function() {
-        let that = this as HTMLElement;
-        if (that.classList.contains('fa-toggle-off')){
-            content.classList.add('hide');
+    $('#toggleScene').on('click', function() {
+        if ($(this).hasClass('fa-toggle-off')){
+            content.addClass('hide');
             sketch.container.style.zIndex = '1';
-            that.classList.remove('fa-toggle-off');
-            that.classList.add('fa-toggle-on');
+            $(this).removeClass('fa-toggle-off');
+            $(this).addClass('fa-toggle-on');
         } else {
-            content.classList.remove('hide');
+            content.removeClass('hide');
             sketch.container.style.zIndex = '-1';  
-            that.classList.remove('fa-toggle-on');
-            that.classList.add('fa-toggle-off');
+            $(this).removeClass('fa-toggle-on');
+            $(this).addClass('fa-toggle-off');
         }
     });
 
