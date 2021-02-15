@@ -1,8 +1,11 @@
-import * as $ from "jquery";
+window['projectPages'] = false;
+
+import $ from "jquery";
 import '@fortawesome/fontawesome-free/css/all.css'
-import tippy, {animateFill} from 'tippy.js';
+import tippy, {animateFill, delegate} from 'tippy.js';
 import 'tippy.js/dist/tippy.css';
 import 'tippy.js/animations/shift-away.css';
+import 'ghspa';
 
 import Sketch from './sketch';
 import './router';
@@ -36,6 +39,15 @@ function main() {
         animateFill: true,
         plugins: [animateFill],
     });
+
+    delegate('#main', {
+        target: '[data-tippy-content]',
+        theme: 'emotion',
+        allowHTML: true,
+        placement: 'right',
+        animateFill: true,
+        plugins: [animateFill]
+    })
 }
 
 window.addEventListener('load', main);
