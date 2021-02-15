@@ -44,7 +44,7 @@ function main() {
         target: '[data-tippy-content]',
         theme: 'emotion',
         allowHTML: true,
-        placement: 'right',
+        placement: 'auto',
         animateFill: true,
         plugins: [animateFill]
     })
