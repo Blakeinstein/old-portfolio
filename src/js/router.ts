@@ -1,5 +1,5 @@
 import Navigo from 'navigo';
-import {html, render} from 'lit-html';
+import {html, render, TemplateResult} from 'lit-html';
 
 import aboutRender from './pages/about';
 
@@ -20,21 +20,21 @@ const transitionEvent = (() => {
     }
 })();
 
-const routes: {path: string, render: Function}[] = [{
+const routes: {path: string, render: TemplateResult}[] = [{
         path: 'about',
-        render: aboutRender
+        render: aboutRender()
     }, {
         path: 'projects',
-        render: () => html`<div>aaa</div>`
+        render: (() => html`<div>aaa</div>`)()
     }, {
         path: 'socials',
-        render: () => html`<div>bbb</div>`
+        render: (() => html`<div>bbb</div>`)()
     }, {
         path: 'contact',
-        render: () => html`<div>ccc</div>`
+        render: (() => html`<div>ccc</div>`)()
     }, {
         path: '^$',
-        render: () => html``
+        render: (() => html``)()
     },
 ]
 
@@ -46,7 +46,7 @@ routes.forEach(route => {
     router.on(route.path, () => {
         let temp = (e: Event) => {
             contentDom.removeEventListener(transitionEvent, temp, false);
-            render(route.render(), contentDom);
+            render(route.render, contentDom);
             contentDom.style.opacity = '1';
             contentDom.style.transform = 'translateY(0)';
         };
