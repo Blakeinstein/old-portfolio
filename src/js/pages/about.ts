@@ -23,12 +23,12 @@ let aboutRender = () => {
         </ul>
         <h4><i class="fas fa-angle-down"></i> Experience</h4>
         <ul class="experience">
-            <li> <div data-tippy-content="<a href='https://github.com/FOSSEE/Chemical-PFD'>Github</a>, <a href='https://static.fossee.in/fossee/fellowship2020/Fellowship-Reports/Python/Python-Chemical/Python-Chemical-RishikeshAnand-FSF-2020.pdf'>Report</a>">Intern at FOSSEE, IIT Bombay</div></li>
-            <li> <div data-tippy-content="<a href='https://github.com/Upvision/upvision.github.io'>Github</a>, <a href='https://upvision.co/'>Website</a>">Executive Member at UpVision, Tech club of NIT Delhi</div></li>
+            <li> <div data-tippy-content="<a href='https://github.com/FOSSEE/Chemical-PFD'><i class='fas fa-external-link-alt'></i> Github</a>, <a href='https://static.fossee.in/fossee/fellowship2020/Fellowship-Reports/Python/Python-Chemical/Python-Chemical-RishikeshAnand-FSF-2020.pdf'><i class='fas fa-external-link-alt'></i> Report</a>">Intern at FOSSEE, IIT Bombay</div></li>
+            <li> <div data-tippy-content="<a href='https://github.com/Upvision/upvision.github.io'><i class='fas fa-external-link-alt'></i> Github</a>, <a href='https://upvision.co/'><i class='fas fa-external-link-alt'></i> Website</a>">Executive Member at UpVision, Tech club of NIT Delhi</div></li>
         </ul>
         <div class="about-links">
-            <a class="ghostButton" href="https://drive.google.com/file/d/1MQjMb-XB-TLvx1LrGUSgP6O0sfBEodCF/view?usp=sharing">Resume</a>
-            <a class="ghostButton" href="/projects/" data-navigo>Projects</a>
+            <a class="ghostButton" href="https://drive.google.com/file/d/1MQjMb-XB-TLvx1LrGUSgP6O0sfBEodCF/view?usp=sharing"><i class="fas fa-file-download"></i> Resume</a>
+            <a class="ghostButton" href="/projects/" data-navigo>Projects <i class='fas fa-chevron-right'></i></a>
         </div>
     </div>
     <img src="${stars}" />
