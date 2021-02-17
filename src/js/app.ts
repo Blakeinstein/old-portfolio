@@ -46,6 +46,7 @@ function main() {
         allowHTML: true,
         placement: 'auto',
         animateFill: true,
+        interactive: true,
         plugins: [animateFill]
     })
 }
