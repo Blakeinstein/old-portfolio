@@ -2,6 +2,7 @@ import Navigo from 'navigo';
 import {html, render, TemplateResult} from 'lit-html';
 
 import aboutRender from './pages/about';
+import projectsRender from './pages/projects';
 
 const transitionEvent = (() => {
     var el: HTMLElement = document.createElement("faux");
@@ -25,7 +26,7 @@ const routes: {path: string, render: TemplateResult}[] = [{
         render: aboutRender()
     }, {
         path: 'projects',
-        render: (() => html`<div>aaa</div>`)()
+        render: projectsRender()
     }, {
         path: 'socials',
         render: (() => html`<div>bbb</div>`)()

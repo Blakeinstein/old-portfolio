@@ -16,9 +16,23 @@ $background: aliceblue;
         background: $background;
         color: black;
         border-radius: 5px;
-        box-shadow: 0 0 5px aliceblue,
-                    0 0 25px aliceblue,
-                    0 0 50px aliceblue,
-                    0 0 100px aliceblue;
+        box-shadow: 0 0 5px $background,
+                    0 0 25px $background,
+                    0 0 50px $background,
+                    0 0 100px $background;
+    }
+
+    &.invert{
+        border: 1px solid black;
+        color: black;
+
+        &:hover {
+            background: black;
+            color: $background;
+            box-shadow: 0 0 5px black,
+                    0 0 25px black,
+                    0 0 50px black,
+                    0 0 100px black;
+        }
     }
 }
