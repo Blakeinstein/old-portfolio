@@ -1,6 +1,6 @@
 import { html } from 'lit-html';
 
-import data from "../../data/projects.json"
+import data from "../../data/projects";
 
 const projectCard = (info: {
     'name': string,
