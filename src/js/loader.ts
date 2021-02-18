@@ -35,7 +35,7 @@ class Loader {
         this.manager.onLoad = this.load.bind(this);
         this.finalize = finalize;
         this.imagePreloader = new ImagePreloader();
-        this.imagePreloader.preload(data.map(i => i['image'] as string));
+        this.imagePreloader.preload(...data.map(i => i.image));
     }
 
     progress(url: string, loaded: number, total: number){

@@ -2,7 +2,14 @@ import * as bloop from "url:../assets/projects/bloop.png";
 import * as fuse from "url:../assets/projects/fuse.png";
 import * as pfd from "url:../assets/projects/pfd.png";
 
-export default [{
+const data: {
+    'name': string,
+    'description': string,
+    "lang": string[],
+    "libs": string[],
+    "url": string,
+    "image": string
+}[] = [{
     "name": "Bloop",
     "description": "An Aesthetic Scratchpad for developers.",
     "lang": ["Rust", "HTML", "CSS", "JS", "C/C++"],
@@ -24,3 +31,5 @@ export default [{
     "url": "https://github.com/FOSSEE/Chemical-PFD",
     "image": pfd
 }]
+
+export default data;
