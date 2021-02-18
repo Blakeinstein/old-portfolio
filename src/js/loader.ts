@@ -1,5 +1,20 @@
 import * as THREE from "three";
 
+import data from "../data/projects";
+
+
+class ImagePreloader {
+    images: HTMLImageElement[] = [];
+
+    preload(...args: string[]) {
+        [...args].forEach(uri => {
+            let img = new Image();
+            img.src = uri;
+            this.images.push(img);
+        })
+    }
+}
+
 class Loader {
     manager: THREE.LoadingManager;
     finalize: Function;
@@ -7,6 +22,7 @@ class Loader {
     progressBar: HTMLElement;
     progressDot: HTMLElement;
     percentage: HTMLElement;
+    imagePreloader: ImagePreloader
 
     constructor(finalize: Function) {
         this.loadingContainer = document.getElementById('loading-container');
@@ -18,6 +34,8 @@ class Loader {
         this.manager.onError = this.error.bind(this);
         this.manager.onLoad = this.load.bind(this);
         this.finalize = finalize;
+        this.imagePreloader = new ImagePreloader();
+        this.imagePreloader.preload(data.map(i => i['image'] as string));
     }
 
     progress(url: string, loaded: number, total: number){
