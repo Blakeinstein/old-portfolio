@@ -11,6 +11,7 @@ import Sketch from './sketch';
 import './router';
 
 function main() {
+    console.log("🚀 Coded with ❤ by Blaine.")
     const sketch: Sketch = new Sketch();
     // interactivity
     let content = $('#content');
