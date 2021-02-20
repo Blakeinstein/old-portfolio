@@ -21,7 +21,7 @@ $background: aliceblue;
                     0 0 50px $background,
                     0 0 100px $background;
 
-        >.fas {
+        >.fas, >svg  {
             filter: invert(0.8)
         }
     }
