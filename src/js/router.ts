@@ -3,6 +3,7 @@ import {html, render, TemplateResult} from 'lit-html';
 
 import aboutRender from './pages/about';
 import projectsRender from './pages/projects';
+import contactRender from './pages/contact';
 
 const transitionEvent = (() => {
     var el: HTMLElement = document.createElement("faux");
@@ -28,11 +29,11 @@ const routes: {path: string, render: TemplateResult}[] = [{
         path: 'projects',
         render: projectsRender()
     }, {
+        path: 'contact',
+        render: contactRender()
+    }, {
         path: 'socials',
         render: (() => html`<div>bbb</div>`)()
-    }, {
-        path: 'contact',
-        render: (() => html`<div>ccc</div>`)()
     }, {
         path: '^$',
         render: (() => html``)()
