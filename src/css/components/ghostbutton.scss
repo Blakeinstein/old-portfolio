@@ -20,6 +20,10 @@ $background: aliceblue;
                     0 0 25px $background,
                     0 0 50px $background,
                     0 0 100px $background;
+
+        >.fas {
+            filter: invert(0.8)
+        }
     }
 
     &.invert{
