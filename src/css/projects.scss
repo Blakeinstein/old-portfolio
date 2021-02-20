@@ -96,6 +96,9 @@ $card-background: rgba(0, 0, 0, 0.2);;
                 >.content {
                     transform: translateY(0);
                     transition-delay: 0.1s;
+                    >.name {
+                        height: initial;
+                    }
                 }
             }
 
@@ -143,8 +146,9 @@ $card-background: rgba(0, 0, 0, 0.2);;
             }
 
             >.name {
-                font-size: 3em;
+                font-size: 2.4em;
                 font-weight: bold;
+                height: 8em;
                 // text-transform: uppercase;
             }
 
