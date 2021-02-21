@@ -1,15 +1,27 @@
 import{ init, send } from 'emailjs-com';
 import { html } from 'lit-html';
+import tippy, {roundArrow} from 'tippy.js';
+import $ from "jquery";
 
 init("user_wird1j6wAcU6lj00aaLo9");
 
-const isSending = false;
+let isSending = false;
 
 function submit(e: Event) {
     e.preventDefault();
 
     if (isSending) return false;
-    if (!(document.getElementById('noSpam') as HTMLInputElement).checked) return false;
+    if (!(document.getElementById('noSpam') as HTMLInputElement).checked){
+        tippy('#noSpamDiv', {
+            content: "I am glad you are honest about being a spammer.",
+            inertia: true,
+            arrow: roundArrow,
+            placement: "top",
+            showOnCreate: true,
+            trigger: 'manual'
+        })
+        return false;
+    }
 
     let FD = new FormData(document.getElementById("contactForm") as HTMLFormElement);
     let params = {
@@ -19,12 +31,53 @@ function submit(e: Event) {
         message: FD.get('message'),
     }
 
-    alert("Success");
-    // send('main', 'base', params).then((res) => {
-    //     console.log(res);
-    // }, (err) => {
-    //     console.log(err);
-    // });
+    let proceed = true;
+    for ( let key in params ){
+        if (params[key].trim() == "") {
+            tippy(`#${key}>label`, {
+                content: "Field cannot be empty!",
+                inertia: true,
+                arrow: roundArrow,
+                placement: "top",
+                showOnCreate: true,
+                trigger: 'manual'
+            });
+            proceed = false;
+        }
+    }
+
+    if (proceed){
+        isSending = true;
+        send('main', 'base', params).then((res) => {
+            if (res.status == 200) {
+                $('#contactForm').fadeOut("slow", () => {
+                    $('#complete').fadeIn();
+                });
+            } else {
+                tippy('#submit', {
+                    content: `${res.status}: ${res.text}`,
+                    inertia: true,
+                    arrow: roundArrow,
+                    placement: "top",
+                    showOnCreate: true,
+                    trigger: 'manual'
+                });
+                proceed = false;
+            }
+            isSending = false;
+        }, (err) => {
+            tippy('#submit', {
+                content: `${err}`,
+                inertia: true,
+                arrow: roundArrow,
+                placement: "top",
+                showOnCreate: true,
+                trigger: 'manual'
+            });
+            isSending = false;
+        });
+    }
+    return proceed;
 }
 
 const contactRender = () => {
@@ -34,30 +87,32 @@ const contactRender = () => {
             <h4>Send me a message, regarding anything!</h4>
         </div>
         <div class="formBox">
-            <div class="final-message">
-                <h1>Thanks!</h1>
-                <h4>I will try to get back as soon as possible!</h4>
+            <div id="complete" class="final-message">
+                <div class="final-message">
+                    <h1>Thanks!</h1>
+                    <h4>I will try to get back as soon as possible!</h4>
+                </div>
             </div>
             <form id="contactForm">
                 <div class="row">
-                    <div class="name">
+                    <div class="name" id="name">
                         <label for="name">Name</label><br>
-                        <input type="text" id="name" name="name"required placeholder="Your Name" >
+                        <input type="text" name="name"required placeholder="Your Name" >
                     </div>
-                    <div class="email">
+                    <div class="email" id="email">
                         <label for="email">Email</label><br>
-                        <input type="email" id="email" name="email" placeholder="Email address" pattern="^\S+@\S+$">
+                        <input type="email" name="email" placeholder="Email address" pattern="^\S+@\S+$">
                     </div>
                 </div>
-                <div class="row subject">
+                <div class="row subject" id="subject">
                     <label for="subject">Subject</label><br>
-                    <input type="text" id="subject" name="subject" placeholder="Choose Subject">
+                    <input type="text" name="subject" placeholder="Choose Subject">
                 </div>
-                <div class="row message">
+                <div class="row message" id="message" >
                     <label for="message">Message</label><br>
-                    <textarea id="Message" name="message" placeholder="Start typing here" required></textarea>
+                    <textarea name="message" placeholder="Start typing here" required></textarea>
                 </div>
-                <div class="row">
+                <div class="row" id="noSpamDiv">
                     <input type="checkbox" name="confidence" id="noSpam" required>
                     <label for="noSpam">I solemnly swear I am not a troll..</label>
                 </div>
