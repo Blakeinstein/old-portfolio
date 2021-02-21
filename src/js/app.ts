@@ -2,8 +2,9 @@ window['projectPages'] = false;
 
 import $ from "jquery";
 import '@fortawesome/fontawesome-free/css/all.css'
-import tippy, {animateFill, delegate} from 'tippy.js';
+import tippy, {animateFill, delegate, roundArrow} from 'tippy.js';
 import 'tippy.js/dist/tippy.css';
+import 'tippy.js/dist/svg-arrow.css';
 import 'tippy.js/animations/shift-away.css';
 import 'ghspa';
 
@@ -45,10 +46,9 @@ function main() {
         target: '[data-tippy-content]',
         theme: 'emotion',
         allowHTML: true,
+        arrow: roundArrow,
         placement: 'auto',
-        animateFill: true,
         interactive: true,
-        plugins: [animateFill]
     })
 }
 
