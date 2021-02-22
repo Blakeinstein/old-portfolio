@@ -44,6 +44,7 @@ function main() {
 
     delegate('#main', {
         target: '[data-tippy-content]',
+        appendTo: () => document.body,
         theme: 'emotion',
         allowHTML: true,
         arrow: roundArrow,
