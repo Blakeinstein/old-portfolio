@@ -11,18 +11,24 @@
         justify-content: space-around;
         width: 100%;
 
-        >ul {
-            width: 40%;
-            text-align: center;
+        >.section {
+            display: flex;
+            flex-flow: column-reverse nowrap;
+            justify-content: center;
+            align-items: center;
+            width: 45%;
 
-            &::before {
+            >span {
                 display: block;
                 text-align: center;
                 margin-bottom: 10px;
             }
-        }
+        } 
 
         .icons {
+            text-align: center;
+            filter: url('#goo');
+
             >li {
                 display: inline-block;
                 padding: 0;
@@ -38,22 +44,6 @@
                     box-shadow: 0 0px 2px rgba(255, 255, 255, 0.56);
                 }
             }
-        }
-
-        .social-media::before {
-            content: 'Social';
-        }
-
-        .productivity::before {
-            content: 'Productivity';
-        }
-
-        .gaming::before {
-            content: 'Gaming';
-        }
-
-        .other::before {
-            content: 'Other';
         }
 
         .fa-linkedin-in{
