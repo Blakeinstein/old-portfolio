@@ -31,7 +31,7 @@ function main() {
         }
     });
 
-    tippy('[data-tippy-content]', {
+    tippy('[main-tooltip]', {
         theme: 'space',
         appendTo: () => document.body,
         allowHTML: true,
@@ -43,7 +43,7 @@ function main() {
     });
 
     delegate('#main', {
-        target: '[data-tippy-content]',
+        target: '[emotion-tool-tip]',
         appendTo: () => document.body,
         theme: 'emotion',
         allowHTML: true,
