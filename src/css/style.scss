@@ -67,6 +67,9 @@ body{
     background-color: black;
     font-family: 'Roboto Mono', monospace;
     font-weight: 200;
+    >svg {
+        display: none;
+    }
 }
 
 /* -------Loading Container----------- */
