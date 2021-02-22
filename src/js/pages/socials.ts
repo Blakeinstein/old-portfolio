@@ -4,7 +4,7 @@ const socialsRender = () => {
     return html`<div id="socials">
         <div class="row">
             <ul class="icons social-media">
-                <li><a class="fab fa-linkedin-square" data-tippy-content="Linkedin" href="https://www.linkedin.com/in/blakeinstein/"></a></li>
+                <li><a class="fab fa-linkedin-in" data-tippy-content="Linkedin" href="https://www.linkedin.com/in/blakeinstein/"></a></li>
                 <li><a class="fab fa-twitter" data-tippy-content="Twitter" href="https://twitter.com/BlaineSensei"></a></li>
                 <li><a class="fab fa-reddit-alien" data-tippy-content="Reddit" href="https://reddit.com/u/sigiz"></a></li>
                 <li><a class="fab fa-instagram" data-tippy-content="Instagram" href="https://www.instagram.com/blainesensei/"></a></li>
