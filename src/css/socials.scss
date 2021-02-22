@@ -1,0 +1,96 @@
+#socials {
+    width: 90%;
+    height: 90%;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-around;
+
+    >.row {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-around;
+        width: 100%;
+
+        >ul {
+            width: 40%;
+            text-align: center;
+
+            &::before {
+                display: block;
+                text-align: center;
+                margin-bottom: 10px;
+            }
+        }
+
+        .icons {
+            >li {
+                display: inline-block;
+                padding: 0;
+
+                >a, svg {
+                    height: 50px;
+                    width: 50px;
+                    line-height: 50px;
+                    font-size: 1.8em;
+                    text-align: center;
+                    border-radius: 50%;
+                    color: rgba(255, 255, 255, 0.8);
+                    box-shadow: 0 0px 2px rgba(255, 255, 255, 0.56);
+                }
+            }
+        }
+
+        .social-media::before {
+            content: 'Social';
+        }
+
+        .productivity::before {
+            content: 'Productivity';
+        }
+
+        .gaming::before {
+            content: 'Gaming';
+        }
+
+        .other::before {
+            content: 'Other';
+        }
+
+        .fa-linkedin-in{
+            background: #0085AE;
+        }
+        .fa-twitter{
+            background: #32CCFE;
+        }
+        .fa-reddit-alien{
+            background: #F74300;
+        }
+        .fa-instagram{
+            background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%);;
+        }
+        .fa-github{
+            background: #070709;
+        }
+        .fa-stack-overflow{
+            background: #FF7300;
+        }
+        .fa-steam{
+            background: linear-gradient(120deg, #00adee, #000000);;
+        }
+        .fa-discord{
+            background: #8697F6;
+        }
+        .fa-battle-net{
+            background: #2E60B4;
+        }
+        .fa-anime{
+            background: #0085AE;
+        }
+        .fa-soundcloud{
+            background: #F75219;
+        }
+        .fa-spotify{
+            background: #1ED760;
+        }
+    }
+}
