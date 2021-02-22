@@ -1,3 +1,5 @@
+$size: 60px;
+
 #socials {
     width: 90%;
     height: 90%;
@@ -28,17 +30,18 @@
         .icons {
             text-align: center;
             filter: url('#goo');
+            display: flex;
+            align-items: center;
 
             >li {
                 display: inline-block;
                 padding: 0;
-                vertical-align: middle;
 
                 >a, svg {
-                    height: 50px;
-                    width: 50px;
-                    line-height: 50px;
-                    font-size: 1.8em;
+                    height: $size;
+                    width: $size;
+                    line-height: $size;
+                    font-size: 2em;
                     text-align: center;
                     border-radius: 50%;
                     color: rgba(255, 255, 255, 0.8);
