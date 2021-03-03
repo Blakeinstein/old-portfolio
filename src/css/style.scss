@@ -88,10 +88,10 @@ body{
 
     #loading-logo {
         position: absolute;
-        height: 40vw;
-        width: 40vw;
+        height: 40vh;
+        width: 40vh;
         top: 10vw;
-        left: 30vw;
+        left: calc(50vw - 20vh);
 
         >img {
             height: 100%;
