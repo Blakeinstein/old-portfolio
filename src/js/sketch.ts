@@ -7,7 +7,7 @@ import assets from './assets';
 import Loader from './loader';
 
 class StarField {
-	geometry: THREE.Geometry
+	geometry: THREE.BufferGeometry
 	material: THREE.Material
 	mesh: THREE.Points
 	shape: THREE.Vector3
@@ -23,7 +23,7 @@ class StarField {
 	}) {
 		this.shape = options.shape;
 
-		this.geometry = new THREE.Geometry();
+		this.geometry = new THREE.BufferGeometry();
 		this.material = new THREE.PointsMaterial({
 			color: options.color,
 			size: options.size,
@@ -31,14 +31,14 @@ class StarField {
 			transparent: true,
 		});
 
+		let vertices = [];
+
 		for (let i=0; i<options.count; i++){
-			let star = new THREE.Vector3(
-				Math.random()*this.shape.x - this.shape.x/2,
-				Math.random()*this.shape.y - this.shape.y/2,
-				Math.random()*this.shape.z - this.shape.z/2
-			);
-			this.geometry.vertices.push(star);
+			vertices.push(Math.random()*this.shape.x - this.shape.x/2);
+			vertices.push(Math.random()*this.shape.y - this.shape.y/2);
+			vertices.push(Math.random()*this.shape.z - this.shape.z/2);
 		}
+		this.geometry.setAttribute('position', new THREE.BufferAttribute( new Float32Array(vertices), 3 ))
 		this.mesh = new THREE.Points(this.geometry, this.material);
 		this.nebula = new THREE.Mesh(new THREE.BoxBufferGeometry(2000, 2000, 2000), options.nebula.map(tex => {
 			return new THREE.MeshBasicMaterial({
@@ -48,6 +48,17 @@ class StarField {
 				depthWrite: false
 			});
 		}));
+	}
+}
+
+MeshLine.prototype.setGeometry = function(g: THREE.BufferGeometry) {
+	// as the input geometry are mutated we store them
+	// for later retreival when necessary (declaritive architectures)
+	this._geometry = g;
+	if (g instanceof THREE.BufferGeometry) {
+		this.setPoints(g.getAttribute("position").array);
+	} else {
+		this.setPoints(g);
 	}
 }
 
@@ -124,7 +135,7 @@ class Sketch {
 
 		this.camera.position.set(0, 0, 500);
 		this.controls = new TrackballControls(
-			this.camera as THREE.PerspectiveCamera,
+			this.camera as THREE.Camera,
 			this.renderer.domElement,
 			);
 		this.controls.maxDistance = 900;
@@ -185,9 +196,9 @@ class Sketch {
 		this.moon.add(this.skybox.nebula);
 	}
 
-	createShapes(a: THREE.Vector3, b: THREE.Vector3, c: THREE.Vector3) {
-		let geom = new THREE.Geometry();
-		geom.vertices.push(a, b, c, a);
+	createShapes(a: number[], b: number[], c: number[]) {
+		let geom = new THREE.BufferGeometry();
+		geom.setAttribute('position', new THREE.BufferAttribute( new Float32Array([...a, ...b, ...c, ...a]), 3));
 
 		let line = new MeshLine();
 		line.setGeometry(geom);
@@ -228,8 +239,8 @@ class Sketch {
 		this.createSkybox();
 
 		this.shapes = [];
-		this.createShapes(new THREE.Vector3(-130, 80, 0), new THREE.Vector3(170, 200, 0), new THREE.Vector3(100, -80, 0));
-		this.createShapes(new THREE.Vector3(-150, 30, 0), new THREE.Vector3(120, 145, 0), new THREE.Vector3(40, -130, 0));
+		this.createShapes([-130, 80, 0], [170, 200, 0], [100, -80, 0]);
+		this.createShapes([-150, 30, 0], [120, 145, 0], [40, -130, 0]);
 		this.scene.add(this.light);
 
 		let highlight = new THREE.AmbientLight(0x6fd6de, 0.1);
