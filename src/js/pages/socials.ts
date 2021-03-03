@@ -2,8 +2,8 @@ import { html } from 'lit-html';
 
 const socialsRender = () => {
     return html`<div id="socials">
-        <div class="row">
-            <div class="section social-media">
+        <ul>
+            <li class="section social-media">
                 <span>Social</span>
                 <ul class="icons">
                     <li><a class="fab fa-linkedin-in" emotion-tool-tip data-tippy-content="Linkedin" href="https://www.linkedin.com/in/blakeinstein/"></a></li>
@@ -11,25 +11,23 @@ const socialsRender = () => {
                     <li><a class="fab fa-reddit-alien" emotion-tool-tip data-tippy-content="Reddit" href="https://reddit.com/u/sigiz"></a></li>
                     <li><a class="fab fa-instagram" emotion-tool-tip data-tippy-content="Instagram" href="https://www.instagram.com/blainesensei/"></a></li>
                 </ul>
-            </div>
-            <div class="section productivity">
+            </li>
+            <li class="section productivity">
                 <span>Productivity</span>
                 <ul class="icons">
                     <li><a class="fab fa-github" emotion-tool-tip data-tippy-content="Github" href="https://github.com/Blakeinstein"></a></li>
                     <li><a class="fab fa-stack-overflow" emotion-tool-tip data-tippy-content="StackOverFlow" href="https://stackoverflow.com/users/7799568/blaine"></a></li>
                 </ul>
-            </div>
-        </div>
-        <div class="row">
-            <div class="section gaming">
+            </li>
+            <li class="section gaming">
                 <span>Gaming</span>
                 <ul class="icons">
                     <li><a class="fab fa-steam" emotion-tool-tip data-tippy-content="Steam" href="https://steamcommunity.com/id/BlaineSensei/"></a></li>
                     <li><a class="fab fa-discord" emotion-tool-tip data-tippy-content="Discord Tag : Blaine#6960"></a></li>
                     <li><a class="fab fa-battle-net" emotion-tool-tip data-tippy-content="Battle.net Tag : Blaine#22648"></a></li>
                 </ul>
-            </div>
-            <div class="section other">
+            </li>
+            <li class="section other">
                 <span>Other</span>
                 <ul class="icons">
                     <li><a class="fab fa-anime" emotion-tool-tip data-tippy-content="MyAnimeList" href="https://myanimelist.net/profile/Blakeinstein">
@@ -38,8 +36,8 @@ const socialsRender = () => {
                     <li><a class="fab fa-soundcloud" emotion-tool-tip data-tippy-content="SoundCloud" href="https://soundcloud.com/blakeinstein"></a></li>
                     <li><a class="fab fa-spotify" emotion-tool-tip data-tippy-content="Spotify" href="https://open.spotify.com/user/c3fph9vexjdfvvdmh7h9kjdqv"></a></li>
                 </ul>
-            </div>
-        </div>
+            </li>
+        </ul>
     </div>"`
 }
 
