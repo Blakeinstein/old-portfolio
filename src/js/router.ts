@@ -6,22 +6,7 @@ import projectsRender from './pages/projects';
 import contactRender from './pages/contact';
 import socialsRender from './pages/socials';
 
-const transitionEvent = (() => {
-    var el: HTMLElement = document.createElement("faux");
-  
-    var transitions:Record<string, string> = {
-      "transition"      : "transitionend",
-      "OTransition"     : "oTransitionEnd",
-      "MozTransition"   : "transitionend",
-      "WebkitTransition": "webkitTransitionEnd"
-    }
-  
-    for (let t in transitions){
-      if (el.style[t] !== undefined){
-        return transitions[t];
-      }
-    }
-})();
+import { transitionEvent } from './utils';
 
 const routes: {path: string, render: TemplateResult}[] = [{
         path: 'about',

@@ -10,11 +10,14 @@
 </head>
 <body>
     <div id="loading-container">
-        <svg height="100" width="100">
-            <circle stroke-width="2" stroke="aliceblue" fill="transparent" r="46" cx="50" cy="50" />
-        </svg>
-        <div id="progressDot"></div>
-        <div id="percentage">0%</div>
+        <div id="loading-logo">
+            <img src="./assets/logo.svg"/> 
+        </div>
+        <div id="loading-bar">
+            <svg class="loading-bar-inner" width="60px" height="60px" viewBox="0 0 80 80">
+				<path id="loading-bar-circle" class="loading-bar-circle" stroke-width="6" stroke="aliceblue" fill="transparent" d="M40,10C57.351,10,71,23.649,71,40.5S57.351,71,40.5,71 S10,57.351,10,40.5S23.649,10,40.5,10z"/>
+			</svg>
+        </div>
     </div>
     <div id="hero-background"></div>
     <div id="content">

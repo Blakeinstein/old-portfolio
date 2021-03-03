@@ -82,60 +82,36 @@ body{
     text-align: center;
     color: #ffffff;
     font-family: 'Fira Mono', monospace;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     letter-spacing: .1em;
     visibility: visible;
     opacity: 1;
 
-    &.hide {
-        opacity: 0;
-        visibility: hidden;
-        transition: all 2s 1s ease-in-out;
-    }
-
-    >svg>circle {
-        transform: rotate(-90deg);
-        transform-origin: 50% 50%;
-        stroke-dasharray: 289 289;
-        stroke-dashoffset: 289;
-        transition: stroke-dashoffset 0.2s ease;
-    }
-
-    >#progressDot {
+    #loading-logo {
         position: absolute;
-        top: 50%;
-        left: 50%;
-        height: 0px;
-        width: 0px;
-        transform-origin: 50% 50%;
-        transition: transform 0.2s ease;
+        height: 40%;
+        top: 10%;
+        left: 30%;
 
-        &:before {
-            content: "";
-            border-radius: 20px;
-            background-color: aliceblue;
-            height: 6px;
-            width: 6px;
-            transform-origin: center center;
-            position: relative;
-            display: block;
-            top: -49px;
-            left: -3px;
-            
-            box-shadow:
-              0 0 20px 2px aliceblue,
-              0 0 40px 4px skyblue;
+        >img {
+            height: 100%;
         }
     }
 
-    #percentage {
+    #loading-bar {
+        stroke: slateblue;
         position: absolute;
+        top: 60%;
+        left: 50%;
+        transform: translateX(-50%);
+    }
 
-        .hide {
-            opacity: 0;
-            visibility: hidden;
+    &.hide {
+        opacity: 0;
+        visibility: hidden;
+        transition: all 3s 1.5s ease-in-out;
+
+        >#loading-logo {
+            transition: all 1s ease-out;
         }
     }
 }
@@ -191,7 +167,6 @@ body{
 
         >.search {
             height: 2em;
-            width: 80px;
             
             >#toggleScene {
                 position: relative;
