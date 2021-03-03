@@ -61,6 +61,7 @@ class Loader {
             let innerLogo = (document.querySelector(".logo>a>img") as HTMLElement).getBoundingClientRect();
             let loaderLogo = document.getElementById("loading-logo");
             loaderLogo.style.height = String(innerLogo.height) + 'px';
+            loaderLogo.style.width = String(innerLogo.width) + 'px';
             loaderLogo.style.top = String(innerLogo.top) + 'px';
             loaderLogo.style.left = String(innerLogo.left) + 'px';
         }, 0);
