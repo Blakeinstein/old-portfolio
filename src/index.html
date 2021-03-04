@@ -6,6 +6,7 @@
     <title>Blaine</title>
     <link rel="icon" type="image/svg+xml" href="./assets/logo.svg">
     <link rel="stylesheet" href="css/style.scss">
+    <script src="js/redirect.ts"></script>
     <script type="module" src="js/app.ts" async></script>
 </head>
 <body>
@@ -61,14 +62,6 @@
             </div>
         </div>
     </div>
-    <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
-        <defs>
-            <filter id="goo">
-                <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
-                <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="goo" />
-                <feComposite in="SourceGraphic" in2="goo" operator="atop"/>
-            </filter>
-        </defs>
-    </svg>
+    <a style="display: hidden;" href="./404.html"></a>
 </body>
 </html>
