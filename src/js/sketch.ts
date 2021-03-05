@@ -45,7 +45,8 @@ class StarField {
 				map: tex,
 				side: THREE.BackSide,
 				fog: false,
-				depthWrite: false
+				depthWrite: false,
+				color: 0xababab,
 			});
 		}));
 	}
@@ -243,7 +244,7 @@ class Sketch {
 		this.createShapes([-150, 30, 0], [120, 145, 0], [40, -130, 0]);
 		this.scene.add(this.light);
 
-		let highlight = new THREE.AmbientLight(0x6fd6de, 0.1);
+		let highlight = new THREE.AmbientLight(0x6fd6de, 0.01);
 		this.scene.add(highlight);
 
 		this.render();
