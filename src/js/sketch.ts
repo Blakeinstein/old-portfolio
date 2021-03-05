@@ -9,6 +9,8 @@ import Loader from './loader';
 
 import { transitionEvent } from './utils';
 
+THREE.Cache.enabled = true; // enable caching
+
 class StarField {
 	geometry: THREE.BufferGeometry
 	material: THREE.Material
