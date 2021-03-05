@@ -49,7 +49,6 @@ class StarField {
 				side: THREE.BackSide,
 				fog: false,
 				depthWrite: false,
-				color: 0xababab,
 			});
 		}));
 	}
