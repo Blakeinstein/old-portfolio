@@ -31,7 +31,7 @@ let aboutRender = () => {
             <a class="ghostButton" href="/projects/" data-navigo>Projects <i class='fas fa-chevron-right'></i></a>
         </div>
     </div>
-    <img src="${stars}" />
+    <img src="${stars}" alt="Stars" />
 </div>`
 }
 

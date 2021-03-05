@@ -12,7 +12,7 @@ const projectCard = (info: {
 }) => {
     return html`<div class="card">
         <div class="content">
-            <div class="preview-image"><img src=${info.image} /></div>
+            <div class="preview-image"><img src=${info.image} alt=${info.name}/></div>
             <div class="name">${info.name}</div>
             <div class="tech">
                 <div class="languages">${info.lang.join(", ")}</div>
