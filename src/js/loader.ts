@@ -2,8 +2,6 @@ import * as THREE from "three";
 
 import data from "../data/projects";
 
-import { transitionEvent } from './utils';
-
 class ImagePreloader {
     images: HTMLImageElement[] = [];
 
@@ -48,7 +46,6 @@ class Loader {
 
     progress(url: string, loaded: number, total: number){
         let progress = loaded/total;
-        // work around for parcel svg minify removing ids on svgs in production
         this.progressBar.style.strokeDashoffset = String(this.totalLength * ( 1 - progress ));
     }
 
@@ -57,7 +54,6 @@ class Loader {
         
         setTimeout(() => {
             this.loadingContainer.classList.add('hide');
-
             let innerLogo = (document.querySelector(".logo>a>img") as HTMLElement).getBoundingClientRect();
             let loaderLogo = document.getElementById("loading-logo");
             loaderLogo.style.height = String(innerLogo.height) + 'px';

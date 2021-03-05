@@ -2,9 +2,12 @@ import * as THREE from "three";
 import { MeshLine, MeshLineMaterial } from "three.meshline";
 import { TrackballControls } from "three/examples/jsm/controls/TrackballControls";
 import * as POSTPROCESSING from "postprocessing";
+import { gsap } from "gsap";
 
 import assets from './assets';
 import Loader from './loader';
+
+import { transitionEvent } from './utils';
 
 class StarField {
 	geometry: THREE.BufferGeometry
@@ -134,7 +137,7 @@ class Sketch {
 			65536 // far
 		);
 
-		this.camera.position.set(0, 0, 500);
+		this.camera.position.set(0, 0, 1200);
 		this.controls = new TrackballControls(
 			this.camera as THREE.Camera,
 			this.renderer.domElement,
@@ -247,7 +250,23 @@ class Sketch {
 		let highlight = new THREE.AmbientLight(0x6fd6de, 0.01);
 		this.scene.add(highlight);
 
+		let temp = () => {
+			this.loader.loadingContainer.removeEventListener(transitionEvent, temp);
+			this.transitionIn();
+		}
+
+		this.loader.loadingContainer.addEventListener(transitionEvent, temp);
+
 		this.render();
+	}
+
+	transitionIn(){
+		gsap.to(this.camera.position, {
+			delay: 1,
+			duration: 3,
+			z: 500,
+			ease: "expo.out"
+		});
 	}
 
 	render() {
