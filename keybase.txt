@@ -1,0 +1,56 @@
+==================================================================
+https://keybase.io/blakeinstein
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://blaine.is-a.dev
+  * I am blakeinstein (https://keybase.io/blakeinstein) on keybase.
+  * I have a public key ASDFSwy_9e8cbJ7UpL9ZpIh2CvMOwB-UHY-iunqaE1zTDwo
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "0120c54b0cbff5ef1c6c9ed4a4bf59a488760af30ec01f941d8fa2ba7a9a135cd30f0a",
+      "host": "keybase.io",
+      "kid": "0120c54b0cbff5ef1c6c9ed4a4bf59a488760af30ec01f941d8fa2ba7a9a135cd30f0a",
+      "uid": "87d737b59c0b7b6b10b49638c32d4a19",
+      "username": "blakeinstein"
+    },
+    "merkle_root": {
+      "ctime": 1615300969,
+      "hash": "cab9bef21eadcc77c231710bfd04e4d01d2d258b81f07cbb3bb339af1becd4802532f2d11209a302a579197b60794078bf7387fefbb468cbb18f70b8a9cc18c5",
+      "hash_meta": "fa889dc5f350a48545323dda1afae4a59d9f3489214f2ab09670ea611a26c4dd",
+      "seqno": 19329858
+    },
+    "service": {
+      "entropy": "0T4z3VAkerOaSLv1vfZW4+2N",
+      "hostname": "blaine.is-a.dev",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 2
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "5.6.0"
+  },
+  "ctime": 1615300980,
+  "expire_in": 504576000,
+  "prev": "3a529b892b636a87c15d859e24960e1459ed7940172fa257ba2980a4f35b6541",
+  "seqno": 7,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgxUsMv/XvHGye1KS/WaSIdgrzDsAflB2Porp6mhNc0w8Kp3BheWxvYWTESpcCB8QgOlKbiStjaofBXYWeJJYOFFnteUAXL6JXuimApPNbZUHEIO+/73r1EdCyLdnTIu426hBuhP8Mgzntl+j1hTaHuPLSAgHCo3NpZ8RACUVRhMxvz7ekQL7e8DlxHT6xuNqAsWjr/YwrBtgeQHMIXu46EC2FIx+2PdFCtdm2j9truENvIOO0dcq6xCLCAahzaWdfdHlwZSCkaGFzaIKkdHlwZQildmFsdWXEIPwZsYniIi0dGehVI/2KXCVTxdkBnP+LHZbWtnTCeEblo3RhZ80CAqd2ZXJzaW9uAQ==
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/blakeinstein
+
+==================================================================
