@@ -109,6 +109,10 @@ body{
         transform: translateX(-50%);
     }
 
+    .loading-bar-circle {
+        transition: stroke-dashoffset 1s ease-in-out;
+    }
+
     &.hide {
         opacity: 0;
         visibility: hidden;
