@@ -24,7 +24,14 @@ class StarField {
 		color: THREE.Color | number,
 		shape: THREE.Vector3,
 		star: THREE.Texture,
-		nebula: THREE.Texture[]
+		nebula: {
+			right: THREE.Texture,
+			left: THREE.Texture,
+			top: THREE.Texture,
+			bottom: THREE.Texture,
+			front: THREE.Texture,
+			back: THREE.Texture
+		}
 	}) {
 		this.shape = options.shape;
 
@@ -45,15 +52,17 @@ class StarField {
 		}
 		this.geometry.setAttribute('position', new THREE.BufferAttribute( new Float32Array(vertices), 3 ))
 		this.mesh = new THREE.Points(this.geometry, this.material);
-		this.nebula = new THREE.Mesh(new THREE.BoxBufferGeometry(2000, 2000, 2000), options.nebula.map(tex => {
-			return new THREE.MeshBasicMaterial({
-				map: tex,
-				side: THREE.BackSide,
-				fog: false,
-				depthWrite: false,
-				color: 0x89abab
-			});
-		}));
+		this.nebula = new THREE.Mesh(new THREE.BoxBufferGeometry(2000, 2000, 2000), 
+			['right', 'left', 'top', 'bottom', 'front', 'back'].map(tex => {
+				return new THREE.MeshBasicMaterial({
+					map: options.nebula[tex],
+					side: THREE.BackSide,
+					fog: false,
+					depthWrite: false,
+					color: 0x89abab
+				});
+			})
+		);
 	}
 }
 
@@ -90,7 +99,14 @@ class Sketch {
 			texture: THREE.Texture,
 			normal: THREE.Texture
 		},
-		starfield: THREE.Texture[],
+		starfield: {
+			right: THREE.Texture,
+			left: THREE.Texture,
+			top: THREE.Texture,
+			bottom: THREE.Texture,
+			front: THREE.Texture,
+			back: THREE.Texture
+		},
 		starSprite: THREE.Texture
 	};
 	skybox: StarField;
@@ -105,14 +121,25 @@ class Sketch {
 		let textureLoader = new THREE.TextureLoader(this.loader.manager);
 		this.textures = {
 			moon: {
-				texture: textureLoader.load(assets.moon.texture),
-				normal: textureLoader.load(assets.moon.normal),
+				texture: null,
+				normal: null
 			},
-			starfield: assets.starfield.map(tex => {
-				return textureLoader.load(tex);
-			}),
-			starSprite: textureLoader.load(assets.starSprite),
-		}
+			starfield: {
+				right: null,
+				left: null,
+				top: null,
+				bottom: null,
+				front: null,
+				back: null
+			},
+			starSprite: null
+		};
+		textureLoader.loadAsync(assets.moon.texture).then(res => this.textures.moon['texture'] = res);
+		textureLoader.loadAsync(assets.moon.normal).then(res => this.textures.moon['normal'] = res);
+		['right', 'left', 'top', 'bottom', 'front', 'back'].forEach(tex => 
+			textureLoader.loadAsync(assets.starfield[tex]).then(res => this.textures.starfield[tex] = res)
+		);
+		textureLoader.loadAsync(assets.starSprite).then(res => this.textures.starSprite = res);
 
 		this.scene = new THREE.Scene();
 		this.renderer = new THREE.WebGLRenderer({
