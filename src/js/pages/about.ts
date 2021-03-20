@@ -27,7 +27,7 @@ let aboutRender = () => {
             <li> <div emotion-tool-tip data-tippy-content="<a href='https://github.com/Upvision/upvision.github.io'><i class='fas fa-external-link-alt'></i> Github</a>, <a href='https://upvision.co/'><i class='fas fa-external-link-alt'></i> Website</a>">Executive Member at UpVision, Tech club of NIT Delhi</div></li>
         </ul>
         <div class="about-links">
-            <a class="ghostButton" href="https://drive.google.com/file/d/1MQjMb-XB-TLvx1LrGUSgP6O0sfBEodCF/view?usp=sharing"><i class="fas fa-file-download"></i> Resume</a>
+            <a class="ghostButton" href="https://drive.google.com/drive/folders/1nCs0CvLj4XF8r7D83KCzVKvYSq0SQOP2?usp=sharing"><i class="fas fa-file-download"></i> Resume</a>
             <a class="ghostButton" href="/projects/" data-navigo>Projects <i class='fas fa-chevron-right'></i></a>
         </div>
     </div>
