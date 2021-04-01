@@ -13,8 +13,8 @@ export default {
         texture: moonTexture,
         normal: moonNormal,
     },
-    starfield: {
+    starfield: [
         right, left, top, bottom, front, back
-    },
+    ],
     starSprite
 };
