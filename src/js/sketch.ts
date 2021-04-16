@@ -2,7 +2,7 @@ import * as THREE from "three";
 import { MeshLine, MeshLineMaterial } from "three.meshline";
 import { TrackballControls } from "three/examples/jsm/controls/TrackballControls";
 import * as POSTPROCESSING from "postprocessing";
-import { gsap } from "gsap";
+import anime from 'animejs/lib/anime.es.js';
 
 import assets from './assets';
 import Loader from './loader';
@@ -263,11 +263,12 @@ class Sketch {
 	}
 
 	transitionIn(){
-		gsap.to(this.camera.position, {
-			delay: 1,
-			duration: 3,
+		anime({
+			targets: this.camera.position,
 			z: 500,
-			ease: "expo.out"
+			delay: 1000,
+			duration: 3000,
+			easing: "easeOutExpo"
 		});
 	}
 
