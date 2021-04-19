@@ -25,6 +25,7 @@ function main() {
             sketch.container.style.zIndex = '-1';  
             $(this).removeClass('fa-toggle-on');
             $(this).addClass('fa-toggle-off');
+            sketch.resetCam();
         }
     });
 

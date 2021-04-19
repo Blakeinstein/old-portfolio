@@ -54,7 +54,7 @@ class Loader {
         
         setTimeout(() => {
             this.loadingContainer.classList.add('hide');
-            let innerLogo = (document.querySelector(".logo>a>img") as HTMLElement).getBoundingClientRect();
+            let innerLogo = (document.querySelector(".logo>img") as HTMLElement).getBoundingClientRect();
             let loaderLogo = document.getElementById("loading-logo");
             loaderLogo.style.height = String(innerLogo.height) + 'px';
             loaderLogo.style.width = String(innerLogo.width) + 'px';

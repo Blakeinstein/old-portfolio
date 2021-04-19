@@ -139,7 +139,7 @@ class Sketch {
 			65536 // far
 		);
 
-		this.camera.position.set(0, 0, 1200);
+		this.resetCam();
 		this.controls = new TrackballControls(
 			this.camera as THREE.Camera,
 			this.renderer.domElement,
@@ -164,6 +164,10 @@ class Sketch {
 		this.renderer.setSize(this.width, this.height);
 		this.camera.aspect = this.width / this.height;
 		this.camera.updateProjectionMatrix();
+	}
+
+	resetCam() {
+		this.camera.position.set(0, 0, 1200);
 	}
 
 	createMoon(): THREE.Mesh {
