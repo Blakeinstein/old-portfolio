@@ -6,7 +6,11 @@ import projectsRender from './pages/projects';
 import contactRender from './pages/contact';
 import socialsRender from './pages/socials';
 
+import Navbar from './components/navbar';
+
 import { transitionEvent } from './utils';
+
+const navbar: Navbar = new Navbar();
 
 const routes: {path: string, render: TemplateResult}[] = [{
         path: 'about',
@@ -35,6 +39,7 @@ routes.forEach(route => {
         let temp = (e: Event) => {
             contentDom.removeEventListener(transitionEvent, temp, false);
             render(route.render, contentDom);
+            navbar.hide();
             contentDom.style.opacity = '1';
             contentDom.style.transform = 'translateY(0)';
         };
