@@ -22,30 +22,30 @@ class Navbar {
     click() {
         this.burger.css('pointer-events', 'none');
         this.nav.toggleClass('navbar-active');
+        let tl = anime.timeline();
         if (this.folded) {
-            this.show();
+            this.show(tl);
         } else {
-            this.hide();
+            this.hide(tl);
         }
     }
 
-    show() {
+    show(tl: any) {
         if (!this.folded) return;
-        let tl = anime.timeline();
         this.topBar.removeClass('animate-out-top-bar').addClass('animate-top-bar');
         this.middleBar.removeClass('animate-out-middle-bar').addClass('animate-middle-bar');
         this.bottomBar.removeClass('animate-out-bottom-bar').addClass('animate-bottom-bar');
         this.nav.removeClass('overlay-slide-up').addClass('overlay-slide-down');
         tl.add({
             targets: '.navbar',
-            duration: 200,
+            duration: 100,
             height: '100vh',
             easing: 'easeInSine'
         });
         tl.add({
             targets: 'nav>ul>li',
             stagger: 150,
-            delay: (el, i) => i * 100,
+            delay: (el, i) => i * 50,
             translateX: '0px',
             opacity: 1,
             easing: 'easeOutElastic'
@@ -54,9 +54,8 @@ class Navbar {
         this.folded = false;
     }
 
-    hide() {
+    hide(tl: any) {
         if (this.folded) return;
-        let tl = anime.timeline();
         this.burger.css('pointer-events', 'none');
         this.topBar.removeClass('animate-top-bar').addClass('animate-out-top-bar');
         this.middleBar.removeClass('animate-middle-bar').addClass('animate-out-middle-bar');
@@ -66,13 +65,13 @@ class Navbar {
             targets: 'nav>ul>li',
             stagger: 150,
             translateX: '-100px',
-            delay: (el, i) => i * 100,
+            delay: (el, i) => i * 50,
             opacity: 0,
             easing: 'easeInElastic'
         });
         tl.add({
             targets: '.navbar',
-            duration: 200,  
+            duration: 100,  
             height: 0,
             easing: 'easeOutSine'
         });

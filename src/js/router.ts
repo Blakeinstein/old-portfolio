@@ -1,4 +1,5 @@
 import Navigo from 'navigo';
+import anime from 'animejs/lib/anime.es.js';
 import {html, render, TemplateResult} from 'lit-html';
 
 import aboutRender from './pages/about';
@@ -36,16 +37,29 @@ const contentDom = document.getElementById('main');
 
 routes.forEach(route => {
     router.on(route.path, () => {
-        let temp = (e: Event) => {
-            contentDom.removeEventListener(transitionEvent, temp, false);
-            render(route.render, contentDom);
-            navbar.hide();
-            contentDom.style.opacity = '1';
-            contentDom.style.transform = 'translateY(0)';
-        };
-        contentDom.addEventListener(transitionEvent, temp, false);
-        contentDom.style.opacity = '0';
-        contentDom.style.transform = 'translateY(20px)';
+        let tl = anime.timeline();
+        tl.add({
+            targets: contentDom,
+            opacity: 0,
+            translateY: 20
+        });
+        navbar.hide(tl);
+        render(route.render, contentDom);
+        tl.add({
+            targets: contentDom,
+            opacity: 1,
+            translateY: 0
+        });
+        // let temp = (e: Event) => {
+        //     contentDom.removeEventListener(transitionEvent, temp, false);
+        //     render(route.render, contentDom);
+        //     navbar.hide(tl);
+        //     contentDom.style.opacity = '1';
+        //     contentDom.style.transform = 'translateY(0)';
+        // };
+        // contentDom.addEventListener(transitionEvent, temp, false);
+        // contentDom.style.opacity = '0';
+        // contentDom.style.transform = 'translateY(20px)';
     })
 })
 
