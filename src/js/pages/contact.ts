@@ -1,7 +1,5 @@
 import{ init, send } from 'emailjs-com';
-import { html } from 'lit-html';
 import tippy, {roundArrow} from 'tippy.js';
-import $ from "jquery";
 
 init("user_wird1j6wAcU6lj00aaLo9");
 
@@ -50,9 +48,8 @@ function submit(e: Event) {
         isSending = true;
         send('main', 'base', params).then((res) => {
             if (res.status == 200) {
-                $('#contactForm').fadeOut("slow", () => {
-                    $('#complete').fadeIn();
-                });
+                document.querySelector('#contactForm').classList.add("slow-fade-out");
+                document.querySelector('#complete').classList.add("slow-fade-in");
             } else {
                 tippy('#submit', {
                     content: `${res.status}: ${res.text}`,
@@ -81,7 +78,7 @@ function submit(e: Event) {
 }
 
 const contactRender = () => {
-    return html`<div id="contact">
+    return `<div id="contact">
         <div class="banner">
             <h1>MAKE CONTACT</h1>
             <h4>Send me a message, regarding anything!</h4>

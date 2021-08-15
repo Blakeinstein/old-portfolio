@@ -1,4 +1,3 @@
-import $ from "jquery";
 import '@fortawesome/fontawesome-free/css/all.css'
 import tippy, {animateFill, delegate, roundArrow} from 'tippy.js';
 import 'tippy.js/dist/tippy.css';
@@ -12,19 +11,19 @@ function main() {
     console.log("🚀 Coded with ❤ by Blaine.")
     const sketch: Sketch = new Sketch();
     // interactivity
-    let content = $('#content');
+    let content = document.querySelector('#content');
 
-    $('#toggleScene').on('click', function() {
-        if ($(this).hasClass('fa-toggle-off')){
-            content.addClass('hide');
+    document.querySelector('#toggleScene').addEventListener('click', function() {
+        if (this.classList.contains('fa-toggle-off')){
+            content.classList.add('hide');
             sketch.container.style.zIndex = '1';
-            $(this).removeClass('fa-toggle-off');
-            $(this).addClass('fa-toggle-on');
+            this.classList.remove('fa-toggle-off');
+            this.classList.add('fa-toggle-on');
         } else {
-            content.removeClass('hide');
+            content.classList.remove('hide');
             sketch.container.style.zIndex = '-1';  
-            $(this).removeClass('fa-toggle-on');
-            $(this).addClass('fa-toggle-off');
+            this.classList.remove('fa-toggle-on');
+            this.classList.add('fa-toggle-off');
             sketch.resetCam();
         }
     });

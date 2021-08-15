@@ -1,12 +1,12 @@
-import moonTexture from 'url:../assets/maps/moon.jpg';
-import moonNormal from 'url:../assets/maps/normal.jpg';
-import back from 'url:../assets/starfield/back.png';
-import bottom from 'url:../assets/starfield/bottom.png';
-import front from 'url:../assets/starfield/front.png';
-import left from 'url:../assets/starfield/left.png';
-import right from 'url:../assets/starfield/right.png';
-import top from 'url:../assets/starfield/top.png';
-import starSprite from 'url:../assets/starfield/starSprite.png'
+import moonTexture from '../assets/maps/moon.jpg';
+import moonNormal from '../assets/maps/normal.jpg';
+import back from '../assets/starfield/back.png';
+import bottom from '../assets/starfield/bottom.png';
+import front from '../assets/starfield/front.png';
+import left from '../assets/starfield/left.png';
+import right from '../assets/starfield/right.png';
+import top from '../assets/starfield/top.png';
+import starSprite from '../assets/starfield/starSprite.png'
 
 export default {
     moon:{

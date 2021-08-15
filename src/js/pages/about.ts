@@ -1,9 +1,7 @@
-import { html } from 'lit-html';
-
-import stars from "url:../../assets/logo.svg";
+import stars from "../../assets/logo.svg";
 
 let aboutRender = () => {
-    return html`<div id="about">
+    return `<div id="about">
     <div class="about-content">
         <h3>Known on the internet as Blaine.</h3>
         <p>Hi, I'm Rishikesh Anand! A developer, software engineer and a tech enthusiast. I love to try new things, explore possibilites and anything that amuses my curiosity. I am currently pursuing a degree in Computer Science and Engineering at, National Institute of Technology, Delhi.</p>

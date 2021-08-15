@@ -1,5 +1,3 @@
-import { html } from 'lit-html';
-
 import data from "../../data/projects";
 
 const projectCard = (info: {
@@ -10,7 +8,7 @@ const projectCard = (info: {
     "url": string,
     "image": string
 }) => {
-    return html`<div class="card">
+    return `<div class="card">
         <div class="content">
             <div class="preview-image"><img src=${info.image} alt=${info.name}/></div>
             <div class="name">${info.name}</div>

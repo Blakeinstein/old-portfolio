@@ -1,7 +1,5 @@
-import { html } from 'lit-html';
-
 const socialsRender = () => {
-    return html`<div id="socials">
+    return `<div id="socials">
         <ul>
             <li class="section social-media">
                 <span>Social</span>

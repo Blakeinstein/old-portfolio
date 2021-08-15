@@ -1,27 +1,26 @@
-import $ from "jquery";
 import anime from 'animejs/lib/anime.es.js';
 
 class Navbar {
-    burger: JQuery<HTMLElement>;
-    nav: JQuery<HTMLElement>;
-    bottomBar: JQuery<HTMLElement>;
-    middleBar: JQuery<HTMLElement>;
-    topBar: JQuery<HTMLElement>;
+    burger: HTMLElement;
+    nav: HTMLElement;
+    bottomBar: HTMLElement;
+    middleBar: HTMLElement;
+    topBar: HTMLElement;
     folded: Boolean
     
     constructor() {
-        this.burger = $('.burger');
-        this.nav = $('.navbar');
-        this.topBar = $('.bar-top');
-        this.middleBar = $('.bar-middle');
-        this.bottomBar = $('.bar-bottom');
-        this.burger.on('click', this.click.bind(this));
+        this.burger = document.querySelector('.burger');
+        this.nav = document.querySelector('.navbar');
+        this.topBar = document.querySelector('.bar-top');
+        this.middleBar = document.querySelector('.bar-middle');
+        this.bottomBar = document.querySelector('.bar-bottom');
+        this.burger.addEventListener('click', this.click.bind(this));
         this.folded = false;
     }
 
     click() {
-        this.burger.css('pointer-events', 'none');
-        this.nav.toggleClass('navbar-active');
+        this.burger.style.pointerEvents = 'none';
+        this.nav.classList.toggle('navbar-active');
         let tl = anime.timeline();
         if (this.folded) {
             this.show(tl);
@@ -32,10 +31,19 @@ class Navbar {
 
     show(tl: any) {
         if (!this.folded) return;
-        this.topBar.removeClass('animate-out-top-bar').addClass('animate-top-bar');
-        this.middleBar.removeClass('animate-out-middle-bar').addClass('animate-middle-bar');
-        this.bottomBar.removeClass('animate-out-bottom-bar').addClass('animate-bottom-bar');
-        this.nav.removeClass('overlay-slide-up').addClass('overlay-slide-down');
+
+        this.topBar.classList.remove('animate-out-top-bar')
+        this.topBar.classList.add('animate-top-bar');
+
+        this.middleBar.classList.remove('animate-out-middle-bar')
+        this.middleBar.classList.add('animate-middle-bar');
+
+        this.bottomBar.classList.remove('animate-out-bottom-bar')
+        this.bottomBar.classList.add('animate-bottom-bar');
+
+        this.nav.classList.remove('overlay-slide-up')
+        this.nav.classList.add('overlay-slide-down');
+
         tl.add({
             targets: '.navbar',
             duration: 100,
@@ -50,17 +58,26 @@ class Navbar {
             opacity: 1,
             easing: 'easeOutElastic'
         });
-        this.burger.css('pointer-events', 'auto');
+        this.burger.style.pointerEvents = 'auto';
         this.folded = false;
     }
 
     hide(tl: any) {
         if (this.folded) return;
-        this.burger.css('pointer-events', 'none');
-        this.topBar.removeClass('animate-top-bar').addClass('animate-out-top-bar');
-        this.middleBar.removeClass('animate-middle-bar').addClass('animate-out-middle-bar');
-        this.bottomBar.removeClass('animate-bottom-bar').addClass('animate-out-bottom-bar');
-        this.nav.removeClass('overlay-slide-down').addClass('overlay-slide-up');
+        this.burger.style.pointerEvents = 'none';
+
+        this.topBar.classList.remove('animate-top-bar')
+        this.topBar.classList.add('animate-out-top-bar');
+
+        this.middleBar.classList.remove('animate-middle-bar')
+        this.middleBar.classList.add('animate-out-middle-bar');
+
+        this.bottomBar.classList.remove('animate-bottom-bar')
+        this.bottomBar.classList.add('animate-out-bottom-bar');
+
+        this.nav.classList.remove('overlay-slide-down')
+        this.nav.classList.add('overlay-slide-up');
+
         tl.add({
             targets: 'nav>ul>li',
             stagger: 150,
@@ -75,7 +92,7 @@ class Navbar {
             height: 0,
             easing: 'easeOutSine'
         });
-        this.burger.css('pointer-events', 'auto');
+        this.burger.style.pointerEvents = 'auto';
         this.folded = true;
     }
 }
