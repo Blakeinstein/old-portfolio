@@ -16,7 +16,7 @@ const { title, description, image } = Astro.props as Props;
 <meta name="description"             content={description}>
 <meta name="abstract"                content="The face of Rishikesh 'Blaine' Anand on the web.">
 <meta name="rating"                  content="General">
-<meta property="og:image"            content="{image && ./assets/logo.svg}">
+<meta property="og:image"            content="{image && '/assets/logo.svg'}">
 <meta property="og:site_name"        content="Blaine">
 <meta property="og:title"            content="{title}">
 <meta property="og:description"      content="{description}">
@@ -32,9 +32,9 @@ const { title, description, image } = Astro.props as Props;
 <meta name="twitter:creator"         content="@BlaineSensei">
 <meta name="twitter:url"             content="https://blaine.is-a.dev">
 <meta name="twitter:title"           content="{title}">
-<meta name="twitter:description"     content="{description}}">
-<meta name="twitter:image"           content="{image && ./assets/logo.svg}">
-<link rel="icon" type="image/svg+xml" href="{image && ./assets/logo.svg}">
+<meta name="twitter:description"     content="{description}">
+<meta name="twitter:image"           content="{image && '/assets/logo.svg'}">
+<link rel="icon" type="image/svg+xml" href="{image && '/assets/logo.svg'}">
 <!-- Apple Safari Pinned Site. -->
-<link rel="mask-icon" href="{image && ./assets/logo.svg}" color="black">
+<link rel="mask-icon" href="{image && 'assets/logo.svg'}" color="black">
 <meta name="google" value="notranslate">

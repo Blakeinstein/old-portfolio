@@ -1,0 +1,38 @@
+---
+// Component Imports
+import SEO from '../components/SEO.astro';
+
+// Full Astro Component Syntax:
+// https://docs.astro.build/core-concepts/astro-components/
+---
+<html lang="en">
+<head>
+  <SEO
+    title="Blaine - An enthusiast developer"
+    description="Hi, I'm Rishikesh Anand! A developer, software engineer and a tech enthusiast. I love to try new things, explore possibilites and anything that amuses my curiosity. I am currently pursuing a degree in Computer Science and Engineering at, National Institute of Technology, Delhi."
+  />
+  <style>
+    :global(:root) {
+      font-family: system-ui;
+      padding: 2em 0;
+    }
+    :global(.counter) {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      place-items: center;
+      font-size: 2em;
+      margin-top: 2em;
+    }
+    :global(.children) {
+      display: grid;
+      place-items: center;
+      margin-bottom: 2em;
+    }
+  </style>
+</head>
+  <body>
+    <main>
+      <slot />
+    </main>
+  </body>
+</html>
