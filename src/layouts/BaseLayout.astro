@@ -4,31 +4,29 @@ import Scene from '../components/Scene.astro';
 import Navbar from '../components/Navbar.astro';
 ---
 <html lang="en">
-<head>
-  <SEO
-    title="Blaine - An enthusiast developer"
-    description="Hi, I'm Rishikesh Anand! A developer, software engineer and a tech enthusiast. I love to try new things, explore possibilites and anything that amuses my curiosity. I am currently pursuing a degree in Computer Science and Engineering at, National Institute of Technology, Delhi."
-  />
-  <style>
-    :global(:root) {
-      font-family: system-ui;
-      padding: 2em 0;
-    }
-    :global(.counter) {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      place-items: center;
-      font-size: 2em;
-      margin-top: 2em;
-    }
-    :global(.children) {
-      display: grid;
-      place-items: center;
-      margin-bottom: 2em;
-    }
-  </style>
-  <script defer type="module" src={Astro.resolve("../components/swup.js")}></script>
-</head>
+  <BaseHead>
+    <SEO
+      slot="SEO"
+      title="Blaine - An enthusiast developer"
+      description="Hi, I'm Rishikesh Anand! A developer, software engineer and a tech enthusiast. I love to try new things, explore possibilites and anything that amuses my curiosity. I am currently pursuing a degree in Computer Science and Engineering at, National Institute of Technology, Delhi."
+    />
+  </BaseHead>
+  </BaseHead>
+  <body>
+    <Scene />
+    <Navbar />
+    <div id="c">
+  </body>
+</html>
+  </BaseHead>
+  <body>
+    <Scene />
+    <Navbar />
+    <div id="content">
+      <main id="swup-main" class="wrapper">
+        <slot />
+      </main>
+  </BaseHead>
   <body>
     <Scene />
     <Navbar />
