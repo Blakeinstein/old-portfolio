@@ -1,6 +1,8 @@
 ---
 // Component Imports
 import SEO from '../components/SEO.astro';
+import Scene from '../components/Scene.astro';
+import Navbar from '../components/Navbar.astro';
 
 // Full Astro Component Syntax:
 // https://docs.astro.build/core-concepts/astro-components/
@@ -29,10 +31,15 @@ import SEO from '../components/SEO.astro';
       margin-bottom: 2em;
     }
   </style>
+  <script defer type="module" src={Astro.resolve("../components/swup.js")}></script>
 </head>
   <body>
-    <main>
-      <slot />
-    </main>
+    <Scene />
+    <Navbar />
+    <div id="content">
+      <main id="swup-main" class="wrapper">
+        <slot />
+      </main>
+    </div>
   </body>
 </html>
