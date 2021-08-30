@@ -1,10 +1,6 @@
-import '@fortawesome/fontawesome-free/css/all.css'
-import tippy, {animateFill, delegate, roundArrow} from 'tippy.js';
-import 'tippy.js/dist/tippy.css';
-import 'tippy.js/dist/svg-arrow.css';
-import 'tippy.js/animations/shift-away.css';
 
-import Sketch from './sketch';
+
+import Sketch from '../components/Scene/sketch';
 import './router';
 
 function main() {
@@ -28,26 +24,7 @@ function main() {
         }
     });
 
-    tippy('[main-tooltip]', {
-        theme: 'space',
-        appendTo: () => document.body,
-        allowHTML: true,
-        hideOnClick: false,
-        trigger: 'mouseenter',
-        placement: 'auto',
-        animateFill: true,
-        plugins: [animateFill],
-    });
-
-    delegate('#main', {
-        target: '[emotion-tool-tip]',
-        appendTo: () => document.body,
-        theme: 'emotion',
-        allowHTML: true,
-        arrow: roundArrow,
-        placement: 'auto',
-        interactive: true,
-    })
+    
 }
 
 window.addEventListener('load', main);
