@@ -5,7 +5,7 @@ init("user_wird1j6wAcU6lj00aaLo9");
 
 let isSending = false;
 
-function submit(e: Event) {
+document.querySelector('#submit').addEventListener('click', (e: Event) => {
 	e.preventDefault();
 
 	if (isSending) return false;

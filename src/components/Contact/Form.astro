@@ -165,7 +165,7 @@ import GhostButton from "../Common/GhostButton.astro";
 			}
 		}
 
-		.custom-button {
+		.custom-button>a {
 			display: flex;
 			align-items: center;
 			font-size: 1.3em;
@@ -230,7 +230,7 @@ import GhostButton from "../Common/GhostButton.astro";
         <label for="noSpam">I solemnly swear I am not a troll..</label>
       </div>
       <div class="row submit">
-        <GhostButton class="custom-button" frameless id="submit" @click=${submit}>
+        <GhostButton frameless id="submit">
           Submit
           <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 1000 1000" xml:space="preserve" fill="aliceblue" stroke="aliceblue">
             <g><g transform="matrix(1 0 0 -1 0 1008)"><path d="M756.2,741.8L990,508L756.2,274.2l-27,27L918.1,490H10v36h908.1L729.3,714.8L756.2,741.8z"/></g></g>
@@ -240,3 +240,4 @@ import GhostButton from "../Common/GhostButton.astro";
     </form>
   </div>
 </div>
+<script hoist defer type="module" src={Astro.resolve("./contact.js")}></script>
