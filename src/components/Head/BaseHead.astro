@@ -2,12 +2,14 @@
 ---
 <head>
   <slot name="SEO"/>
-  <script defer type="module" src={Astro.resolve("./swup.js")}></script>
-  <script defer type="module" src={Astro.resolve("./tippy.js")}></script>
-  <link rel="stylesheet" href={Astro.resolve("@fortawesome/fontawesome-free/css/all.css")}>
-  <link rel="stylesheet" href={Astro.resolve("tippy.js/dist/tippy.css")}>
-  <link rel="stylesheet" href={Astro.resolve("tippy.js/dist/svg-arrow.css")}>
-  <link rel="stylesheet" href={Astro.resolve("tippy.js/animations/shift-away.css")}>
+  <script hoist defer type="module" src={Astro.resolve("./swup.js")}></script>
+  <script hoist defer type="module" src={Astro.resolve("./tippy.js")}></script>
+  <style global lang="scss">
+    @use "@fortawesome/fontawesome-free/css/all.css";
+    @use "tippy.js/dist/tippy.css";
+    @use "tippy.js/dist/svg-arrow.css";
+    @use "tippy.js/animations/shift-away.css";
+  </style>
   <style global>
     @import url('https://api.fontshare.com/css?f[]=chillax@300,400,600,700,1&display=swap');
 

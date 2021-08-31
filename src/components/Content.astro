@@ -21,7 +21,7 @@
     }
   }
 
-  #main{
+  #swup-main{
     flex-grow: 4;
     transition: all 0.5s ease-in-out;
     display: flex;
@@ -50,5 +50,7 @@
 </style>
 
 <div id="content">
-  <slot />
+  <main id="swup-main" class="wrapper">
+    <slot />
+  </main>
 </div>

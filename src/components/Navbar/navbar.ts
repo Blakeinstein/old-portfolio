@@ -97,4 +97,4 @@ class Navbar {
 	}
 }
 
-export default Navbar;
+const navbar = new Navbar();

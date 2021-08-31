@@ -1,3 +1,13 @@
+---
+export interface Props {
+  frameless?: boolean;
+  // description: string;
+  // image?: string;
+}
+
+const { frameless } = Astro.props as Props;
+---
+<style lang="scss">
 $background: aliceblue;
 
 .ghostButton {
@@ -45,3 +55,7 @@ $background: aliceblue;
 		}
 	}
 }
+</style>
+<a class={frameless? 'ghostbutton frameless' : 'ghostbutton'}>
+  <slot />
+</a>
