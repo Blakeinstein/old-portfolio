@@ -1,6 +1,6 @@
-import * as bloop from "../assets/projects/bloop.png";
-import * as fuse from "../assets/projects/fuse.png";
-import * as pfd from "../assets/projects/pfd.png";
+const bloop =  "assets/projects/bloop.png";
+const fuse =  "assets/projects/fuse.png";
+const pfd =  "assets/projects/pfd.png";
 
 const data: {
     'name': string,

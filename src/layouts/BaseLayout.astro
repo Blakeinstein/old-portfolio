@@ -2,7 +2,8 @@
 import SEO from '../components/SEO.astro';
 import Scene from '../components/Scene/Scene.astro';
 import Navbar from '../components/Navbar/Navbar.astro';
-import Navbar from '../components/Head/BaseHead.astro';
+import BaseHead from '../components/Head/BaseHead.astro';
+import Content from '../components/Content.astro';
 ---
 <html lang="en">
   <BaseHead>
@@ -12,29 +13,13 @@ import Navbar from '../components/Head/BaseHead.astro';
       description="Hi, I'm Rishikesh Anand! A developer, software engineer and a tech enthusiast. I love to try new things, explore possibilites and anything that amuses my curiosity. I am currently pursuing a degree in Computer Science and Engineering at, National Institute of Technology, Delhi."
     />
   </BaseHead>
-  </BaseHead>
   <body>
     <Scene />
     <Navbar />
-    <div id="c">
-  </body>
-</html>
-  </BaseHead>
-  <body>
-    <Scene />
-    <Navbar />
-    <div id="content">
+    <Content>
       <main id="swup-main" class="wrapper">
         <slot />
       </main>
-  </BaseHead>
-  <body>
-    <Scene />
-    <Navbar />
-    <div id="content">
-      <main id="swup-main" class="wrapper">
-        <slot />
-      </main>
-    </div>
+    </Content>
   </body>
 </html>

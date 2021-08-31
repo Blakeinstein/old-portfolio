@@ -1,0 +1,54 @@
+---
+---
+<style lang="scss">
+#content {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex: 0 0;
+  flex-flow: column;
+  line-height: 2em;
+  overflow-x: hidden;
+
+  #main, .top > .logo, .top > .right > *:not(#toggleScene) {
+    transition: all 0.5s ease;
+    opacity: 1;
+  }
+
+  &.hide {
+    #main, .top > .logo, .top > .right > *:not(#toggleScene) {
+        opacity: 0 !important;
+    }
+  }
+
+  #main{
+    flex-grow: 4;
+    transition: all 0.5s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1em 0;
+      
+    .no-scroll {
+      overflow: scroll;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      &::-webkit-scrollbar {
+        width: 0px;
+        background: transparent;
+      }
+    }
+
+    .hide {
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(20px);
+      transition: all 2s ease-in-out;
+    }
+  }
+}
+</style>
+
+<div id="content">
+  <slot />
+</div>

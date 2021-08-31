@@ -1,6 +1,31 @@
 ---
 ---
 <style lang="scss">
+.top {
+  padding: 2rem;
+  position: absolute;
+  top: 1.2rem;
+  width: 100%;
+  height: 4em;
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  z-index: 100;
+
+  >.logo {
+    width: 3.2rem;
+    height: 3.2rem;
+  }
+
+  .right {
+    padding-right: 3.2rem;
+    width: auto;
+    display: inline-grid;
+    grid-template-columns: 2.4rem 2.4rem 3rem;
+    place-items: center;
+    font-size: 1.4rem;
+  }
+}
 .navbar {
   width: 100vw;
   height: 0vh;
