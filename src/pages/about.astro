@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import GhostButton from "../components/Common/GhostButton.astro";
 ---
 <BaseLayout
   title="Blaine - An enthusiast developer"
@@ -92,8 +93,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <li> <div emotion-tool-tip data-tippy-content="<a href='https://github.com/Upvision/upvision.github.io'><i class='fas fa-external-link-alt'></i> Github</a>, <a href='https://upvision.co/'><i class='fas fa-external-link-alt'></i> Website</a>">Executive Member at UpVision, Tech club of NIT Delhi</div></li>
       </ul>
       <div class="about-links">
-        <a class="ghostButton" href="https://drive.google.com/drive/folders/1nCs0CvLj4XF8r7D83KCzVKvYSq0SQOP2?usp=sharing"><i class="fas fa-file-download"></i> Resume</a>
-        <a class="ghostButton" href="/projects/" data-navigo>Projects <i class='fas fa-chevron-right'></i></a>
+        <GhostButton href="https://drive.google.com/drive/folders/1nCs0CvLj4XF8r7D83KCzVKvYSq0SQOP2?usp=sharing"><i class="fas fa-file-download"></i> Resume</GhostButton>
+        <GhostButton href="/projects/" data-navigo>Projects <i class='fas fa-chevron-right'></i></GhostButton>
       </div>
     </div>
     <img src="/assets/logo.svg" alt="Stars" />
