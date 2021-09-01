@@ -291,16 +291,16 @@ const sketch: Sketch = new Sketch();
 let content = document.querySelector('#content');
 
 document.querySelector('#toggleScene').addEventListener('click', function() {
-	if (this.classList.contains('fa-toggle-off')){
+	if (this.classList.contains('toggle-off')){
 			content.classList.add('hide');
 			sketch.container.style.zIndex = '1';
-			this.classList.remove('fa-toggle-off');
-			this.classList.add('fa-toggle-on');
+			this.classList.remove('toggle-off');
+			this.classList.add('toggle-on');
 	} else {
 			content.classList.remove('hide');
 			sketch.container.style.zIndex = '-1';  
-			this.classList.remove('fa-toggle-on');
-			this.classList.add('fa-toggle-off');
+			this.classList.remove('toggle-on');
+			this.classList.add('toggle-off');
 			sketch.resetCam();
 	}
 });

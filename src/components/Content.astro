@@ -9,16 +9,11 @@
   flex-flow: column;
   line-height: 2em;
   overflow-x: hidden;
-
-  #main, .top > .logo, .top > .right > *:not(#toggleScene) {
-    transition: all 0.5s ease;
-    opacity: 1;
-  }
+  transition: all 0.5s ease;
+  opacity: 1;
 
   &.hide {
-    #main, .top > .logo, .top > .right > *:not(#toggleScene) {
-        opacity: 0 !important;
-    }
+    opacity: 0 !important;
   }
 
   #swup-main{
