@@ -1,16 +1,16 @@
 
 
-import Sketch from '../components/Scene/sketch';
-import './router';
+// import Sketch from '../components/Scene/sketch';
+// import './router';
 
-function main() {
-    console.log("🚀 Coded with ❤ by Blaine.")
+// function main() {
+//     console.log("🚀 Coded with ❤ by Blaine.")
     
-    // interactivity
-
-    
+//     // interactivity
 
     
-}
 
-window.addEventListener('load', main);
+    
+// }
+
+// window.addEventListener('load', main);

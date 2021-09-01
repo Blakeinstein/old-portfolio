@@ -590,6 +590,18 @@
     "@vue/compiler-sfc" "^3.0.10"
     hash-sum "^2.0.0"
 
+"@swup/head-plugin@^1.2.0":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@swup/head-plugin/-/head-plugin-1.2.0.tgz#acfeebdecb2c685e0c748f338fd9e1f5abe8747f"
+  integrity sha512-ixtDl5JWNF6aHLLgLNOTpKboUOALuRtOOMi9u38jqPEDRnpJ+gCNeCO6RMBnbfyp45G6ml+fgd6ltrseZ7oOcA==
+  dependencies:
+    "@swup/plugin" "^1.0.1"
+
+"@swup/plugin@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@swup/plugin/-/plugin-1.0.1.tgz#10606322508724a5beaed6a09326d8c30c7041fa"
+  integrity sha512-QrTGn1DLx+50CNsk6oGzUFnyNyLkDK6iLb032qKImmAXS+0Dd1cwa8cSGvJ+I27J4qR8y6oJNurgHIEc6ZCTrg==
+
 "@swup/slide-theme@^1.0.5":
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/@swup/slide-theme/-/slide-theme-1.0.5.tgz#743aab844be68c089e0c9b49b906b2a4c2495738"

@@ -7,7 +7,7 @@ import anime from 'animejs/lib/anime.es.js';
 import assets from './assets';
 import Loader from './loader';
 
-import { transitionEvent } from '../../js/utils';
+import { transitionEvent } from '../Common/utils';
 
 THREE.Cache.enabled = true; // enable caching
 
