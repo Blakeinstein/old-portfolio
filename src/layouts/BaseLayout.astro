@@ -15,15 +15,17 @@ export interface Props {
 const { title, description, image } = Astro.props as Props;
 ---
 <html lang="en">
-  <BaseHead />
-  <SEO
-    title={title}
-    description={description}
-    image={image}
-  />
-  <slot
-    slot="style"
-  />
+  <head>
+    <BaseHead />
+    <SEO
+      title={title}
+      description={description}
+      image={image}
+    />
+    <slot
+      name="style"
+    />
+  </head>
   <body>
     <Scene />
     <Navbar />
