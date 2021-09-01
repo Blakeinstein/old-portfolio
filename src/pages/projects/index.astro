@@ -1,53 +1,8 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import Projects from '../../components/Projects/Projects.astro';
 
-const data: {
-    'name': string,
-    'description': string,
-    "lang": string[],
-    "libs": string[],
-    "url": string,
-    "image": string
-}[] = [{
-    "name": "Bloop",
-    "description": "An Aesthetic Scratchpad for developers.",
-    "lang": ["Rust", "HTML", "CSS", "JS", "C/C++"],
-    "libs": ["WebViewRS", "Fuse", "Serde", "WinAPI"],
-    "url": "https://github.com/Blakeinstein/Bloop",
-    "image": "assets/projects/bloop.png"
-},{
-    "name": "Fuse-Rust",
-    "description": "A fuzzy searching library written in rust.",
-    "lang": ["Rust"],
-    "libs": ["crossbeam"],
-    "url": "https://github.com/Blakeinstein/fuse-rust",
-    "image": "assets/projects/fuse.png"
-},{
-    "name": "ChemicalPFD",
-    "description": "Tool to construct process flow diagrams",
-    "lang": ["Python"],
-    "libs": ["PyQT5", "PySide2", "FBS"],
-    "url": "https://github.com/FOSSEE/Chemical-PFD",
-    "image": "assets/projects/pfd.png"
-}]
 ---
 <BaseLayout>
-  <div id="projects">
-    ${data.map(project => {
-        return `<>
-          <div class="card">
-            <div class="content">
-              <div class="preview-image"><img src=${info.image} alt=${info.name}/></div>
-              <div class="name">${info.name}</div>
-              <div class="tech">
-                  <div class="languages">${info.lang.join(", ")}</div>
-                  <div class="libraries">${info.libs.join(", ")}</div>
-              </div>
-              <div class="desc">${info.description}</div>
-              <a class="ghostButton" href=${info.url}>View</a>
-            </div>
-          </div>
-        </>`;
-    })}
-  </div>
+  <Projects />
 </BaseLayout>
