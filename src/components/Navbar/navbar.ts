@@ -15,7 +15,7 @@ class Navbar {
 		this.middleBar = document.querySelector(".bar-middle");
 		this.bottomBar = document.querySelector(".bar-bottom");
 		this.burger.addEventListener("click", this.click.bind(this));
-		this.folded = false;
+		this.folded = true;
 	}
 
 	click() {
