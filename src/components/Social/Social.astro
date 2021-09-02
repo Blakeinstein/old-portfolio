@@ -3,7 +3,6 @@ import socials from './socials.ts';
 import Link from './Link.astro';
 ---
 <style slot="style" lang="scss">
-$size: 3em;
 #socials {
   width: 90%;
   height: 90%;
@@ -26,7 +25,7 @@ $size: 3em;
       align-items: center;
       width: 45%;
 
-      > span {
+      > :global(span) {
         display: block;
         text-align: center;
         margin-bottom: 10px;
@@ -36,77 +35,59 @@ $size: 3em;
     .icons {
       text-align: center;
       // filter: url("#goo");+
-      
+
       display: flex;
       flex-flow: row wrap;
       align-items: center;
       justify-content: center;
-
-      > li {
-        display: inline-block;
-        padding: 0;
-
-        > a {
-          height: $size;
-          width: $size;
-          line-height: $size;
-          font-size: 2em;
-        }
-
-        > a,
-        svg {
-          text-align: center;
-          border-radius: 50%;
-          color: rgba(255, 255, 255, 0.8);
-          display: block;
-        }
-      }
-    }
-
-    .fa-linkedin-in {
-      background: #0085ae;
-    }
-    .fa-twitter {
-      background: #32ccfe;
-    }
-    .fa-reddit-alien {
-      background: #f74300;
-    }
-    .fa-instagram {
-      background: radial-gradient(
-        circle at 30% 107%,
-        #fdf497 0%,
-        #fdf497 5%,
-        #fd5949 45%,
-        #d6249f 60%,
-        #285aeb 90%
-      );
-    }
-    .fa-github {
-      background: #070709;
-    }
-    .fa-stack-overflow {
-      background: #ff7300;
-    }
-    .fa-steam {
-      background: linear-gradient(120deg, #00adee, #000000);
-    }
-    .fa-discord {
-      background: #8697f6;
-    }
-    .fa-battle-net {
-      background: #2e60b4;
-    }
-    .fa-anime {
-      background: #0085ae;
-    }
-    .fa-soundcloud {
-      background: #f75219;
-    }
-    .fa-spotify {
-      background: #1ed760;
     }
   }
+}
+</style>
+
+<style global>
+.linkedin > svg {
+  background: #0085ae;
+}
+.twitter > svg {
+  background: #32ccfe;
+}
+.reddit > svg {
+  background: #f74300;
+}
+.instagram > svg {
+  background: radial-gradient(
+    circle at 30% 107%,
+    #fdf497 0%,
+    #fdf497 5%,
+    #fd5949 45%,
+    #d6249f 60%,
+    #285aeb 90%
+  );
+}
+.github > svg {
+  background: #070709;
+}
+.stack-overflow > svg {
+  background: #ff7300;
+}
+.steam > svg {
+  background: linear-gradient(120deg, #00adee, #000000);
+}
+.discord > svg {
+  background: #8697f6;
+}
+.battle-net > svg {
+  background: #2e60b4;
+}
+.anime > svg {
+  background: #0085ae;
+}
+.soundcloud > svg {
+  background: #f75219;
+}
+.spotify > svg {
+  background: #1ed760;
 }
 </style>
 <div id="socials">

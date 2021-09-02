@@ -301,6 +301,6 @@ document.querySelector('#toggleScene').addEventListener('click', function() {
 			sketch.container.style.zIndex = '-1';  
 			this.classList.remove('toggle-on');
 			this.classList.add('toggle-off');
-			sketch.resetCam();
+			// sketch.resetCam();
 	}
 });

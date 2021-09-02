@@ -34,14 +34,14 @@ export default Object.entries(<Record<string, {
     },
     {
       name: "StackOverFlow",
-      icon: "",
+      icon: "stackoverflow",
       href: "https://stackoverflow.com/users/7799568/blaine"
     }
   ],
   "Gaming": [
     {
       name: "Steam",
-      icon: "",
+      icon: "steam",
       href: "https://steamcommunity.com/id/BlaineSensei/"
     },
     {
@@ -51,24 +51,24 @@ export default Object.entries(<Record<string, {
     },
     {
       name: "Battle.net Tag : Blaine#22648",
-      icon: "",
+      icon: "battledotnet",
       href: ""
     }
   ],
   "Other": [
     {
       name: "MyAnimeList",
-      icon: "",
+      icon: "myanimelist",
       href: "https://myanimelist.net/profile/Blakeinstein"
     },
     {
       name: "Soundcloud",
-      icon: "",
+      icon: "soundcloud",
       href: "https://soundcloud.com/blakeinstein"
     },
     {
       name: "Spotify",
-      icon: "",
+      icon: "spotify",
       href: "https://open.spotify.com/user/c3fph9vexjdfvvdmh7h9kjdqv"
     }
   ]

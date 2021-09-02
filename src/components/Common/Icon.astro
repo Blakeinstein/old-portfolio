@@ -4,7 +4,7 @@ export interface Props {
   classList?: string;
 }
 
-let { name, classList } = Astro.props as Props;
+let { name, classList = "" } = Astro.props as Props;
 
 //get svg from the CDN
 let url = `https://cdn.jsdelivr.net/gh/twbs/icons/icons/${name}.svg`
