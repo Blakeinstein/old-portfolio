@@ -9,7 +9,6 @@ let { name, classList = "" } = Astro.props as Props;
 //get svg from the CDN
 let url = `https://simpleicons.org/icons/${name}.svg`
 let svg = await fetch(url).then(x => x.text())
-
 ---
 <style global>
 .svg-brand-icon {
