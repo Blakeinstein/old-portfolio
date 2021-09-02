@@ -24,6 +24,7 @@
     "tippy.js": "^6.2.7"
   },
   "dependencies": {
-    "@swup/head-plugin": "^1.2.0"
+    "@swup/head-plugin": "^1.2.0",
+    "@swup/preload-plugin": "^1.0.3"
   }
 }

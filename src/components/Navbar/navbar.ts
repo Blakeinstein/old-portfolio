@@ -1,4 +1,8 @@
 import anime from "animejs/lib/anime.es.js";
+import Swup from 'swup';
+import SwupSlideTheme from "@swup/slide-theme";
+import SwupHeadPlugin from '@swup/head-plugin';
+import SwupPreloadPlugin from '@swup/preload-plugin';
 
 class Navbar {
 	burger: HTMLElement;
@@ -17,11 +21,15 @@ class Navbar {
 	click() {
 		if (this.animating) return;
 		this.burger.style.pointerEvents = "none";
-		
 		this.nav.classList.toggle("active");
 		let tl = anime.timeline();
 		if (this.folded) this.show(tl);
 		else this.hide(tl);
+	}
+
+	switchPage() {
+		if (this.folded) return;
+		this.click();
 	}
 
 	show(tl: any) {
@@ -80,3 +88,15 @@ class Navbar {
 }
 
 const navbar = new Navbar();
+
+console.log("🚀 Coded with ❤ by Blaine.")
+
+const swup = new Swup({
+  plugins: [ new SwupSlideTheme(), new SwupPreloadPlugin(), new SwupHeadPlugin({
+    "persistAssets": true
+  })],
+});
+
+swup.preloadPages();
+
+swup.on('clickLink', navbar.switchPage.bind(navbar));
