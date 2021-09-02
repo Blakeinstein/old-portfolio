@@ -11,7 +11,7 @@ tippy('[main-tooltip]', {
   plugins: [animateFill],
 });
 
-delegate('#main', {
+delegate('main', {
   target: '[emotion-tool-tip]',
   appendTo: () => document.body,
   theme: 'emotion',
