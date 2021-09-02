@@ -3,97 +3,79 @@ import anime from "animejs/lib/anime.es.js";
 class Navbar {
 	burger: HTMLElement;
 	nav: HTMLElement;
-	bottomBar: HTMLElement;
-	middleBar: HTMLElement;
-	topBar: HTMLElement;
 	folded: Boolean;
+	animating: Boolean;
 
 	constructor() {
 		this.burger = document.querySelector(".burger");
 		this.nav = document.querySelector(".navbar");
-		this.topBar = document.querySelector(".bar-top");
-		this.middleBar = document.querySelector(".bar-middle");
-		this.bottomBar = document.querySelector(".bar-bottom");
 		this.burger.addEventListener("click", this.click.bind(this));
 		this.folded = true;
+		this.animating = false;
 	}
 
 	click() {
+		if (this.animating) return;
 		this.burger.style.pointerEvents = "none";
-		this.nav.classList.toggle("navbar-active");
+		
+		this.nav.classList.toggle("active");
 		let tl = anime.timeline();
-		if (this.folded) {
-			this.show(tl);
-		} else {
-			this.hide(tl);
-		}
+		if (this.folded) this.show(tl);
+		else this.hide(tl);
 	}
 
 	show(tl: any) {
-		if (!this.folded) return;
-
-		this.topBar.classList.remove("animate-out-top-bar");
-		this.topBar.classList.add("animate-top-bar");
-
-		this.middleBar.classList.remove("animate-out-middle-bar");
-		this.middleBar.classList.add("animate-middle-bar");
-
-		this.bottomBar.classList.remove("animate-out-bottom-bar");
-		this.bottomBar.classList.add("animate-bottom-bar");
-
-		this.nav.classList.remove("overlay-slide-up");
-		this.nav.classList.add("overlay-slide-down");
+		if (!this.folded || this.animating) return;
+		this.animating = true;
+		this.burger.classList.add("active");
 
 		tl.add({
 			targets: ".navbar",
-			duration: 100,
-			height: "100vh",
-			easing: "easeInSine",
+			duration: 200,
+			scaleY: "1",
+			easing: "easeOutSine",
 		});
 		tl.add({
 			targets: "nav>ul>li",
-			stagger: 150,
-			delay: (el, i) => i * 50,
+			stagger: 50,
+			delay: (el, i) => i * 30,
 			translateX: "0px",
 			opacity: 1,
 			easing: "easeOutElastic",
 		});
+
+		tl.finished.then(this.resetAnimating.bind(this, false));
 		this.burger.style.pointerEvents = "auto";
 		this.folded = false;
 	}
 
 	hide(tl: any) {
-		if (this.folded) return;
+		if (this.folded || this.animating) return;
+		this.animating = true;
 		this.burger.style.pointerEvents = "none";
-
-		this.topBar.classList.remove("animate-top-bar");
-		this.topBar.classList.add("animate-out-top-bar");
-
-		this.middleBar.classList.remove("animate-middle-bar");
-		this.middleBar.classList.add("animate-out-middle-bar");
-
-		this.bottomBar.classList.remove("animate-bottom-bar");
-		this.bottomBar.classList.add("animate-out-bottom-bar");
-
-		this.nav.classList.remove("overlay-slide-down");
-		this.nav.classList.add("overlay-slide-up");
-
+		
 		tl.add({
 			targets: "nav>ul>li",
-			stagger: 150,
 			translateX: "-100px",
-			delay: (el, i) => i * 50,
+			delay: (el, i) => i * 14,
 			opacity: 0,
 			easing: "easeInElastic",
 		});
 		tl.add({
 			targets: ".navbar",
-			duration: 100,
-			height: 0,
+			duration: 150,
+			scaleY: 0,
 			easing: "easeOutSine",
 		});
+		
+		tl.finished.then(this.resetAnimating.bind(this, true));
 		this.burger.style.pointerEvents = "auto";
 		this.folded = true;
+	}
+
+	resetAnimating (remove: boolean) {
+		this.animating = false;
+		remove && this.burger.classList.remove("active");
 	}
 }
 

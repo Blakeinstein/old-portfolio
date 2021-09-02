@@ -53,7 +53,7 @@ import Icon from '../Common/Icon.astro';
 
 .navbar {
   width: 100vw;
-  height: 0vh;
+  height: 100vh;
   z-index: 30;
   display: flex;
   flex-flow: column;
@@ -62,8 +62,12 @@ import Icon from '../Common/Icon.astro';
   background-color: #000000aa;
   position: absolute;
   font-size: 10px;
-  top: 0;
   left: 0;
+  transform-origin: bottom;
+
+  &.active {
+    transform-origin: top;
+  }
 
   nav {
     padding: 8em;
@@ -110,159 +114,43 @@ import Icon from '../Common/Icon.astro';
 Burger king
 ==================================== */
 .burger {
-  z-index: 100;
-  width: 34px;
-  display: block;
-  cursor: pointer;
+  border-bottom: 1px solid #fff;
+  width: 24px;
+  height: 17px;
+  background-image: none;
+  position: relative;
+  transition: all 240ms ease-in-out;
 
-  span {
-    display: block;
+  &:before, &:after {
+    width: 24px;
+    position: absolute;
     height: 1px;
     background-color: #fff;
-    cursor: pointer;
-    margin: calc(3rem / 8) auto;
+    top: 0;
+    left: 0;
+    content: '';
+    transition: all 240ms ease-in-out;
+  }
 
-    &.animate-top-bar {
-      -webkit-animation: animate-top-bar 0.6s linear 1 both;
-      animation: animate-top-bar 0.6s linear 1 both;
+  &::after {
+    top: 8px;
+  }
+
+  &.active {
+    border-color: transparent;
+
+    &:before {
+      transform: translateY(8px) rotate(-45deg);
     }
 
-    &.animate-bottom-bar {
-      -webkit-animation: animate-bottom-bar 0.6s linear 1 both;
-      animation: animate-bottom-bar 0.6s linear 1 both;
+    &::after {
+      transform: rotate(45deg);
     }
-
-    &.animate-middle-bar {
-      -webkit-animation: animate-middle-bar 0.6s linear 1 both;
-      animation: animate-middle-bar 0.6s linear 1 both;
-    }
-
-    &.animate-out-top-bar {
-      -webkit-animation: animate-out-top-bar 0.6s linear 1 both;
-      animation: animate-out-top-bar 0.6s linear 1 both;
-    }
-
-    &.animate-out-bottom-bar {
-      -webkit-animation: animate-out-bottom-bar 0.6s linear 1 both;
-      animation: animate-out-bottom-bar 0.6s linear 1 both;
-    }
-
-    &.animate-out-middle-bar {
-      -webkit-animation: animate-out-middle-bar 0.6s linear 1 both;
-      animation: animate-out-middle-bar 0.6s linear 1 both;
-    }
-  }
-}
-
-/* ====================================
-Animation keyframes
-==================================== */
-@keyframes animate-top-bar {
-  0% {
-    background-color: #fff;
-  }
-  50% {
-    -webkit-transform: translateY(9px);
-    transform: translateY(9px);
-  }
-  80% {
-    -webkit-transform: translateY(5px);
-    transform: translateY(5px);
-    background-color: #fff;
-  }
-  100% {
-    -webkit-transform: translateY(0);
-    transform: translateY(0);
-    background-color: #29363b;
-  }
-}
-
-@keyframes animate-bottom-bar {
-  0% {
-    background-color: #fff;
-  }
-  50% {
-    -webkit-transform: translateY(-9px);
-    transform: translateY(-9px);
-  }
-  80% {
-    -webkit-transform: translateY(-5px);
-    transform: translateY(-5px);
-    background-color: #fff;
-  }
-  100% {
-    -webkit-transform: translateY(0);
-    transform: translateY(0);
-    background-color: #29363b;
-  }
-}
-
-@keyframes animate-middle-bar {
-  0% {
-    background-color: #fff;
-  }
-  80% {
-    background-color: #fff;
-  }
-  100% {
-    background-color: #29363b;
-  }
-}
-
-@keyframes animate-out-top-bar {
-  0% {
-    background-color: #29363b;
-  }
-  50% {
-    -webkit-transform: translateY(9px);
-    transform: translateY(9px);
-  }
-  80% {
-    -webkit-transform: translateY(5px);
-    transform: translateY(5px);
-    background-color: #29363b;
-  }
-  100% {
-    -webkit-transform: translateY(0);
-    transform: translateY(0);
-    background-color: #fff;
-  }
-}
-
-@keyframes animate-out-bottom-bar {
-  0% {
-    background-color: #29363b;
-  }
-  50% {
-    -webkit-transform: translateY(-9px);
-    transform: translateY(-9px);
-  }
-  80% {
-    -webkit-transform: translateY(-5px);
-    transform: translateY(-5px);
-    background-color: #29363b;
-  }
-  100% {
-    -webkit-transform: translateY(0);
-    transform: translateY(0);
-    background-color: #fff;
-  }
-}
-
-@keyframes animate-out-middle-bar {
-  0% {
-    background-color: #29363b;
-  }
-  80% {
-    background-color: #29363b;
-  }
-  100% {
-    background-color: #fff;
   }
 }
 </style>
 
-<div class="navbar">
+<div class="navbar collapsed" style="transform: scaleY(0)">
 	<nav role="navigation">
 		<ul>
 			<li><a href="/" data-text="Home">Home</a></li>
@@ -281,11 +169,7 @@ Animation keyframes
       <Icon name="toggle-on" classList="on" />
     </a>
 		<a class="inherit" href="https://github.com/Blakeinstein" main-tooltip data-tippy-content="Github Profile<pre>                       </pre>@Blakeinstein"><Icon name="github" /></a>
-		<div class="burger">
-			<span class="bar-top"></span>
-			<span class="bar-middle"></span>
-			<span class="bar-bottom"></span>
-		</div>
+		<div class="burger" />
 	</div>
 </div>
 <script defer type="module" src={Astro.resolve('./navbar.js')}></script>

@@ -11,6 +11,7 @@
   "license": "MIT",
   "devDependencies": {
     "@swup/slide-theme": "^1.0.5",
+    "@types/animejs": "^3.1.4",
     "@types/three": "^0.125.0",
     "animejs": "^3.2.1",
     "astro": "^0.20.3",
