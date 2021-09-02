@@ -20,22 +20,18 @@ class Navbar {
 
 	click() {
 		if (this.animating) return;
-		this.burger.style.pointerEvents = "none";
-		this.nav.classList.toggle("active");
-		let tl = anime.timeline();
-		if (this.folded) this.show(tl);
-		else this.hide(tl);
+		if (this.folded) this.show();
+		else this.hide();
 	}
 
-	switchPage() {
-		if (this.folded) return;
-		this.click();
-	}
-
-	show(tl: any) {
+	show() {
 		if (!this.folded || this.animating) return;
 		this.animating = true;
+		
+		this.burger.style.pointerEvents = "none";
+		this.nav.classList.add("active");
 		this.burger.classList.add("active");
+		let tl = anime.timeline();
 
 		tl.add({
 			targets: ".navbar",
@@ -57,11 +53,14 @@ class Navbar {
 		this.folded = false;
 	}
 
-	hide(tl: any) {
+	hide() {
+		console.log("hide");
 		if (this.folded || this.animating) return;
 		this.animating = true;
 		this.burger.style.pointerEvents = "none";
-		
+		this.nav.classList.remove("active");
+		let tl = anime.timeline();
+
 		tl.add({
 			targets: "nav>ul>li",
 			translateX: "-100px",
@@ -99,4 +98,4 @@ const swup = new Swup({
 
 swup.preloadPages();
 
-swup.on('clickLink', navbar.switchPage.bind(navbar));
+swup.on('clickLink', navbar.hide.bind(navbar));
