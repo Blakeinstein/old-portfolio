@@ -25,6 +25,7 @@ import Icon from '../Common/Icon.astro';
     grid-template-columns: 2.4rem 2.4rem 3rem;
     place-items: center;
     font-size: 1.4rem;
+    gap: 0.6em;
   }
 }
 
@@ -37,7 +38,7 @@ import Icon from '../Common/Icon.astro';
   }
 }
 
-#toggleScene {
+:global(.inherit) {
   display: inherit;
 }
 
@@ -275,11 +276,11 @@ Animation keyframes
 <div class="top">
 	<a href="/" class="logo" main-tooltip data-tippy-content="Rishikesh 'Blaine' Anand"><img src="/assets/logo.svg" width="100%" height="100%" alt="Logo"/></a>
 	<div class="right">
-		<a type="button" id='toggleScene' class="toggle-off" main-tooltip data-tippy-content="Hide HUD<br />(Allows interaction with content)">
+		<a type="button" id='toggleScene' class="toggle-off inherit" main-tooltip data-tippy-content="Hide HUD<br />(Allows interaction with content)">
       <Icon name="toggle-off" classList="off" />
       <Icon name="toggle-on" classList="on" />
     </a>
-		<a href="https://github.com/Blakeinstein" class="fab fa-github-alt" main-tooltip data-tippy-content="Github Profile<pre>                       </pre>@Blakeinstein"></a>
+		<a class="inherit" href="https://github.com/Blakeinstein" main-tooltip data-tippy-content="Github Profile<pre>                       </pre>@Blakeinstein"><Icon name="github" /></a>
 		<div class="burger">
 			<span class="bar-top"></span>
 			<span class="bar-middle"></span>
