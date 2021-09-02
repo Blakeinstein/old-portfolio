@@ -16,6 +16,10 @@ class Navbar {
 		this.burger.addEventListener("click", this.click.bind(this));
 		this.folded = true;
 		this.animating = false;
+		
+		this.nav.querySelectorAll('li').forEach(el => {
+			el.addEventListener('click', this.hide.bind(this));
+		})
 	}
 
 	click() {
@@ -48,13 +52,12 @@ class Navbar {
 			easing: "easeOutElastic",
 		});
 
-		tl.finished.then(this.resetAnimating.bind(this, false));
+		this.animating = false;
 		this.burger.style.pointerEvents = "auto";
 		this.folded = false;
 	}
 
 	hide() {
-		console.log("hide");
 		if (this.folded || this.animating) return;
 		this.animating = true;
 		this.burger.style.pointerEvents = "none";
@@ -75,14 +78,14 @@ class Navbar {
 			easing: "easeOutSine",
 		});
 		
-		tl.finished.then(this.resetAnimating.bind(this, true));
+		this.animating = false;
+		tl.finished.then(this.resetAnimating.bind(this));
 		this.burger.style.pointerEvents = "auto";
 		this.folded = true;
 	}
 
-	resetAnimating (remove: boolean) {
-		this.animating = false;
-		remove && this.burger.classList.remove("active");
+	resetAnimating () {
+		this.burger.classList.remove("active");
 	}
 }
 
@@ -97,5 +100,3 @@ const swup = new Swup({
 });
 
 swup.preloadPages();
-
-swup.on('clickLink', navbar.hide.bind(navbar));
