@@ -1,0 +1,16 @@
+---
+import Icon from '../Common/Icon.astro';
+
+export interface Props {
+  tippyContent: string;
+  href: string;
+  icon: string;
+}
+
+let { tippyContent, href, icon } = Astro.props as Props;
+---
+<li>
+  <a emotion-tool-tip data-tippy-content={tippyContent} href={href}>
+    <Icon name={icon} />
+  </a>
+</li>
