@@ -11,6 +11,7 @@ let { tippyContent, href, icon } = Astro.props as Props;
 ---
 <style lang="scss">
 $size: 3em;
+$size-expand: 1.2;
 li {
   display: inline-block;
   padding: 0;
@@ -21,6 +22,12 @@ li {
     line-height: $size;
     font-size: 2em;
     display: inline-block;
+    transition: transform 0.1s cubic-bezier(0.64, 0.57, 0.67, 1.53);
+    transform : scale(1);
+
+    &:hover {
+      transform: scale($size-expand);
+    }
   }
 }
 </style>
