@@ -10,9 +10,11 @@
   "author": "Blaine <rishi1998@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "@swup/slide-theme": "^1.0.5",
     "@types/animejs": "^3.1.4",
     "@types/three": "^0.125.0",
+    "@swup/slide-theme": "^1.0.5",
+    "@swup/head-plugin": "^1.2.0",
+    "@swup/preload-plugin": "^1.0.3",
     "animejs": "^3.2.1",
     "astro": "^0.20.3",
     "emailjs-com": "^2.6.4",
@@ -24,7 +26,5 @@
     "tippy.js": "^6.2.7"
   },
   "dependencies": {
-    "@swup/head-plugin": "^1.2.0",
-    "@swup/preload-plugin": "^1.0.3"
   }
 }
