@@ -49,11 +49,18 @@ h4 {
 .formBox {
 	height: 60%;
 	display: flex;
-	flex-flow: column;
+	position: relative;
+
+	#complete, #contactForm {
+		transition: all 1s ease-in-out;
+	}
 
 	#complete {
-		display: none;
-		height: 100%;
+		padding: 4.4em 0;
+		opacity: 0;
+		visibility: hidden;
+		position: absolute;
+		inset: 0;
 
 		.final-message {
 			display: flex;
@@ -67,19 +74,29 @@ h4 {
 				font-weight: 1;
 			}
 		}
+
 	}
 
 	#contactForm {
-		height: 100%;
 		display: flex;
 		flex-flow: column;
+		height: 100%;
 		justify-content: space-evenly;
-
-		&.slow-fade-out {
-			animation: slowFade 1s reverse;
-		}
+		opacity: 1;
+		visibility: visible;
 	}
 
+	&.complete {
+		#complete {
+			opacity: 1;
+			visibility: visible;
+		}
+
+		#contactForm {
+			opacity: 0;
+			visibility: hidden;
+		}
+	}
 }
 
 .row {
@@ -205,12 +222,6 @@ input[type="checkbox"] {
     <h4>Send me a message, regarding anything!</h4>
   </div>
   <div class="formBox">
-    <div id="complete" class="final-message">
-      <div class="final-message">
-        <h1>Thanks!</h1>
-        <h4>I will try to get back as soon as possible!</h4>
-      </div>
-    </div>
     <form id="contactForm">
       <div class="row">
         <div class="name" id="name">
@@ -243,5 +254,11 @@ input[type="checkbox"] {
         </button>
       </div>
     </form>
+    <div id="complete" class="final-message">
+      <div class="final-message">
+        <h1>Thanks!</h1>
+        <h4>I will try to get back as soon as possible!</h4>
+      </div>
+    </div>
   </div>
 </div>
