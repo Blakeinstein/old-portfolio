@@ -3,6 +3,7 @@ import Swup from 'swup';
 import SwupSlideTheme from "@swup/slide-theme";
 import SwupHeadPlugin from '@swup/head-plugin';
 import SwupPreloadPlugin from '@swup/preload-plugin';
+import contactMain from "../Contact/contact";
 
 class Navbar {
 	burger: HTMLElement;
@@ -91,12 +92,19 @@ class Navbar {
 
 const navbar = new Navbar();
 
-console.log("🚀 Coded with ❤ by Blaine.")
+console.log("🚀 Coded with ❤ by Blaine.");
 
 const swup = new Swup({
   plugins: [ new SwupSlideTheme(), new SwupPreloadPlugin(), new SwupHeadPlugin({
-    "persistAssets": true
-  })],
+		"persistAssets": true
+	})],
 });
 
+function init () {
+	if (document.querySelector('#contact')) contactMain();
+}
+
 swup.preloadPages();
+
+init();
+swup.on('contentReplaced', init);
