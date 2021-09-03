@@ -1,0 +1,175 @@
+---
+import Icon from '../Common/Icon.astro';
+---
+<style lang="scss">
+.top {
+  padding: 2rem;
+  position: absolute;
+  top: 1.2rem;
+  width: 100%;
+  height: 4em;
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  z-index: 50;
+
+  >.logo {
+    width: 3.2rem;
+    height: 3.2rem;
+  }
+
+  .right {
+    padding-right: 3.2rem;
+    width: auto;
+    display: inline-grid;
+    grid-template-columns: 2.4rem 2.4rem 3rem;
+    place-items: center;
+    font-size: 1.4rem;
+    gap: 0.6em;
+  }
+}
+
+:global(.off),
+:global(.on) {
+  display: inherit;
+  > :global(svg) {
+    height: 1.2em;
+    width: 1.2em;
+  }
+}
+
+:global(.inherit) {
+  display: inherit;
+}
+
+.toggle {
+  &-on > :global(.off) {
+    display: none;
+  }
+  &-off > :global(.on) {
+    display: none;
+  }
+}
+
+.navbar {
+  width: 100vw;
+  height: 100vh;
+  z-index: 30;
+  display: flex;
+  flex-flow: column;
+  align-items: flex-start;
+  justify-content: center;
+  background-color: #000000aa;
+  position: absolute;
+  font-size: 10px;
+  left: 0;
+  transform-origin: bottom;
+
+  &.active {
+    transform-origin: top;
+  }
+
+  nav {
+    padding: 8em;
+  }
+
+  ul {
+    font-size: 4.2em;
+    font-weight: 200;
+    text-transform: capitalize;
+    line-height: 1.2em;
+
+    > li {
+      color: transparent;
+      transform: translateX(-100px);
+      opacity: 0;
+
+      &:before {
+        content: attr(data-text);
+        position: absolute;
+        top: 0;
+        left: 0;
+        overflow: hidden;
+        width: 0%;
+        height: 100%;
+        transition: 1s ease-in-out;
+        color: #fff;
+
+        &:hover {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-device-width: 736px) {
+  .navbar {
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+  }
+}
+/* ====================================
+Burger king
+==================================== */
+.burger {
+  border-bottom: 1px solid #fff;
+  width: 24px;
+  height: 17px;
+  background-image: none;
+  position: relative;
+  transition: all 240ms ease-in-out;
+
+  &:before, &:after {
+    width: 24px;
+    position: absolute;
+    height: 1px;
+    background-color: #fff;
+    top: 0;
+    left: 0;
+    content: '';
+    transition: all 240ms ease-in-out;
+  }
+
+  &::after {
+    top: 8px;
+  }
+
+  &.active {
+    border-color: transparent;
+
+    &:before {
+      transform: translateY(8px) rotate(-45deg);
+    }
+
+    &::after {
+      transform: rotate(45deg);
+    }
+  }
+}
+</style>
+
+<div class="navbar collapsed" style="transform: scaleY(0)">
+	<nav role="navigation">
+		<ul>
+			<li><a data-swup-preload href="/" data-text="Home">Home</a></li>
+			<li><a data-swup-preload href="/about" data-text="About">About</a></li>
+			<li><a data-swup-preload href="/projects" data-text="Projects">Projects</a></li>
+			<li><a data-swup-preload href="/contact" data-text="Contact">Contact</a></li>
+			<li><a data-swup-preload href="/socials" data-text="Socials">Socials</a></li>
+		</ul>
+	</nav>
+</div>
+<div class="top">
+	<a href="/" class="logo" main-tooltip data-tippy-content="Rishikesh 'Blaine' Anand"><img src="/assets/logo.svg" width="100%" height="100%" alt="Logo"/></a>
+	<div class="right">
+		<a type="button" id='toggleScene' class="toggle-off inherit" main-tooltip data-tippy-content="Hide HUD<br />(Allows interaction with content)">
+      <Icon name="toggle-off" classList="off" />
+      <Icon name="toggle-on" classList="on" />
+    </a>
+		<a class="inherit" href="https://github.com/Blakeinstein" main-tooltip data-tippy-content="Github Profile<pre>                       </pre>@Blakeinstein"><Icon name="github" /></a>
+		<div class="burger" />
+	</div>
+</div>
+<script defer type="module" src={Astro.resolve('./navbar.js')}></script>

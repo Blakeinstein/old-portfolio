@@ -1,0 +1,36 @@
+---
+import SEO from '../components/SEO.astro';
+import Scene from '../components/Scene/Scene.astro';
+import Navbar from '../components/Navbar/Navbar.astro';
+import BaseHead from '../components/Head/BaseHead.astro';
+import Content from '../components/Content.astro';
+
+
+export interface Props {
+  title: string;
+  description: string;
+  image?: string;
+}
+
+const { title, description, image } = Astro.props as Props;
+---
+<html lang="en">
+  <head>
+    <BaseHead />
+    <SEO
+      title={title}
+      description={description}
+      image={image}
+    />
+    <slot
+      name="style"
+    />
+  </head>
+  <body>
+    <Scene />
+    <Navbar />
+    <Content>
+      <slot />
+    </Content>
+  </body>
+</html>

@@ -1,0 +1,85 @@
+<script defer type="module" src={Astro.resolve("./tippy.js")}></script>
+<style global lang="scss">
+  @use "tippy.js/dist/tippy.css";
+  @use "tippy.js/dist/svg-arrow.css";
+  @use "tippy.js/animations/shift-away.css";
+  @import url('https://api.fontshare.com/css?f[]=chillax@200,300,400,600,700,1&display=swap');
+</style>
+<style global>
+  /* http://meyerweb.com/eric/tools/css/reset/ 
+    v2.0 | 20110126
+    License: none (public domain)
+  */
+
+  html, body, div, span, applet, object, iframe,
+  h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+  a, abbr, acronym, address, big, cite, code,
+  del, dfn, em, img, ins, kbd, q, s, samp,
+  small, strike, strong, sub, sup, tt, var,
+  b, u, i, center,
+  dl, dt, dd, ol, ul, li,
+  fieldset, form, label, legend,
+  table, caption, tbody, tfoot, thead, tr, th, td,
+  article, aside, canvas, details, embed, 
+  figure, figcaption, footer, header, hgroup, 
+  menu, nav, output, ruby, section, summary,
+  time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+  }
+  /* HTML5 display-role reset for older browsers */
+  article, aside, details, figcaption, figure, 
+  footer, header, hgroup, menu, nav, section {
+    display: block;
+  }
+  ol, ul {
+    list-style: none;
+  }
+  a{
+    text-decoration: none;
+  }
+  *,:after,:before {
+    color: white;
+    box-sizing: border-box;
+    user-select: none;
+  }
+  body{
+    line-height: 1;
+    margin: 0;
+    background-color: black;
+    font-family: 'Chillax', monospace;
+    font-weight: 300;
+  }
+
+  @media only screen and (max-device-width: 736px){
+    html {
+      font-size: 10px;
+    }
+  }
+  
+  @keyframes slide-up {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .tippy-box[data-theme~='space'] {
+    background-color: rgba(50, 50, 50, 0.1);
+    color: white;
+  }
+
+  .tippy-box[data-theme~='emotion'] {
+    background: linear-gradient(130deg, #373b44, #4286f4);
+    box-shadow: 2px 2px 10px 5px rgba(37, 112, 173, 0.5);
+    font-weight: 400;
+  }
+</style>

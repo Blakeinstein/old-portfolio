@@ -1,0 +1,40 @@
+---
+export interface Props {
+  title: string;
+  description: string;
+  image?: string;
+}
+
+const { title, description, image = "/assets/logo.svg" } = Astro.props as Props;
+---
+<!-- Common. -->
+<meta charset="UTF-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge; chrome=1"> <!-- Render Chrome if available or using latest version of Internet Explorer (Recommended). -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{title}</title>
+<!-- Search Eengine and Browser Meta Tags. -->
+<meta name="description"             content={description}>
+<meta name="abstract"                content="The face of Rishikesh 'Blaine' Anand on the web.">
+<meta name="rating"                  content="General">
+<meta property="og:image"            content="{image}">
+<meta property="og:site_name"        content="Blaine">
+<meta property="og:title"            content="{title}">
+<meta property="og:description"      content="{description}">
+<meta property="og:type"             content="website">
+<meta property="og:url"              content="https://blaine.is-a.dev">
+<meta property="og:locale"           content="en_IN">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:locale:alternate" content="en_GB">
+<meta property="og:country-name"     content="IN">
+<!-- Twitter Meta Tags. -->
+<meta name="twitter:card"            content="summary_large_image">
+<meta name="twitter:site"            content="@BlaineSensei">
+<meta name="twitter:creator"         content="@BlaineSensei">
+<meta name="twitter:url"             content="https://blaine.is-a.dev">
+<meta name="twitter:title"           content="{title}">
+<meta name="twitter:description"     content="{description}">
+<meta name="twitter:image"           content="{image}">
+<link rel="icon" type="image/svg+xml" href="{image}">
+<!-- Apple Safari Pinned Site. -->
+<link rel="mask-icon" href="{image && 'assets/logo.svg'}" color="black">
+<meta name="google" value="notranslate">

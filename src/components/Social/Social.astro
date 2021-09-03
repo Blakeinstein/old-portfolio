@@ -1,0 +1,107 @@
+---
+import socials from './socials.ts';
+import Link from './Link.astro';
+---
+<style slot="style" lang="scss">
+#socials {
+  width: 90%;
+  height: 90%;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-around;
+
+  > ul {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+    align-content: space-evenly;
+    width: 100%;
+    height: 100%;
+
+    > li {
+      display: flex;
+      flex-flow: column-reverse nowrap;
+      justify-content: center;
+      align-items: center;
+      width: 45%;
+
+      > :global(span) {
+        display: block;
+        text-align: center;
+        margin-bottom: 10px;
+      }
+    }
+
+    .icons {
+      text-align: center;
+      filter: url("#goo");
+    }
+  }
+}
+</style>
+
+<style global>
+.linkedin {
+  background: #0085ae;
+}
+.twitter {
+  background: #32ccfe;
+}
+.reddit {
+  background: #f74300;
+}
+.instagram {
+  background: radial-gradient(
+    circle at 30% 107%,
+    #fdf497 0%,
+    #fdf497 5%,
+    #fd5949 45%,
+    #d6249f 60%,
+    #285aeb 90%
+  );
+}
+.github {
+  background: #070709;
+}
+.stackoverflow {
+  background: #ff7300;
+}
+.steam {
+  background: linear-gradient(120deg, #00adee, #000000);
+}
+.discord {
+  background: #8697f6;
+}
+.battledotnet {
+  background: #2e60b4;
+}
+.myanimelist {
+  background: #2c54a4;
+}
+.soundcloud {
+  background: #f75219;
+}
+.spotify {
+  background: #1ed760;
+}
+</style>
+<div id="socials">
+  <ul>
+    {socials.map(([group, links]) => {
+      return (
+        <li class="section">
+          <span>{group}</span>
+          <ul class="icons">
+            {links.map(social => (
+              <Link
+                tippyContent={social.name}
+                href={social.href}
+                icon={social.icon}
+              />
+            ))}
+          </ul>
+        </li>
+      )
+    })}
+  </ul>
+</div>

@@ -1,0 +1,32 @@
+---
+import BrandIcon from './BrandIcon.astro';
+
+export interface Props {
+  tippyContent: string;
+  href: string;
+  icon: string;
+}
+
+let { tippyContent, href, icon } = Astro.props as Props;
+---
+<style lang="scss">
+$size: 3em;
+li {
+  display: inline-block;
+  padding: 0;
+
+  > a {
+    height: $size;
+    width: $size;
+    line-height: $size;
+    font-size: 2em;
+    display: inline-block;
+  }
+}
+</style>
+
+<li>
+  <a emotion-tool-tip data-tippy-content={tippyContent} href={href}>
+    <BrandIcon name={icon} />
+  </a>
+</li>
