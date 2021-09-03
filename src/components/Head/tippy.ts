@@ -11,12 +11,12 @@ tippy('[main-tooltip]', {
   plugins: [animateFill],
 });
 
-delegate('main', {
+delegate('#content', {
   target: '[emotion-tool-tip]',
   appendTo: () => document.body,
   theme: 'emotion',
   allowHTML: true,
   arrow: roundArrow,
-  placement: 'auto',
+  placement: 'top',
   interactive: true,
 })
