@@ -5,7 +5,9 @@ init("user_wird1j6wAcU6lj00aaLo9");
 
 let isSending = false;
 
-document.getElementById('submit').onclick = (e: Event) => {
+document.querySelector('.submit>a').addEventListener('click', (e: Event) => {
+
+	console.log("Handling submit");
 	e.preventDefault();
 
 	if (isSending) return false;
@@ -84,6 +86,4 @@ document.getElementById('submit').onclick = (e: Event) => {
 		);
 	}
 	return proceed;
-}
-
-console.log("hello world");
+});
