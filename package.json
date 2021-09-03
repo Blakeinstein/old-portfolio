@@ -10,11 +10,11 @@
   "author": "Blaine <rishi1998@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "@types/animejs": "^3.1.4",
-    "@types/three": "^0.125.0",
-    "@swup/slide-theme": "^1.0.5",
     "@swup/head-plugin": "^1.2.0",
     "@swup/preload-plugin": "^1.0.3",
+    "@swup/slide-theme": "^1.0.5",
+    "@types/animejs": "^3.1.4",
+    "@types/three": "^0.125.0",
     "animejs": "^3.2.1",
     "astro": "^0.20.3",
     "emailjs-com": "^2.6.4",
@@ -25,6 +25,5 @@
     "three.meshline": "^1.3.0",
     "tippy.js": "^6.2.7"
   },
-  "dependencies": {
-  }
+  "dependencies": {}
 }
