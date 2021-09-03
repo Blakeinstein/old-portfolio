@@ -8,7 +8,7 @@ export interface Props {
 
 const { frameless, href } = Astro.props as Props;
 ---
-<style lang="scss">
+<style global lang="scss">
 $background: aliceblue;
 
 .ghostButton {
@@ -60,6 +60,6 @@ $background: aliceblue;
 	}
 }
 </style>
-<button class={frameless? 'ghostButton frameless' : 'ghostButton'} href={href} type="submit">
+<a class='ghostButton' href={href}>
   <slot />
-</button>
+</a>

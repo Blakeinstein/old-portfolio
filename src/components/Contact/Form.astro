@@ -74,6 +74,10 @@ h4 {
 		display: flex;
 		flex-flow: column;
 		justify-content: space-evenly;
+
+		&.slow-fade-out {
+			animation: slowFade 1s reverse;
+		}
 	}
 
 }
@@ -156,7 +160,7 @@ input[type="checkbox"] {
 			content: "";
 			position: absolute;
 			top: 50%;
-			left: -7%;
+			left: -10%;
 			transform: translate(-50%, -50%);
 			visibility: visible;
 			width: 2em;
@@ -181,8 +185,6 @@ input[type="checkbox"] {
 			color: black;
 		}
 	}
-
-	
 
 	&:checked + label {
 		&:before {
@@ -233,12 +235,12 @@ input[type="checkbox"] {
         <label for="noSpam">I solemnly swear I am not a troll..</label>
       </div>
       <div class="row submit">
-        <GhostButton frameless id="submit">
+        <button class="ghostButton frameless" type="submit">
           Submit
           <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 1000 1000" xml:space="preserve" fill="aliceblue" stroke="aliceblue">
             <g><g transform="matrix(1 0 0 -1 0 1008)"><path d="M756.2,741.8L990,508L756.2,274.2l-27,27L918.1,490H10v36h908.1L729.3,714.8L756.2,741.8z"/></g></g>
           </svg>
-        </GhostButton>
+        </button>
       </div>
     </form>
   </div>
