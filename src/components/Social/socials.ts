@@ -47,12 +47,12 @@ export default Object.entries(<Record<string, {
     {
       name: "Discord Tag : Blaine#6960",
       icon: "discord",
-      href: ""
+      href: "https://discord.com/"
     },
     {
       name: "Battle.net Tag : Blaine#22648",
       icon: "battledotnet",
-      href: ""
+      href: "https://www.blizzard.com/en-us/"
     }
   ],
   "Other": [
