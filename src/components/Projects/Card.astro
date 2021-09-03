@@ -1,4 +1,5 @@
 ---
+import GhostButton from "../Common/GhostButton.astro";
 export interface Props {
   image: string;
   name: string;
@@ -186,6 +187,6 @@ $card-background: rgba(0, 0, 0, 0.2);
       <div class="libraries">{libraries}</div>
     </div>
     <div class="desc">{desc}</div>
-    <a class="ghostButton" href={href}>View</a>
+    <GhostButton href={href}>View</GhostButton>
   </div>
 </div>
