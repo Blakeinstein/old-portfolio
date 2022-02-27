@@ -1,15 +1,12 @@
 ---
+import Icon from 'astro-icon'
+
 export interface Props {
   name: string;
   classList?: string;
 }
 
 let { name, classList = "" } = Astro.props as Props;
-
-//get svg from the CDN
-let url = `https://cdn.jsdelivr.net/gh/twbs/icons/icons/${name}.svg`
-let svg = await fetch(url).then(x => x.text())
-// let classList = "svg-icon " + dataClass;
 
 ---
 <style global>
@@ -23,5 +20,5 @@ let svg = await fetch(url).then(x => x.text())
 }
 </style>
 <span class={"svg-icon " + classList}>
-  {svg}
+  <Icon name={name} />
 </span>

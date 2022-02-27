@@ -7,68 +7,68 @@ export default Object.entries(<Record<string, {
   "Social": [
     {
       name: "Linkedin",
-      icon: "linkedin",
+      icon: "bi:linkedin",
       href: "https://www.linkedin.com/in/blakeinstein/"
     },
     {
       name: "Twitter",
-      icon: "twitter",
+      icon: "bi:twitter",
       href: "https://twitter.com/BlaineSensei"
     },
     {
       name: "Reddit",
-      icon: "reddit",
+      icon: "bi:reddit",
       href: "https://reddit.com/u/sigiz"
     },
     {
       name: "Instagram",
-      icon: "instagram",
+      icon: "bi:instagram",
       href: "https://www.instagram.com/blainesensei/"
     }
   ],
   "Productivity": [
     {
       name: "Github",
-      icon: "github",
+      icon: "bi:github",
       href: "https://github.com/Blakeinstein"
     },
     {
       name: "StackOverFlow",
-      icon: "stackoverflow",
+      icon: "cib:stackoverflow",
       href: "https://stackoverflow.com/users/7799568/blaine"
     }
   ],
   "Gaming": [
     {
       name: "Steam",
-      icon: "steam",
+      icon: "bi:steam",
       href: "https://steamcommunity.com/id/BlaineSensei/"
     },
     {
       name: "Discord Tag : Blaine#6960",
-      icon: "discord",
+      icon: "bi:discord",
       href: "https://discord.com/"
     },
     {
       name: "Battle.net Tag : Blaine#22648",
-      icon: "battledotnet",
+      icon: "simple-icons:battledotnet",
       href: "https://www.blizzard.com/en-us/"
     }
   ],
   "Other": [
     {
       name: "MyAnimeList",
-      icon: "myanimelist",
+      icon: "simple-icons:myanimelist",
       href: "https://myanimelist.net/profile/Blakeinstein"
     },
     {
       name: "Soundcloud",
-      icon: "soundcloud",
+      icon: "cib:soundcloud",
       href: "https://soundcloud.com/blakeinstein"
     },
     {
       name: "Spotify",
-      icon: "spotify",
+      icon: "bi:spotify",
       href: "https://open.spotify.com/user/c3fph9vexjdfvvdmh7h9kjdqv"
     }
   ]
