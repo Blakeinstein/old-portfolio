@@ -1,5 +1,5 @@
 import * as THREE from "three";
-import { MeshLine, MeshLineMaterial } from "three.meshline";
+import { MeshLine, MeshLineMaterial } from "meshline";
 import { TrackballControls } from "three/examples/jsm/controls/TrackballControls";
 import * as POSTPROCESSING from "postprocessing";
 import anime from 'animejs/lib/anime.es.js';
@@ -57,16 +57,16 @@ class StarField {
 	}
 }
 
-MeshLine.prototype.setGeometry = function(g: THREE.BufferGeometry) {
-	// as the input geometry are mutated we store them
-	// for later retreival when necessary (declaritive architectures)
-	this._geometry = g;
-	if (g instanceof THREE.BufferGeometry) {
-		this.setPoints(g.getAttribute("position").array);
-	} else {
-		this.setPoints(g);
-	}
-}
+// MeshLine.prototype.setGeometry = function(g: THREE.BufferGeometry) {
+// 	// as the input geometry are mutated we store them
+// 	// for later retreival when necessary (declaritive architectures)
+// 	this._geometry = g;
+// 	if (g instanceof THREE.BufferGeometry) {
+// 		this.setPoints(g.getAttribute("position").array);
+// 	} else {
+// 		this.setPoints(g);
+// 	}
+// }
 
 class Sketch {
 	scene: THREE.Scene;
@@ -207,23 +207,23 @@ class Sketch {
 	}
 
 	createShapes(a: number[], b: number[], c: number[]) {
-		// let geom = new THREE.BufferGeometry();
-		// geom.setAttribute('position', new THREE.BufferAttribute( new Float32Array([...a, ...b, ...c, ...a]), 3));
+		let geom = new THREE.BufferGeometry();
+		geom.setAttribute('position', new THREE.BufferAttribute( new Float32Array([...a, ...b, ...c, ...a]), 3));
 
-		// let line = new MeshLine();
-		// line.setGeometry(geom);
-		// let mesh = new THREE.Mesh(line.geometry, new MeshLineMaterial({
-		// 	color: 0xffffff,
-		// 	lineWidth: 2,
-		// 	resolution: new THREE.Vector2(this.width, this.height),
-		// 	transparent: true,
-		// 	depthWrite: false,
-		// 	opacity: 0.4,
-		// 	side: THREE.DoubleSide
-		// }));
-		// this.shapes.push(mesh);
-		// this.bloomEffect.selection.add(mesh);
-		// this.scene.add(mesh);
+		let line = new MeshLine();
+		line.setGeometry(geom);
+		let mesh = new THREE.Mesh(line.geometry, new MeshLineMaterial({
+			color: 0xffffff,
+			lineWidth: 2,
+			resolution: new THREE.Vector2(this.width, this.height),
+			transparent: true,
+			depthWrite: false,
+			opacity: 0.4,
+			side: THREE.DoubleSide
+		}));
+		this.shapes.push(mesh);
+		this.bloomEffect.selection.add(mesh);
+		this.scene.add(mesh);
 	}
 
 	init(){
