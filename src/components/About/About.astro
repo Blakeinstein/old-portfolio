@@ -1,6 +1,7 @@
 ---
 import GhostButton from '../Common/GhostButton.astro';
 import Icon from '../Common/Icon.astro';
+import Skill from './Skill.astro'
 ---
 <style lang="scss">
 #about {
@@ -68,24 +69,115 @@ import Icon from '../Common/Icon.astro';
     <p>Hi, I'm Rishikesh Anand! A developer, software engineer and a tech enthusiast. I love to try new things, explore possibilites and anything that amuses my curiosity. I am currently pursuing a degree in Computer Science and Engineering at, National Institute of Technology, Delhi.</p>
     <h4><Icon name="ci:caret-down"/> Languages and Frameworks</h4>
     <ul class="languages">
-      <li> <div emotion-tool-tip data-tippy-content="Serde, WebViewRS/Tauri, Rocket...">Rust</div></li>
-      <li> <div emotion-tool-tip data-tippy-content="React, VueJS, ThreeJS, GSAP, AnimeJS, Express, Fastify">Javascript/Typescript</div></li>
-      <li> <div emotion-tool-tip data-tippy-content="PyQT5/PySide2, FBS, Pandas, Django, Flask">Python</div></li>
-      <li> <div emotion-tool-tip data-tippy-content="Qt5, Boost, WinRT">C/C++</div></li>
-      <li> <div emotion-tool-tip data-tippy-content="MATLAB, Latex, Julia, GoLang, Sass, WASM, ASM8086 and ASM6402">others..</div></li>
+      <li>
+        <Skill>
+          <span slot="tooltip">
+          "Serde, WebViewRS/Tauri, Rocket..."
+          </span>
+          Rust
+        </Skill>
+      </li>
+      <li>
+        <Skill>
+          <span slot="tooltip">
+          "React, VueJS, ThreeJS, GSAP, AnimeJS, Express, Fastify"
+          </span>
+          Javascript/Typescript
+        </Skill>
+      </li>
+      <li>
+        <Skill>
+          <span slot="tooltip">
+          "PyQT5/PySide2, FBS, Pandas, Django, Flask"
+          </span>
+          Python
+        </Skill>
+      </li>
+      <li>
+        <Skill>
+          <span slot="tooltip">
+          "Qt5, Boost, WinRT"
+          </span>
+          C/C++
+        </Skill>
+      </li>
+      <li>
+        <Skill>
+          <span slot="tooltip">
+          "MATLAB, Latex, Julia, GoLang, Sass, WASM, ASM8086 and ASM6402"
+          </span>
+          others..
+        </Skill>
+      </li>
     </ul>
     <h4><Icon name="ci:caret-down"/> Skillsets</h4>
     <ul class="Skillsets">
       <li>Software Engineering</li>
-      <li> <div emotion-tool-tip data-tippy-content="Docker, Vim, Bash, SSH, Git">Devtools</div></li>
-      <li> <div emotion-tool-tip data-tippy-content="After Effects, Photoshop, Illustrator...">Adobe Suite</div></li>
+      <li>
+        <Skill>
+          <span slot="tooltip">    
+            "Docker, Vim, Bash, SSH, Git"
+          </span>
+          Devtools
+        </Skill>
+      </li>
+      <li>
+        <Skill>
+          <span slot="tooltip">    
+            "After Effects, Photoshop, Illustrator..."
+          </span>
+          Adobe Suite
+        </Skill>
+      </li>
     </ul>
     <h4><Icon name="ci:caret-down"/> Experience</h4>
     <ul class="experience">
-      <li> <div emotion-tool-tip data-tippy-content="<a href='https://github.com/FOSSEE/Chemical-PFD'><i class='fas fa-external-link-alt'></i> Github</a>, <a href='https://static.fossee.in/fossee/fellowship2020/Fellowship-Reports/Python/Python-Chemical/Python-Chemical-RishikeshAnand-FSF-2020.pdf'><i class='fas fa-external-link-alt'></i> Report</a>">Intern at FOSSEE, IIT Bombay</div></li>
-      <li> <div emotion-tool-tip data-tippy-content="<a href='https://meetcolab.com'><i class='fas fa-external-link-alt'></i> Website</a>">Intern at Enthire. Improved Meetcolab</div></li>
-      <li> <div emotion-tool-tip data-tippy-content="<a href='https://github.com/Upvision/upvision.github.io'><i class='fas fa-external-link-alt'></i> Github</a>, <a href='https://upvision.co/'><i class='fas fa-external-link-alt'></i> Website</a>">Executive Member at UpVision, Tech club of NIT Delhi</div></li>
-      <li> <div emotion-tool-tip data-tippy-content="<a href='https://gdsc.community.dev/national-institute-of-technology-nit-delhi/'><i class='fas fa-external-link-alt'></i> Website</a>">Project Lead at Google Developer Student Club - NIT DELHI</div></li>
+      <li>
+        <Skill>
+          <span slot="tooltip">
+            <a href='https://github.com/FOSSEE/Chemical-PFD'>
+              <i class='fas fa-external-link-alt' /> Github
+            </a>, 
+            <a href='https://static.fossee.in/fossee/fellowship2020/Fellowship-Reports/Python/Python-Chemical/Python-Chemical-RishikeshAnand-FSF-2020.pdf'>
+              <i class='fas fa-external-link-alt' /> Report
+            </a>
+          </span>
+          Intern at FOSSEE, IIT Bombay
+        </Skill>
+      </li>
+      <li>
+        <Skill>
+          <span slot="tooltip">
+            <a href='https://meetcolab.com'>
+              <i class='fas fa-external-link-alt' /> Website
+            </a>
+          </span>
+          Intern at Enthire. Improved Meetcolab
+        </Skill>
+      </li>
+      <li>
+        <Skill>
+          <span slot="tooltip">
+            <a href='https://github.com/Upvision/upvision.github.io'>
+              <i class='fas fa-external-link-alt' /> Github
+            </a> 
+            <a href='https://upvision.co/'>
+              <i class='fas fa-external-link-alt' /> Website
+            </a>
+          </span>
+          Executive Member at UpVision, Tech club of NIT Delhi
+        </Skill>
+      </li>
+      <li>
+        <Skill>
+          <span slot="tooltip">
+            <a href='https://gdsc.community.dev/national-institute-of-technology-nit-delhi/'>
+              <i class='fas fa-external-link-alt' /> Website
+            </a>
+          </span>
+          Project Lead at Google Developer Student Club - NIT DELHI
+        </Skill>
+      </li>
     </ul>
     <div class="about-links">
       <GhostButton href="https://drive.google.com/drive/folders/1nCs0CvLj4XF8r7D83KCzVKvYSq0SQOP2?usp=sharing"><Icon name="ph:file-arrow-down-thin"/> Resume</GhostButton>

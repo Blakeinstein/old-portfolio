@@ -57,17 +57,6 @@ class StarField {
 	}
 }
 
-// MeshLine.prototype.setGeometry = function(g: THREE.BufferGeometry) {
-// 	// as the input geometry are mutated we store them
-// 	// for later retreival when necessary (declaritive architectures)
-// 	this._geometry = g;
-// 	if (g instanceof THREE.BufferGeometry) {
-// 		this.setPoints(g.getAttribute("position").array);
-// 	} else {
-// 		this.setPoints(g);
-// 	}
-// }
-
 class Sketch {
 	scene: THREE.Scene;
 	loader: Loader;
