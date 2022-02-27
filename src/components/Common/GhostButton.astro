@@ -2,11 +2,14 @@
 export interface Props {
   frameless?: boolean;
   href?: string;
-  // description: string;
-  // image?: string;
+	type?: string;
 }
 
-const { frameless, href } = Astro.props as Props;
+const { frameless, href, type } = Astro.props as Props;
+let classes = 'ghostButton'
+if (frameless) {
+	classes += ' frameless'
+}
 ---
 <style global lang="scss">
 $background: aliceblue;
@@ -60,6 +63,6 @@ $background: aliceblue;
 	}
 }
 </style>
-<a class='ghostButton' href={href}>
+<a class={classes} href={href} type={type}>
   <slot />
 </a>
