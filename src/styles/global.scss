@@ -5,73 +5,73 @@
 @import url('https://api.fontshare.com/css?f[]=chillax@200,300,400,600,700,1&display=swap');
 
 // reset
-  /* http://meyerweb.com/eric/tools/css/reset/ 
-    v2.0 | 20110126
-    License: none (public domain)
-  */
+/* http://meyerweb.com/eric/tools/css/reset/ 
+  v2.0 | 20110126
+  License: none (public domain)
+*/
 
-  html, body, div, span, applet, object, iframe,
-  h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-  a, abbr, acronym, address, big, cite, code,
-  del, dfn, em, img, ins, kbd, q, s, samp,
-  small, strike, strong, sub, sup, tt, var,
-  b, u, i, center,
-  dl, dt, dd, ol, ul, li,
-  fieldset, form, label, legend,
-  table, caption, tbody, tfoot, thead, tr, th, td,
-  article, aside, canvas, details, embed, 
-  figure, figcaption, footer, header, hgroup, 
-  menu, nav, output, ruby, section, summary,
-  time, mark, audio, video {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font-size: 100%;
-    font: inherit;
-    vertical-align: baseline;
-  }
-  /* HTML5 display-role reset for older browsers */
-  article, aside, details, figcaption, figure, 
-  footer, header, hgroup, menu, nav, section {
-    display: block;
-  }
-  ol, ul {
-    list-style: none;
-  }
-  a{
-    text-decoration: none;
-  }
-  *,:after,:before {
-    color: white;
-    box-sizing: border-box;
-    user-select: none;
-    scrollbar-width: thin !important;
-    scrollbar-color: #8b88909c transparent !important;
-  }
-  body{
-    line-height: 1;
-    margin: 0;
-    background-color: black;
-    font-family: 'Chillax', monospace;
-    font-weight: 300;
-  }
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+ol, ul {
+  list-style: none;
+}
+a{
+  text-decoration: none;
+}
+*,:after,:before {
+  color: white;
+  box-sizing: border-box;
+  user-select: none;
+  scrollbar-width: thin !important;
+  scrollbar-color: #8b88909c transparent !important;
+}
+body{
+  line-height: 1;
+  margin: 0;
+  background-color: black;
+  font-family: 'Chillax', monospace;
+  font-weight: 300;
+}
 
-  @media only screen and (max-device-width: 736px){
-    html {
-      font-size: 10px;
-    }
+@media only screen and (max-device-width: 736px){
+  html {
+    font-size: 10px;
   }
-  
-  @keyframes slide-up {
-    0% {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0);
-    }
+}
+
+@keyframes slide-up {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
   }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
 // Navbar
 .top {
@@ -100,24 +100,24 @@
   }
 }
 
-:global(.off),
-:global(.on) {
+.off,
+.on {
   display: inherit;
-  > :global(svg) {
+  > svg {
     height: 1.2em;
     width: 1.2em;
   }
 }
 
-:global(.inherit) {
+.inherit {
   display: inherit;
 }
 
 .toggle {
-  &-on > :global(.off) {
+  &-on > .off {
     display: none;
   }
-  &-off > :global(.on) {
+  &-off > .on {
     display: none;
   }
 }
@@ -146,7 +146,6 @@
 
   ul {
     font-size: 4.2em;
-    font-weight: 200;
     text-transform: capitalize;
     line-height: 1.2em;
 
@@ -337,7 +336,7 @@ h4 {
 
 	&.submit {
 		margin-top: 0.5em;
-		> :global(.ghostButton) {
+		> .ghostButton {
 			display: flex;
 			align-items: center;
 			font-size: 1.3em;
@@ -578,12 +577,36 @@ input[type="checkbox"] {
 }
 
 // Social
+// -> Link
+$size: 3em;
+$size-expand: 1.2;
 #socials {
   width: 90%;
   height: 90%;
   display: flex;
   flex-flow: column;
   justify-content: space-around;
+
+  li {
+    display: inline-block;
+    padding: 0;
+
+    > a {
+      height: $size;
+      width: $size;
+      line-height: $size;
+      font-size: 2em;
+      display: inline-block;
+      transition: transform 0.1s cubic-bezier(0.64, 0.57, 0.67, 1.53);
+      transform : scale(1);
+
+      &:hover {
+        transform: scale($size-expand);
+        z-index: 5;
+        position: relative;
+      }
+    }
+  }
 
   > ul {
     display: flex;
@@ -600,7 +623,7 @@ input[type="checkbox"] {
       align-items: center;
       width: 45%;
 
-      > :global(span) {
+      > span {
         display: block;
         text-align: center;
         margin-bottom: 10px;
@@ -738,29 +761,7 @@ $background: aliceblue;
   background: #1ed760;
 }
 
-// -> Link
-$size: 3em;
-$size-expand: 1.2;
-li {
-  display: inline-block;
-  padding: 0;
 
-  > a {
-    height: $size;
-    width: $size;
-    line-height: $size;
-    font-size: 2em;
-    display: inline-block;
-    transition: transform 0.1s cubic-bezier(0.64, 0.57, 0.67, 1.53);
-    transform : scale(1);
-
-    &:hover {
-      transform: scale($size-expand);
-      z-index: 5;
-      position: relative;
-    }
-  }
-}
 
 // -> Card
 $easing: cubic-bezier(0.19, 1, 0.22, 1);
@@ -970,4 +971,12 @@ $card-background: rgba(0, 0, 0, 0.2);
       transition: all 2s ease-in-out;
     }
   }
+}
+
+.tooltip {
+  @apply invisible absolute;
+}
+
+.has-tooltip:hover .tooltip {
+  @apply visible z-50
 }
