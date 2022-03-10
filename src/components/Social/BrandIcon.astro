@@ -8,21 +8,6 @@ export interface Props {
 
 let { name, classList = "" } = Astro.props as Props;
 ---
-<style global>
-.svg-brand-icon {
-  height: 100%;
-  width: 100%;
-  display: grid;
-  place-items: center;
-  border-radius: 50%;
-}
-.svg-brand-icon svg {
-  text-align: center;
-  fill: rgba(255, 255, 255, 0.8);
-  height: 45px;
-  width: 45px;
-}
-</style>
 <span class={"svg-brand-icon " + name + classList}>
   <Icon name={name} />
 </span>

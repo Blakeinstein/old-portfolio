@@ -9,16 +9,6 @@ export interface Props {
 let { name, classList = "" } = Astro.props as Props;
 
 ---
-<style global>
-.svg-icon {
-    display: inline-flex;
-    align-self: center;
-}
-.svg-icon svg {
-    height:1em;
-    width:1em;
-}
-</style>
 <span class={"svg-icon " + classList}>
   <Icon name={name} />
 </span>
