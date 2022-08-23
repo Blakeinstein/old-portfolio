@@ -1,5 +1,4 @@
 import { init, send } from "emailjs-com";
-import tippy, { roundArrow } from "tippy.js";
 
 init("user_wird1j6wAcU6lj00aaLo9");
 
@@ -7,14 +6,8 @@ let isSending = false;
 
 function invalidSpam () {
 	console.log("Spammer not in the checked file. This incident will be reported.");
-	tippy("#noSpamDiv", {
-		content: "Spammer not in the checked file. This incident will be reported.",
-		inertia: true,
-		arrow: roundArrow,
-		placement: "top",
-		showOnCreate: true,
-		trigger: "manual",
-	});
+	window.blobity.focusElement(document.querySelector("#noSpamDiv")!);
+	window.blobity.showTooltip("Spammer not in the checked file. This incident will be reported.");
 }
 
 function contactSubmit (e: Event) {
@@ -39,30 +32,17 @@ function contactSubmit (e: Event) {
 			console.log(res);
 			if (res.status == 200) {
 				document
-					.querySelector(".formBox")
-					.classList.add("complete");
+					.querySelector(".formBox")?.classList.add("complete");
 			} else {
-				tippy("#submit", {
-					content: `${res.status}: ${res.text}`,
-					inertia: true,
-					arrow: roundArrow,
-					placement: "top",
-					showOnCreate: true,
-					trigger: "manual",
-				});
+				window.blobity.focusElement(document.querySelector("#submit")!);
+				window.blobity.showTooltip(`${res.status}: ${res.text}`);
 				proceed = false;
 			}
 			isSending = false;
 		},
 		err => {
-			tippy("#submit", {
-				content: `${err}`,
-				inertia: true,
-				arrow: roundArrow,
-				placement: "top",
-				showOnCreate: true,
-				trigger: "manual",
-			});
+			window.blobity.focusElement(document.querySelector("#submit")!);
+			window.blobity.showTooltip(`${err}`);
 			isSending = false;
 		},
 	);
@@ -70,9 +50,9 @@ function contactSubmit (e: Event) {
 }
 
 function contactMain() {
-	document.getElementById('noSpam').oninvalid = invalidSpam;
+	document.getElementById('noSpam')!.oninvalid = invalidSpam;
 
-	document.getElementById('contactForm').onsubmit = contactSubmit;
+	document.getElementById('contactForm')!.onsubmit = contactSubmit;
 }
 
 export default contactMain;
