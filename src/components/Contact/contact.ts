@@ -1,4 +1,4 @@
-import { init, send } from "emailjs-com";
+import { init, send } from "@emailjs/browser";
 
 init("user_wird1j6wAcU6lj00aaLo9");
 

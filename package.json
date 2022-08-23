@@ -10,23 +10,23 @@
   "author": "Blaine <rishi1998@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "@swup/head-plugin": "^1.2.0",
-    "@swup/preload-plugin": "^1.0.3",
+    "@emailjs/browser": "^3.6.2",
+    "@swup/head-plugin": "^1.2.1",
+    "@swup/preload-plugin": "^1.0.4",
     "@swup/slide-theme": "^1.0.5",
     "@types/animejs": "^3.1.4",
-    "@types/three": "^0.137.0",
+    "@types/three": "^0.143.0",
     "animejs": "^3.2.1",
     "astro": "^1.0.7",
     "astro-icon": "^0.7.3",
-    "autoprefixer": "^10.4.2",
+    "autoprefixer": "^10.4.8",
     "blobity": "^0.2.1",
-    "emailjs-com": "^2.6.4",
-    "meshline": "^2.0.3",
+    "meshline": "^2.0.4",
     "postcss": "^8.4.7",
-    "postprocessing": "^6.24.1",
+    "postprocessing": "^6.28.5",
     "prettier": "^2.2.1",
     "sass": "^1.49.9",
     "swup": "^2.0.14",
-    "three": "^0.137.0"
+    "three": "^0.143.0"
   }
 }
