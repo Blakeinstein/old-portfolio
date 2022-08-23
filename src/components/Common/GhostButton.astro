@@ -10,7 +10,9 @@ let classes = 'ghostButton'
 if (frameless) {
 	classes += ' frameless'
 }
+
+let EL = type === 'submit' || type === 'button' ? 'button' : 'a';
 ---
-<a class={classes} href={href} type={type}>
+<EL class={classes} href={href} type={type}>
   <slot />
-</a>
+</EL>
