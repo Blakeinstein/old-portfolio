@@ -5,12 +5,21 @@ export interface Props {
   tippyContent: string;
   href: string;
   icon: string;
+  custom?: string;
 }
 
-let { tippyContent, href, icon } = Astro.props as Props;
+let { tippyContent, href, icon, custom } = Astro.props as Props;
 ---
 <li>
-  <a data-blobity-tooltip={tippyContent} href={href}>
-    <BrandIcon name={icon} />
+  <a data-blobity-tooltip={tippyContent} href={href} target="_blank" rel="noopener noreferrer">
+    {
+      custom ? (
+        <span class={"svg-brand-icon " + custom}>
+          <Fragment set:html={icon} />
+        </span>
+      ) : (
+        <BrandIcon name={icon} />
+      )
+    }
   </a>
 </li>
