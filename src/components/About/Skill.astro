@@ -1,0 +1,31 @@
+<div class="has-tooltip">
+  <div class="tooltip rounded shadow-lg p-1 bg-gray-100 text-red-500 -mt-8">
+    <slot name="tooltip" />
+  </div>
+  <slot />
+</div>
+<style>
+.has-tooltip {
+  position: relative;
+}
+.has-tooltip .tooltip {
+  position: absolute;
+  visibility: hidden;
+  transform: scaleX(0);
+  transform-origin: left center;
+  padding: 0.5em 2em;
+  top: -30%;
+  left: 0px;
+  width: 300px;
+  z-index: 500;
+  border-radius: 4px;
+  background-color: #2228;
+}
+
+.has-tooltip:hover .tooltip {
+  visibility: visible;
+  transform: scaleX(1);
+  left: 90%;
+  transition: all 200ms ease-in-out;
+}
+</style>

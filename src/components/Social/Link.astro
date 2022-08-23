@@ -5,37 +5,21 @@ export interface Props {
   tippyContent: string;
   href: string;
   icon: string;
+  custom?: string;
 }
 
-let { tippyContent, href, icon } = Astro.props as Props;
+let { tippyContent, href, icon, custom } = Astro.props as Props;
 ---
-<style lang="scss">
-$size: 3em;
-$size-expand: 1.2;
-li {
-  display: inline-block;
-  padding: 0;
-
-  > a {
-    height: $size;
-    width: $size;
-    line-height: $size;
-    font-size: 2em;
-    display: inline-block;
-    transition: transform 0.1s cubic-bezier(0.64, 0.57, 0.67, 1.53);
-    transform : scale(1);
-
-    &:hover {
-      transform: scale($size-expand);
-      z-index: 5;
-      position: relative;
-    }
-  }
-}
-</style>
-
 <li>
-  <a emotion-tool-tip data-tippy-content={tippyContent} href={href}>
-    <BrandIcon name={icon} />
+  <a data-blobity-tooltip={tippyContent} href={href} target="_blank" rel="noopener noreferrer">
+    {
+      custom ? (
+        <span class={"svg-brand-icon " + custom}>
+          <Fragment set:html={icon} />
+        </span>
+      ) : (
+        <BrandIcon name={icon} />
+      )
+    }
   </a>
 </li>

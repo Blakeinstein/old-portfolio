@@ -1,30 +1,13 @@
 ---
+import Icon from 'astro-icon'
+
 export interface Props {
   name: string;
   classList?: string;
 }
 
 let { name, classList = "" } = Astro.props as Props;
-
-//get svg from the CDN
-let url = `https://simpleicons.org/icons/${name}.svg`
-let svg = await fetch(url).then(x => x.text())
 ---
-<style global>
-.svg-brand-icon {
-  height: 100%;
-  width: 100%;
-  display: grid;
-  place-items: center;
-  border-radius: 50%;
-}
-.svg-brand-icon svg {
-  text-align: center;
-  fill: rgba(255, 255, 255, 0.8);
-  height: 45px;
-  width: 45px;
-}
-</style>
 <span class={"svg-brand-icon " + name + classList}>
-  {svg}
+  <Icon name={name} />
 </span>

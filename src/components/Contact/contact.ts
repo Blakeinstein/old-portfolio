@@ -1,5 +1,4 @@
-import { init, send } from "emailjs-com";
-import tippy, { roundArrow } from "tippy.js";
+import { init, send } from "@emailjs/browser";
 
 init("user_wird1j6wAcU6lj00aaLo9");
 
@@ -7,17 +6,11 @@ let isSending = false;
 
 function invalidSpam () {
 	console.log("Spammer not in the checked file. This incident will be reported.");
-	tippy("#noSpamDiv", {
-		content: "Spammer not in the checked file. This incident will be reported.",
-		inertia: true,
-		arrow: roundArrow,
-		placement: "top",
-		showOnCreate: true,
-		trigger: "manual",
-	});
+	window.blobity.showTooltip("Spammer not in the checked file. This incident will be reported.");
+	setTimeout(() => window.blobity.reset(), 3000);
 }
 
-function contactSubmit (e: Event) {
+const contactSubmit = (e: Event) => {
 	e.preventDefault();
 
 	if (isSending) return false;
@@ -36,33 +29,19 @@ function contactSubmit (e: Event) {
 	let proceed = true;
 	send("main", "base", params).then(
 		res => {
-			console.log(res);
 			if (res.status == 200) {
 				document
-					.querySelector(".formBox")
-					.classList.add("complete");
+					.querySelector(".formBox")?.classList.add("complete");
 			} else {
-				tippy("#submit", {
-					content: `${res.status}: ${res.text}`,
-					inertia: true,
-					arrow: roundArrow,
-					placement: "top",
-					showOnCreate: true,
-					trigger: "manual",
-				});
+				window.blobity.showTooltip(`${res.status}: ${res.text}`);
+				setTimeout(() => window.blobity.reset(), 3000);
 				proceed = false;
 			}
 			isSending = false;
 		},
 		err => {
-			tippy("#submit", {
-				content: `${err}`,
-				inertia: true,
-				arrow: roundArrow,
-				placement: "top",
-				showOnCreate: true,
-				trigger: "manual",
-			});
+			window.blobity.showTooltip("An unexpected error has occurred.");
+			setTimeout(() => window.blobity.reset(), 3000);
 			isSending = false;
 		},
 	);
@@ -70,9 +49,8 @@ function contactSubmit (e: Event) {
 }
 
 function contactMain() {
-	document.getElementById('noSpam').oninvalid = invalidSpam;
-
-	document.getElementById('contactForm').onsubmit = contactSubmit;
+	document.getElementById('noSpam')?.addEventListener('invalid', invalidSpam);
+	document.getElementById('contactForm')?.addEventListener('submit', contactSubmit);
 }
 
 export default contactMain;

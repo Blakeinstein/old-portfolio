@@ -1,21 +1,7 @@
 ---
 import Loader from './Loader.astro';
 ---
-
-<style>
-#hero-background{
-  height: 100vh;
-  width: 100vw;
-  position: absolute;
-  top: 0; 
-  left: 0;
-  z-index: -1;
-  transition: z-index 0.5s ease;
-  overflow: hidden;
-}
-</style>
-
 <Loader />
 <div id="hero-background"></div>
 
-<script defer type="module" src={Astro.resolve("./sketch.js")}></script>
+<script src="./sketch.ts"></script>

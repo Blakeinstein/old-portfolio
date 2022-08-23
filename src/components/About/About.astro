@@ -1,95 +1,138 @@
 ---
 import GhostButton from '../Common/GhostButton.astro';
 import Icon from '../Common/Icon.astro';
+import Skill from './Skill.astro'
 ---
-<style lang="scss">
-#about {
-  width: 90%;
-  height: 90%;
-  display: flex;
-  flex-flow: row;
-  align-items: center;
-  font-size: 0.9em;
-  line-height: 2em;
-
-  .about-content {
-    display: flex;
-    flex-flow: column;
-    justify-content: center;
-    height: 100%;
-    text-shadow: 0 0 20px #fff;
-
-    > h3 {
-      font-size: 1.2em;
-      font-weight: 400;
-    }
-
-    > h4 {
-      font-weight: bold;
-      font-style: italic;
-      font-size: 1em;
-      display: flex;
-      align-items: center;
-    }
-
-    > ul > li {
-      padding-left: 1em;
-      > div {
-        display: inline-block;
-      }
-    }
-
-    .about-links {
-      display: flex;
-      flex-flow: row wrap;
-      justify-content: space-around;
-      margin-top: 1.2em;
-      font-weight: 400;
-    }
-  }
-
-  > img {
-    padding: 3em;
-    width: 40em;
-    height: auto;
-  }
-  @media (max-width: 800px) {
-    > img {
-      display: none;
-    }
-  }
-}
-
-</style>
-
 <div id="about">
   <div class="about-content">
     <h3>Known on the internet as Blaine.</h3>
     <p>Hi, I'm Rishikesh Anand! A developer, software engineer and a tech enthusiast. I love to try new things, explore possibilites and anything that amuses my curiosity. I am currently pursuing a degree in Computer Science and Engineering at, National Institute of Technology, Delhi.</p>
-    <h4><Icon name="caret-down"/> Languages and Frameworks</h4>
+    <h4><Icon name="ci:caret-down"/> Languages and Frameworks</h4>
     <ul class="languages">
-      <li> <div emotion-tool-tip data-tippy-content="Serde, WebViewRS/Tauri, Rocket...">Rust</div></li>
-      <li> <div emotion-tool-tip data-tippy-content="React, VueJS, ThreeJS, GSAP, AnimeJS, Express, Fastify">Javascript/Typescript</div></li>
-      <li> <div emotion-tool-tip data-tippy-content="PyQT5/PySide2, FBS, Pandas, Django, Flask">Python</div></li>
-      <li> <div emotion-tool-tip data-tippy-content="Qt5, Boost, WinRT">C/C++</div></li>
-      <li> <div emotion-tool-tip data-tippy-content="MATLAB, Latex, Julia, GoLang, Sass, WASM, ASM8086 and ASM6402">others..</div></li>
+      <li>
+        <Skill>
+          <span slot="tooltip">
+          "Serde, WebViewRS/Tauri, Rocket..."
+          </span>
+          Rust
+        </Skill>
+      </li>
+      <li>
+        <Skill>
+          <span slot="tooltip">
+          "React, VueJS, ThreeJS, GSAP, AnimeJS, Express, Fastify"
+          </span>
+          Javascript/Typescript
+        </Skill>
+      </li>
+      <li>
+        <Skill>
+          <span slot="tooltip">
+          "PyQT5/PySide2, FBS, Pandas, Django, Flask"
+          </span>
+          Python
+        </Skill>
+      </li>
+      <li>
+        <Skill>
+          <span slot="tooltip">
+          "Qt5, Boost, WinRT"
+          </span>
+          C/C++
+        </Skill>
+      </li>
+      <li>
+        <Skill>
+          <span slot="tooltip">
+          "MATLAB, Latex, Julia, GoLang, Sass, WASM, ASM8086 and ASM6402"
+          </span>
+          others..
+        </Skill>
+      </li>
     </ul>
-    <h4><Icon name="caret-down"/> Skillsets</h4>
+    <h4><Icon name="ci:caret-down"/> Skillsets</h4>
     <ul class="Skillsets">
       <li>Software Engineering</li>
-      <li> <div emotion-tool-tip data-tippy-content="Docker, Vim, Bash, SSH, Git">Devtools</div></li>
-      <li> <div emotion-tool-tip data-tippy-content="After Effects, Photoshop, Illustrator...">Adobe Suite</div></li>
+      <li>
+        <Skill>
+          <span slot="tooltip">    
+            "Docker, Vim, Bash, SSH, Git"
+          </span>
+          Devtools
+        </Skill>
+      </li>
+      <li>
+        <Skill>
+          <span slot="tooltip">    
+            "After Effects, Photoshop, Illustrator..."
+          </span>
+          Adobe Suite
+        </Skill>
+      </li>
     </ul>
-    <h4><Icon name="caret-down"/> Experience</h4>
+    <h4><Icon name="ci:caret-down"/> Experience</h4>
     <ul class="experience">
-      <li> <div emotion-tool-tip data-tippy-content="<a href='https://github.com/FOSSEE/Chemical-PFD'><i class='fas fa-external-link-alt'></i> Github</a>, <a href='https://static.fossee.in/fossee/fellowship2020/Fellowship-Reports/Python/Python-Chemical/Python-Chemical-RishikeshAnand-FSF-2020.pdf'><i class='fas fa-external-link-alt'></i> Report</a>">Intern at FOSSEE, IIT Bombay</div></li>
-      <li> <div emotion-tool-tip data-tippy-content="<a href='https://meetcolab.com'><i class='fas fa-external-link-alt'></i> Website</a>">Intern at Enthire. Improved Meetcolab</div></li>
-      <li> <div emotion-tool-tip data-tippy-content="<a href='https://github.com/Upvision/upvision.github.io'><i class='fas fa-external-link-alt'></i> Github</a>, <a href='https://upvision.co/'><i class='fas fa-external-link-alt'></i> Website</a>">Executive Member at UpVision, Tech club of NIT Delhi</div></li>
-      <li> <div emotion-tool-tip data-tippy-content="<a href='https://gdsc.community.dev/national-institute-of-technology-nit-delhi/'><i class='fas fa-external-link-alt'></i> Website</a>">Project Lead at Google Developer Student Club - NIT DELHI</div></li>
+      <li>
+        <Skill>
+          <span slot="tooltip">
+            <a href='https://truefoundry.com'>
+              <Icon name="akar-icons:link-chain"/> Website
+            </a>
+          </span>
+          Software Development Engineer at TrueFoundry
+        </Skill>
+      </li>
+      <li>
+        <Skill>
+          <span slot="tooltip">
+            <a href='https://github.com/FOSSEE/Chemical-PFD'>
+              <Icon name="akar-icons:link-chain"/> Github
+            </a>, 
+            <a href='https://static.fossee.in/fossee/fellowship2020/Fellowship-Reports/Python/Python-Chemical/Python-Chemical-RishikeshAnand-FSF-2020.pdf'>
+              <Icon name="akar-icons:link-chain"/> Report
+            </a>
+          </span>
+          Intern at FOSSEE, IIT Bombay
+        </Skill>
+      </li>
+      <li>
+        <Skill>
+          <span slot="tooltip">
+            <a href='https://meetcolab.com'>
+              <Icon name="akar-icons:link-chain"/> Website
+            </a>
+          </span>
+          Intern at Enthire. Improved Meetcolab
+        </Skill>
+      </li>
+      <li>
+        <Skill>
+          <span slot="tooltip">
+            <a href='https://github.com/Upvision/upvision.github.io'>
+              <Icon name="akar-icons:link-chain"/> Github
+            </a> 
+            <a href='https://upvision.co/'>
+              <Icon name="akar-icons:link-chain"/> Website
+            </a>
+          </span>
+          Executive Member at UpVision, Tech club of NIT Delhi
+        </Skill>
+      </li>
+      <li>
+        <Skill>
+          <span slot="tooltip">
+            <a href='https://gdsc.community.dev/national-institute-of-technology-nit-delhi/'>
+              <Icon name="akar-icons:link-chain"/> Website
+            </a>
+          </span>
+          Project Lead at Google Developer Student Club - NIT DELHI
+        </Skill>
+      </li>
     </ul>
     <div class="about-links">
-      <GhostButton href="https://drive.google.com/drive/folders/1nCs0CvLj4XF8r7D83KCzVKvYSq0SQOP2?usp=sharing"><Icon name="file-arrow-down"/> Resume</GhostButton>
-      <GhostButton href="/projects/" data-navigo>Projects <Icon name="arrow-down-right"/></GhostButton>
+      <GhostButton href="https://drive.google.com/drive/folders/1nCs0CvLj4XF8r7D83KCzVKvYSq0SQOP2?usp=sharing"><Icon name="ph:file-arrow-down-thin"/> Resume</GhostButton>
+      <GhostButton href="https://polywork.blaine.vip"><Icon name="simple-icons:polywork"/> Polywork</GhostButton>
+      <GhostButton href="/projects/">Projects <Icon name="carbon:arrow-down-right"/></GhostButton>
     </div>
   </div>
   <img src="/assets/logo.svg" alt="Stars" />
